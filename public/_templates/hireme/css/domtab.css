@@ -1,0 +1,120 @@
+
+		/*div.domtab{
+			padding:0 3em;
+			width:80%;
+			font-size:90%;
+		}
+		ul.domtabs{
+			float:left;
+			width:100%;
+			margin:2em 0 0 0;				
+		}
+		ul.domtabs li{
+			float:left;
+			padding:0 .5em 0 0;
+		}
+		ul.domtabs a:link,
+		ul.domtabs a:visited,
+		ul.domtabs a:active,
+		ul.domtabs a:hover{
+			width:8em;
+			padding:.2em 1em;
+			display:block;
+			background:#666;
+			color:#ccc;
+			height:3em;
+			font-weight:bold;
+			text-decoration:none;
+		}
+		html>body ul.domtabs a:link,
+		html>body ul.domtabs a:visited,
+		html>body ul.domtabs a:active,
+		html>body ul.domtabs a:hover{
+			height:auto;
+			min-height:3em;
+		}
+		ul.domtabs a:hover{
+			background:#696;
+		}
+		div.domtab div{
+			clear:both;
+			width:auto;
+			background:#696;
+			color:#fff;
+			padding:1em 3em;
+		}*/
+		
+		/*#domtabprintview{
+			float:right;
+			padding-right:1em;
+			text-align:right;
+		}
+		#domtabprintview a:link,
+		#domtabprintview a:visited,
+		#domtabprintview a:active,
+		#domtabprintview a:hover{
+			color:#fff;
+		}
+
+		div.domtab div a:link,
+		div.domtab div a:visited,
+		div.domtab div a:active
+		{
+			color:#fff;
+			display:block;
+			padding:1em .5em;
+			font-weight:bold;
+			font-size:1.3em;
+		}
+		div.domtab div h2 a,
+		div.domtab div h2 a:hover,
+		div.domtab div h2 a:active
+		{
+			color:#cfc;
+			display:inline;
+			padding:0;
+			font-weight:normal;
+			font-size:1em;
+		}
+		*/
+/* other scheme! */
+#other{
+	font-size:.8em;
+	margin-left:.3em;
+	width:60em;
+	margin-bottom:3em;
+	float:left;
+}
+div#other.domtab div{
+	clear:both;
+	width:54em;
+	background:#669;
+	color:#fff;
+	padding:1em 3em;
+}
+		
+#other ul.domtabs a:hover{
+	background:#669;
+}
+div#other ul.domtabs li.active a:link,
+div#other ul.domtabs li.active a:visited,
+div#other ul.domtabs li.active a:active,
+div#other ul.domtabs li.active a:hover{
+	background:#669;
+	color:#fff;
+}
+#other div{
+	float:left;
+}
+ul.prevnext{
+	float:left;
+	width:100%;
+}
+ul.prevnext li{
+	float:left;
+	width:49%;
+}
+ul.prevnext li.next{
+	float:right;
+	text-align:right;
+}

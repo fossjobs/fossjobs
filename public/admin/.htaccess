@@ -1,0 +1,8 @@
+RewriteEngine on
+Options +FollowSymlinks
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+
+ErrorDocument 404 /page-unavailable/

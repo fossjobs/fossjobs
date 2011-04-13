@@ -1,0 +1,144 @@
+######## jobberBase changelog ########
+
+version 1.9.1 (26/04/2010)
+	* fix: security bug fix
+
+version 1.9 (24/03/2010)
+	* new: IIS support for Windows hosting.
+	* new: View All Jobs Page.
+	* new: Admin Area can also filter jobs by types.
+	* new: Easy Language switch via config.php supporting multiple translation files.
+	* new: New Theme variable - {$THEME} which refers to the active theme in use.
+	* new: A Brand New Theme, by popular demand: Hireme (contributed by hireme.sg)
+	* new: A Brand New Admin Panel Theme based on Cadify.
+	* new: Added Sitemap.xml and Sitemap.txt to Jobberbase which are generated automatically whenever they are accessed. Add it to your Google WebmasterTools and it will get it updated everytime.
+	* new: Added the minimum job count for cities to show in Sidebar.
+	* new: Added the possibility to turn off the moderation for the very first post from a hiring person/company resulting in the posts being automatically activated
+	* fix: Error Page now return correct 404 response header.
+	* fix: Number of jobs on front page can be set to 0 now.
+	* fix: Fixed a bug related to Job-Type selection.
+	* enh: Moved translations into theme directory.
+	* enh: Emails sent by jobberBase are now defined in clean XML files, inside the theme directory.
+	* enh: Lots of Unused code and css cleanup.
+	* enh: Job posts loop is now not duplicated from multiple files.
+	* enh: Backend optimisation on SQL and PHP codes to improve the performance of queries.
+	* enh: Restructuring of Files and Config.php in a logical way.
+	* enh: All unused images removed making the package lighter.
+	* enh: More Anti-Spam options apart from Recaptcha in Admin panel.
+	* enh: Some SEO Improvements and fixes.
+	* enh: Category names instead of urls in Feed Description field.
+	* enh: Jobberbase version will now appear in header of frontend so that one can easily know the jobberbase version if you need help from us.
+	* enh: Admin Area is now completely independent of frontend theme and vice versa. So now no crosslinked images will occur among frontend and admin themes.
+	* enh: The job poster no longer receives an email each time he edits his post.
+
+version 1.8 (16/09/2009)
+	* new: settings are now configurable from the admin panel (Settings menu item) (chronos)
+	* new: job types are no longer hardcoded, they can be edited/added/deleted from the admin section (links)
+	* new: added database prefix support for hostings which allow only one database (chronos)
+	* new: support for multiple themes (skins) (chronos)
+	* new: city cloud page, similar to company cloud (chronos)
+	* new: possibility to change some default URLs like /jobs, /job, /jobs-in, /jobs-at thus allowing better localization (chronos)
+	* new: anti-spam (recaptcha) for post/apply pages (disabled by default) (chronos)
+	* new: replaced the static navigation with 5 dynamic areas, which can be edited and ordered in the administration panel (Links menu item) (chronos)
+	* new: list other jobs by same company on job details page (redjumpsuit, navjot)
+	* new: added an alternate search method (should behave better than the classic one; configurable from the admin panel) (chronos)
+	* fixed: a 404 error was thrown on some hostings when pressing the Save button on the New/Edit city page
+	* fixed: the category name is displayed now instead of the var_name (chronos)
+	* fixed: emails are now properly encoded
+	* fixed: deleting a job is no longer done inside a transaction because it was failing for many users
+	* fixed: allow " chars in job title, other location, company name - fixes http://code.google.com/p/jobberbase/issues/detail?id=9
+	* fixed: deactivated jobs that had applications were still shown on start page, in the "Most applied to jobs" section
+	* enh: upgraded jquery + plugins, tinyMCE, smarty, phpmailer, textile (fixes the list bug) to latest versions
+	* enh: removed interface.js, browser_detect.js, jquery.autocomplete.js because they are no longer needed
+	* enh: the start page should load slightly faster because the initial download size has been reduced by minifying the javascript files
+	* enh: better validation on post/apply page
+	* enh: cleaned up CSS (evertsemeijn)
+	* enh: refactored the handling of the 'Anywhere' city (job.city_id is now nullable; removed "Anywhere" from the cities table - it's now in the translation file)
+	* enh: allow to define the database port in config.php
+	* enh: display the jobberbase version in the admin panel
+	* enh: the format used to display the date when a job was posted is no longer hardcoded (it can be edited from the admin settings panel)
+	* enh: refactored code to send all emails with phpmailer (more consistent)
+	* enh: allowing users to post from the main site is now configurable from the admin panel (Settings menu item) (chronos)
+	* enh: email sending settings (encoding, SMTP host, port, username, password etc.) are taken from configuration
+	* enh: the number of days after which a job becomes old is now configurable from the admin panel (navjot)
+	* enh: widgets page improved (it now has its own template; the domain url changes dynamically) (navjot)
+	* removed: removed the ideal-jobs feature as nobody found using it (navjot)
+	* removed: removed the word "jobber" from the background image (evertsemeijn)
+	* a lot more smaller fixes and enhancements ;)
+	
+version 1.7 (16/05/2009), tribute to putypuruty (http://www.jobberbase.com/forum/user19.html):
+	* new: add/edit/delete cities from the admin section (see http://www.jobberbase.com/forum/post3500.html#p3500 for how to integrate this into an existing 1.6 version)
+	* new: allow to post a job from the admin section (see http://www.jobberbase.com/forum/post4673.html#p4673 for how to integrate this into an existing 1.6 version)
+	* new: in the admin section, for each job, show the number of views and if there are applicants, the number of applicants and the date of the last application (see http://www.jobberbase.com/forum/post4700.html#p4700 for how to integrate this into an existing 1.6 version)
+	* fixed: get_cities() was called needlessly on every page (thus a database connection was made)
+	* fixed: some users were getting 404 errors in the admin section because the top menu links did not end in a / char
+	* fixed: in Internet Explorer, in the admin section, clicking on the create/edit page links was showing a blank page with a 'tinymce is undefined' JS error. This bug was reproduceable only if opening the create/edit page in the same browser tab/page - opening it in a new browser tab/page worked.
+	* enh: the number of minutes after which someone can apply again is now a constant defined in config.php
+	* enh: the apply process now gives better error messages (if the number of minutes between applications did not pass, if the application mail could not be sent to the employer, if the apply form data was incorrect/incomplete) minor fixes and improvements
+
+version 1.6 (28/12/2008), tribute to putypuruty (http://www.jobberbase.com/forum/user19.html):
+	* added: i18n for labels inside javascript files
+	* fixed: 'Invalid use of group function' exception in class.Stats.php
+	* fixed: a database query exception was thrown if the search string contained a city that existed in the DB and ended in a space character (ie: "london "). This happened only for live-searches (via AJAX)
+	* enh: GetJobsCountForAllCategs makes a single query now instead of a query for *each* category
+	* fixed: made the select query compatible with mysql 4 in class.SpamReport.php
+	* fixed: a database query exception was thrown if the words in the search query were separated by many whitespace characters (ie: "one    two    three")
+	* fix/enh: tweaked the query that gets the job applications so that only applications which still point to a job are returned (in case you manually delete the jobs but don't remove the job applications)
+	* enh: if the search query is empty, do nothing - until now (which was pretty confusing from end user point of view), all the jobs for the current category were displayed which could lead to huge results because if you're on the index page you will get *ALL* active jobs from the DB
+	* fixed: allow to install jobberbase in a folder called "jobs" - thanks to links
+	* fixed: the total number of applications/searches was not computed correctly; return meaningful data even if there are no applications/searches in class.Stats.php
+	* enh: now, only one query is used to get the number of jobs per companies, instead of one query for *each* company
+	* fixed: the number of jobs per company was wrong - it also included jobs that are not active
+	* fixed: CheckPosterEmail was called needlessly when displaying jobs thus degrading performance (see http://www.jobberbase.com/forum/post2994.html)
+	* fixed: although set, the job type (ie: full time, part time) was not remembered in the pagination process and thus the pagination was incorrect
+	* fixed: a database query exception was thrown if more than one city was found from the search keywords
+	* fixed: the URLs in the mail that is sent after a job is actived by the administrator are wrong
+	* fixed: multiple emails were sent to the job poster if the jobberbase based site had google ads - thanks to links
+	* fixed: moved stats in admin (/admin/stats/)
+	* new: possibility to show cities in sidebar instead of categories (configurable from config.php)
+	* new: SEO for Job Categories - thanks to CtCoder
+	* new: spotlight jobs (sponsored jobs) - thanks to Chronos
+	* new: 'Edit post' functionality in admin
+
+version 1.5 beta 1 (20/08/2008):
+  * Admin bug fix - activation/deactivation of ads now works
+	* Other small fixes (search, mostly)
+
+version 1.4:
+	* Fixed bug that caused alternate location to be deleted when editing a job posting
+	* Fixed bug that sent a notification e-mail whenever a user edited a job posting
+	* Other small fixes
+
+version 1.4 beta 1:
+	* Fixed: proper url encoding done in JavaScript for search requests
+	* Fixed: search escaping
+	* Added: simple page editing for static pages
+	* Added: categories management
+	* Enhanced: backend javascript
+	* Added/Changed: translations based on an ini file
+	* Added: option to change the admin password
+	* Fixed: security issue
+
+version 1.3 (30/01/2008):
+    * Fixed more search-related bugs (thanks to Mitchell Lane <mdlane@alumni.clemson.edu>)
+
+version 1.3 (30/01/2008):
+    * Added an admin panel (thanks to Lavinia Creivean <links_clm@yahoo.com>)
+    * Added a survey page: the ideal job (as seen on www.jobber.ro/jobul-ideal/)
+    * Improved pagination support (thanks to Mihai Mocanu)
+    * Fixed some bugs related to search
+    * Translated the sitemap page (forgot to do it, before :p)
+
+version 1.2 (12/11/2007):
+    * Added pagination support, active by default (thanks to Adrian Rusu-Scurtu!)
+
+version 1.1 (11/28/2007):
+    * Modified the directory structure and moved the entire application into /app subdirectory.
+    * Added an alternate .htaccess that seems to work better on some big hosting companies.
+    * Cleaned up config.php of unnecessarry defines.
+    * Fixed a number of bugs reported on www.jobberbase.com/community/ (thanks to everyone!)
+
+version 1.0 (10/20/2007):
+    * Translated www.jobber.ro into English.
+    * Fixed some bugs.
+    * Sent first copies to a couple of friends for testing. 

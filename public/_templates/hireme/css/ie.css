@@ -1,0 +1,13 @@
+*html .clearfix{height:1%;}
+/*############################ for IE 7 clearing */
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+.clearfix {display:block;}
+/* End hide from IE Mac */
+/*##########################################*/
+
+* html h2 { margin-top: -0.05em; }
+*html #statshome{margin-bottom:8px;}
+	*html .suggestionTop{top:20px; left:20px;}
+		*html #sidebar{width:25%;}
+		*html #footer-contents{width:815px; padding:0;}

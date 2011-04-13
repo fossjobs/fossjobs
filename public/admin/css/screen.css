@@ -1,0 +1,174 @@
+/* Original Admin CSS */
+#header ul{position:absolute; right:0; top:100px}
+#header ul li{float:left; padding-left:20px}
+#header ul li.selected{font-weight:bold}
+#header span.version {color:#0099CC; font-weight:bold; position:absolute; right:0px;}
+#publish_form .text_field{width:700px}
+#publish_form .textarea_field_small{width:340px}
+#publish_form .textarea_field{width:700px}
+#publish_form .submit_button{background-color:#09C; color:#fff; border:1px solid #098; cursor:pointer; cursor:hand; font-family:Helvetica,Arial,sans-serif; font-size:12px; padding:5px}
+.sidebar_page_edit{padding-top:430px}
+table{line-height:auto}
+.form_error{display:block; background:url(../../img/exclamation.png) no-repeat left center; padding:10px 26px; color:#E86857}
+.hidden{display:none}
+#categoriesContainer{position:relative; width:650px; overflow:auto}
+.categoryItem{background-color:#f5f5f5; border:1px solid #ccc; margin:0 0 5px 0; position:relative}
+.categoryItem a{float:right}
+.categoryItem label{display:block; margin-bottom:5px}
+.categoryItem label span{font-weight:bold; float:left; display:block; margin-bottom:5px; clear:left; width:70px}
+.categoryHandle{margin-bottom:5px; height:10px; overflow:hidden; cursor:move; background:#09C}
+.categoryWrapper{padding:5px}
+#typesContainer{position:relative; width:650px; overflow:auto}
+.typeItem{background-color:#f5f5f5; border:1px solid #ccc; margin:0 0 5px 0; position:relative}
+.typeItem a{float:right}
+.typeItem label{display:block; margin-bottom:5px}
+.typeItem label span{font-weight:bold; float:left; display:block; margin-bottom:5px; clear:left; width:70px}
+.typeHandle{margin-bottom:5px; height:10px; overflow:hidden; background:#09C}
+.typeWrapper{padding:5px}
+#linksContainer{position:relative; width:650px; overflow:auto}
+.linkItem{background-color:#f5f5f5; border:1px solid #ccc; margin:0 0 5px 0; position:relative}
+.linkItem a{float:right}
+.linkItem label{display:block; margin-bottom:5px}
+.linkItem label span{font-weight:bold; float:left; display:block; margin-bottom:5px; clear:left; width:70px}
+.linkHandle{margin-bottom:5px; height:10px; overflow:hidden; cursor:move; background:#09C}
+.linkWrapper{padding:5px}
+.draggingItem{z-index:4000}
+div.draggingItem div.categoryHandle{background:#E86857}
+#content a.saveCategory{display:none}
+#messagesContainer{position:absolute; top:0; left:50%; margin-left:-150px; width:300px}
+#messagesContainer div{border:5px solid #eee; margin:0 0 10px; padding:10px; background-color:#fff}
+#overlay{background-color:#fff; filter:alpha(opacity=70); -moz-opacity:0.7; opacity:0.7; position:absolute; display:none}
+#overlay img{position:absolute; top:50%; left:50%; margin-top:-12px; margin-left:-12px; z-index:3000}
+#preview_job_fieldset{background-color:#F5F5F5; border:1px solid #CCC; padding:10px}
+#preview_job_fieldset legend{color:#555; font-size:12px; font-weight:bold}
+#city_form fieldset{background-color:#f5f5f5; border:1px solid #ccc; margin:0 0 5px 0; padding:10px}
+#city_form fieldset legend{font-weight:bold; color:#555; font-size:12px}
+#city_form input{border:1px solid #ccc; padding:5px; font-size:12px; font-family:Helvetica,Arial,sans-serif}
+#city_form label{display:block; margin-top:5px}
+#city_form label span{clear:left; display:block; float:left; font-weight:bold; width:70px}
+.category_name{font-size:16px; font-weight:bold;}
+.category_box{margin:5px;}
+.input_alt{background-color:#ebebeb}
+.settingsform_title{width:150px;}
+.settingsform_input{width:360px;}
+.settingsform_text_field{width:300px;}
+.settingsform_text_area{width: 300px;height:88px;}
+.settingsform_description{font-size:10px;font-style:italic;}
+.back_to_overview{float:right;margin-right:5px;margin-top:2px}
+.back_to_overview a{font-size:14px}
+/* Copy of Default CSS as Admin should have its own theme files + Cleaned some*/
+/* Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit}
+th, td{padding:2px}
+img{border:0}
+:focus{outline:0}
+body{line-height:1; color:black; background:white}
+ul{list-style:none}
+ol{list-style:decimal}
+/* Tables still need 'cellspacing="0"' in the markup. */
+table{border-collapse:separate; border-spacing:0}
+caption, th, td{text-align:left; font-weight:normal}
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after{content:""}
+blockquote, q{quotes:""""}
+strong{font-weight:bold}
+body, html{height:100%}
+pre, code{font-family:Courier,Arial,sans-serif; background:#eaeaea; padding:5px}
+em{font-style:italic}
+/* The default styling starts */
+body{background:#fff url(../img/bg-body.png) repeat-x top left; color:#444; font:62.5% /1.5 Arial,Helvetica,sans-serif; text-align:center; line-height:1.5}
+div#container{width:950px; text-align:left; font-size:1.2em; min-height:100%; height:auto !important; height:100%; margin:0 auto 0em}
+div#header{height:120px; width:950px; position:relative}
+div#header h1#logo{width:390px; height:82px; position:absolute; top:25px; left:20px}
+div#header h1#logo a{width:390px; height:82px; outline:0; background:url(../img/jobber-logo.gif) 0 0 no-repeat; text-indent:-1000em; float:left}
+div#header ul#top{position:absolute; top:20px; right:20px}
+div#header ul#top li{display:inline; margin-left:2px; background-color:transparent; color:#09C}
+#content{width:755px; padding-right:10px}
+#content p{margin:0 0 10px 0; padding:0}
+#content a{color:#09C; background-color:transparent; padding:2px}
+#content a:hover{background-color:#09C; color:#fff; text-decoration:none; padding:2px}
+#content ol{margin:0 0 0 17px}
+#content ul{list-style-type:disc; margin-left:17px}
+div#categs-nav{background:#09c; float:left; width:950px; padding-bottom:6px; margin-top:25px; font-size:11px}
+div#categs-nav ul{background:#fff; float:left; width:950px;list-style-type:none; margin:0; padding:0}
+div#categs-nav ul li{background:white; float:left; padding-right:6px}
+div#categs-nav ul li a{display:block; background:#eee url(../img/sd_left.gif) no-repeat 0 0; background-position:0 -75px;padding:4px 0px 4px 6px;float:left; text-decoration:none; color:#333 !important; position:relative; outline:none}
+div#categs-nav ul li a:hover{background-position:0 0px; color:#fff !important}
+div#categs-nav ul li.selected a{background-position:0 0px; color:#fff !important}
+div#categs-nav ul li a span{display:block; float:left;padding-left:12px; cursor:pointer; font-size:14px; padding-top:4px}
+div#categs-nav ul li a span.cnr{display:block; background:url(../img/sd_right.gif) no-repeat right 0; background-position:right -75px;float:left; position:relative; top:-4px}
+div#categs-nav ul li a:hover span.cnr{background-position:right 0px; cursor:pointer}
+div#categs-nav ul li.selected a span.cnr{background-position:right 0px; cursor:pointer}
+.posted-ok{border:1px solid #8FF868; background:#E9FEE0; color:#090; padding:10px}
+.posted-pending{border:1px solid #F90; background:#FFFBD1; color:#f50; padding:10px; font-size:14px}
+#sidebar{float:right; width:175px; padding:10px 0 0 0}
+#sidebar a{color:#09C; padding:2px; font-size:11px}
+#sidebar a:hover{background-color:#09C; color:#fff; text-decoration:none; padding:2px}
+#sidebar h4{font-size:14px; margin:10px 0 3px 0; font-weight:bold}
+#sidebar h4 a{font-size:14px; text-decoration:underline}
+#stats{color:#777; font-size:11px}
+.info{color:#888}
+table#job-posts, table#job-posts2, table#job-posts3{width:100%}
+table#job-posts tr.alt td, table#job-posts2 tr.alt td, table#job-posts3 tr.alt td{background-color:#ebebeb}
+table#job-posts td, table#job-posts2 td, table#job-posts3 td{padding:5px; border-bottom:1px solid #ddd}
+table#job-posts a:link, table#job-posts a:visited, table#job-posts2 a:link, table#job-posts2 a:visited, table#job-posts3 a:link, table#job-posts3 a:visited{color:#09C; padding:2px}
+table#job-posts a:hover, table#job-posts2 a:hover, table#job-posts3 a:hover{background-color:#09C; color:#fff; text-decoration:none; padding:2px}
+table#job-posts td.time-posted, table#job-posts2 td.time-posted, table#job-posts3 td.time-posted{text-align:right; color:#888; font-size:11px; width:80px}
+div.footer{color:#888; font-size:11px; background:#F2FCFF url(../img/footer-bg.png) no-repeat center top; text-align:center; float:left; width:100%; padding-top:12px; margin-top:30px; height:14em}
+.validation-error{color:red}
+input.error, textarea.error{border:1px solid red !important}
+.validation-failure{color:red; background-color:#ffd0d6; padding:5px}
+.apply-status-ok{color:#090; background-color:#dfFFda; padding:5px; margin-bottom:7px}
+#no-ads{color:#555; margin-top:10px}
+.suggestion{color:#777; font-size:11px}
+.left{float:left; display:inline}
+.right{float:right; display:inline}
+.clear{clear:both}
+.error{color:#f00}
+#job-details{padding:10px 0; margin:0}
+#job-details h2{margin:0 0 10px 0; color:#09C; font-weight:normal; font-size:26px; line-height:1.2}
+#job-details .label{color:#555; font-weight:bold}
+#job-details .fading{color:#aaa}
+#job-details ul{margin:0 0 10px 15px; list-style-type:disc}
+#job-details ol{margin:0 0 10px 15px;}
+#job-bottom{background-color:#f0f0f0; padding:2px; font-size:14px; height:50px}
+#number-views{float:right; display:inline; font-size:11px; color:#777}
+#job-post-utils{float:left; display:inline; font-size:11px; color:#888}
+#old-ad{margin-bottom:10px; padding:5px; background-color:#ff8; color:#f20}
+span.la{color:#888}
+#publish_form fieldset{background-color:#f5f5f5; border:1px solid #ccc; margin:0 0 5px 0; padding:10px}
+#publish_form fieldset legend{font-weight:bold; color:#555; font-size:12px}
+#publish_form input, #publish_form textarea{border:1px solid #ccc; padding:5px; font-size:12px; font-family:Helvetica,Arial,sans-serif}
+#publish_form input:focus, #publish_form textarea:focus{border:1px solid #7F635F}
+#publish_form input#submit{background-color:#09C; color:#fff; border:1px solid #098; cursor:pointer; cursor:hand}
+#publish_form input#submit:hover{background-color:#0ae}
+#publish_form input.no-border{border:0}
+td.publish-label{width:100px}
+fieldset.hidden{display:none}
+code{font-size:12px}
+#accordion-list h4{cursor:pointer; cursor:hand; text-decoration:underline}
+fieldset.no-border{border:0; padding:0}
+#location_outside_ro{margin-top:5px}
+#job-description{border-top:1px solid #ddd; border-bottom:1px solid #ddd; padding:10px 0 10px 0}
+/* TYPOGRAPHY */
+a{color:#09C; background-color:transparent; text-decoration:none}
+a:hover{color:#09C; background-color:transparent; text-decoration:underline}
+h2{font-size:14px; margin:10px 0 7px 0; font-weight:bold}
+h2 a{text-decoration:underline; font-weight:normal}
+h3, #job-listings h2{font-size:14px; margin:10px 0 7px 0; font-weight:bold}
+h3.page-heading, div.page-heading{display:block; margin:0 0 7px 0; padding:2px 5px 5px 8px; font-weight:normal; color:#fff; font-size:16px; height:22px; background:transparent url(../img/header-bg.png) no-repeat left}
+h3.page-heading span{font-size:12px}
+h3.page-heading a:link, h3.page-heading a:visited, div.page-heading a:link, div.page-heading a:visited{color:#fff !important}
+h3.page-heading a:hover, div.page-heading a:hover{background-color:#fff !important; color:#09C !important}
+h4{font-size:16px; margin:12px 0 3px 0}
+#status{color:#090; background-color:#dfFFda; padding:5px 0 2px 5px}
+.highlight_keyword{background-color:#ff8}
+#sort-by-type{float:right; font-size:11px; color:#888}
+div#sort-by-type a:hover{background:#fff}
+#applied-to-job{float:right; background:url(../img/bg-applied.png) no-repeat; color:#333; font-size:20px; width:60px; height:58px; text-align:center; padding:4px 0 0 0}
+#applied-to-job p{font-size:11px}
+#textile-suggestions table{margin-top:5px; width:80%; font-size:11px}
+#textile-suggestions table th{border-bottom:2px solid #bbb; font-weight:bold}
+#textile-suggestions table td{border-bottom:1px solid #ccc}
+/* paginator */
+#job-listings .current_page{font-weight:bold; border:1px solid #ccc; padding:1px 2px 1px 2px}

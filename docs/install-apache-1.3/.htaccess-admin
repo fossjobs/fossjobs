@@ -1,0 +1,21 @@
+AddType application/x-httpd-php5 .php
+
+RewriteEngine on
+Options +FollowSymlinks
+
+RewriteBase /admin
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/$ index.php?page=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/$ index.php?page=$1&id=$2 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/$ index.php?page=$1&id=$2&extra=$3 [L]
+
+ErrorDocument 404 /page-unavailable/
