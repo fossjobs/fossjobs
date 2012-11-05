@@ -23,7 +23,7 @@
 	
 	<link href="{$BASE_URL}_templates/{$THEME}/css/bootstrap.css" rel="stylesheet">
 	<link href="{$BASE_URL}_templates/{$THEME}/css/custom.css" rel="stylesheet">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="{$BASE_URL}js/jquery-1.7.min.js"></script>
 	<script src="{$BASE_URL}js/jquery.form.js" type="text/javascript"></script>
 	<script src="{$BASE_URL}js/cmxforms.js" type="text/javascript"></script>
 	<script src="{$BASE_URL}js/jquery.metadata.js" type="text/javascript"></script>

@@ -44,7 +44,7 @@
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="title" id="title" class="span8" value="{if $job.company}{$job.title|escape}{else}{$smarty.post.title|escape}{/if}" placeholder="{$translations.publish.title_label}" />
+								<input type="text" name="title" id="title" class="span10" value="{if $job.company}{$job.title|escape}{else}{$smarty.post.title|escape}{/if}" placeholder="{$translations.publish.title_label}" />
 								{if $errors.title}<span class="validation-error"><img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /></span>{/if}
 								<div class="{$translations.publish.title_info}"></div>
 							</td>
