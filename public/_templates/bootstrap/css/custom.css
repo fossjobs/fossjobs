@@ -1,0 +1,123 @@
+/* Override some defaults */
+    html, body {background-color: #D7CEC8;}
+    body {padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */}
+    .container > footer p {text-align: center; /* center align it with the container */}
+    .container {}
+
+    /* The white background content wrapper */
+    .container > .content {background-color: #fff;padding: 20px;margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    }
+	.topbar .brand {width: 200px;}
+	.topbar h1 {color: #ffffff;font-size: 20px;line-height: 1;margin-bottom: 1px;}
+	.topbar .customnav {float:right;margin-right:1px;}
+	.topbar li:hover ul {display: block;}
+    /* Page header tweaks */
+    .page-header {background-color: #F5EFE6;min-height:40px;padding: 20px 20px 10px;margin: -20px -20px 20px;}
+	.page-header .coll {width: 220px;float:left}
+	.page-header .colr{padding-left:20px;}
+	.page-header input {font-size: 15px;padding: 9px 14px 9px;}
+	.page-header fieldset { margin-bottom: 0px;padding-top: 0px;}
+	.page-header .searchicon {background: url(zoom.png)no-repeat;display:hidden;}
+    /* Styles you shouldn't keep as they are for displaying this base example only */
+    .content .span10,
+    .content .span4 {/* min-height: 500px; */}
+
+    /* Give a quick and non-cross-browser friendly divider */
+    .content .jobmain .span4 {margin-left: 0;}
+	.content .jobmain .span4 .spannerfirst {padding-top:20px;}
+	.content .jobmain .span4 .spannerfirst, .content .jobmain .span4 .spanner {/* border-bottom: 1px solid #eee; */}
+	.content .jobmain .span4 .spannerfirst ul, .content .jobmain .span4 .spannerfirst h6, .content .jobmain .span4 .spanner ul, .content .jobmain .span4 .spanner h6, .content .jobmain .span4 .spannerlast ul, .content .jobmain .span4 .spannerlast h6{padding-left: 19px;}
+	
+	/* .content .jobmain .span4 .spanner h5, .content .jobmain .span4 .spannerlast h5 { text-shadow: 0px 1px 1px #f1f1f1;color:#646464;} */
+	.content .jobmain .span4 .spannerfirst li, .content .jobmain .span4 .spanner li, .content .jobmain .span4 .spannerlast li {padding:0 0 5px 1px;list-style-position: outside;/*list-style-image: url(../img/symbol_blank.png);*/}
+	.content .jobmain .span4 .spannerfirst a, .content .jobmain .span4 .spanner a, .content .jobmain .span4 .spannerlast a {color:#686868;}
+	.content .jobmain .span4 .spannerfirst a:hover, .content .jobmain .span4 .spanner a:hover, .content .jobmain .span4 .spannerlast a:hover {color:#FF370F;}
+    .topbar .btn {border: 0;}
+	.content .jobmain {border-bottom: 1px solid #eee;margin: -20px -20px 20px;}
+	
+	/* Make jobs listing */
+	
+	.content .jobmain .span12 {padding-top:20px;padding-left:20px; border-left: 1px solid #eee;margin-right:-20px;}
+	.content .jobmain .span12 .row .span2 {padding-top:20px;}
+	.content .jobmain .span12 .row {min-height:60px;border-top: 1px solid #eee;padding-top:10px;margin-right:-19px;}
+	.content .jobmain .span12 .row  .endrow {border-top: 1px solid #eee;padding-top:10px;margin-right:-19px;}
+	.content .jobmain .span12 .row .span10 span {font-size:12px;}
+	.content .jobmain .span12 .row .span10 .spanuser a {color:#FF370F;text-decoration: none;}
+	.content .jobmain .span12 .row .span10 .spanuser a:hover {color:#FF370F;text-decoration: underline;}
+	.content .jobmain .span12 .row .span10 h5,.content .jobmain .span12 .row .span10 a {color:#1D80BE;}
+	.content .jobmain .span12 .row .span10 h5 {text-transform:capitalize;}
+	.content .jobmain .span12 .row .span10 a:hover {color:#FF370F;text-decoration: none;}
+	.content .row .sitemap h3{padding-left:60px;}	
+	.zebra-striped div:hover{
+	  background-color: #f5f5f5;
+	}
+	.spotlight-jobs .row {background-color: #fdf5d9;}
+	.spotlight-jobs h6 {color:#E58023}
+	.recent-jobs {margin-top:50px;}
+	.recent-jobs h6 {color:#1D81BE}
+	.recent-jobs small a{color:#FF370F}
+	.applied-jobs {margin-top:50px;}
+	.applied-jobs h6 {color:#1D81BE}
+	.job-details .details-page {padding-top:20px;}
+	.job-description p {line-height: 23px;}
+	.apply-now {padding-top:20px;}
+	.job-post-utils {padding-top: 20px;}
+	#apply-online table, #apply-online tr, #apply-online td {border:none;}
+	#send-to-friend table, #send-to-friend tr, #send-to-friend td{border:none;}
+	#publish_form table, #publish_form tr, #publish_form td {border:none;}
+	#city_id {margin-right: 20px;}
+	#other_location_label .btn {padding-left: 20px;}
+/* Pagination mods */
+
+/* Pagination */
+
+.paged .pagination { padding:0;}
+.paged .next-page {padding: 0 0 0 220px;width: 48px;height: 48px;display: block;float: left;}
+.paged .next-page a, .paged .next-page a:visited {text-indent: -9999px;width: 48px;height: 48px;background: url(../img/pagination-next.png) no-repeat;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: block;}
+.paged .next-page a:active,.paged .next-page a:hover {background-position: 0 -48px;background-color: #FF370F;}
+.paged .page-number {padding: 17px 0 17px 0;text-align: center;font-size: 16px;color: #aaa;text-shadow: 0 1px 0 #fff;width: 100px;float: left;}
+.paged .previous-page {padding: 0 160px 0 0;width: 48px;height: 48px;display: block;float: left;}
+.paged .previous-page a, .paged .previous-page a:visited {text-indent: -9999px;width: 48px;height: 48px;background: url(../img/pagination-previous.png) no-repeat;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: block;}
+.paged .previous-page a:active, .paged .previous-page a:hover {background-position: 0 -48px;background-color: #FF370F;}
+
+/* Jobs Types by Color */
+.label {
+  padding: 1px 3px 2px;
+  font-size: 9.75px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: #bfbfbf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: none;
+}
+.label.fulltime {
+  background-color: #c43c35;
+}
+.label.parttime {
+  background-color: #f89406;
+}
+.label.success {
+  background-color: #46a546;
+}
+.label.freelance {
+  background-color: #62cffc;
+}
+.right {float:right;} /* Job submit step 2 */
