@@ -30,14 +30,14 @@ $__instances['local'] = array(
 
 // live (http://www.yourjobberbasedomain.com)
 $__instances['live'] = array(
-	'prefix' => 'yourjobberbasedomain.com',
+	'prefix' => 'jobs.informatick.net',
 	'db_host' => 'localhost',
 	'db_port' => 3306,
-	'db_user' => 'root',
-	'db_password' => '',
+	'db_user' => 'informatickuser',
+	'db_password' => 'OF_uFBV8tHp6IkgdpWgoCRHop',
 	'db_name' => 'jobberbase',
 	'db_prefix' => '',
-	'app_url' => 'http://www.yourjobberbasedomain.com/',
+	'app_url' => 'http://jobs.informatick.net/',
 	'ini_error_reporting' => E_ALL,
 	'ini_display_errors' => 'Off',
 	'location' => 'online',
