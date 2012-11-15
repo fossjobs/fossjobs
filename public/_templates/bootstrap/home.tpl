@@ -17,7 +17,11 @@
 				{/foreach}
 			</div><!-- End Spotlight Jobs /-->
 		{/if}
-		
+
+<h2>Welcome to fossjobs.net</h2>
+<div>
+We are the first platform exclusively for Free &amp; Open Source jobs. The <a href="about/">platform is open source itself</a>, so you can help improve it.</div>	
+
 		{if $latest_jobs}
 			<div class="recent-jobs zebra-striped"><!-- Recent Jobs /-->
 				<h6>{$translations.homepage.recent_jobs} <small><a href="{$BASE_URL}{$URL_JOBS}/">{$translations.homepage.view_all_jobs}</a></small></h6>
