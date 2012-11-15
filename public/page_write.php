@@ -117,26 +117,21 @@
 			{
 				$url = 'http://' . $url;
 			}
-			if (!isset($city_id))
+			if (!isset($country_id))
 			{
-				$city_id = 0;
-			}
-			else
-			{
-				// if a city is selected, we must clear the 'other' location
-				$location_outside_ro_where = '';
+				$country_id = 0;
 			}
 			
 			$data = array('company' => $company,
 			              'url' => $url,
 			              'title' => $title,
-			              'city_id' => $city_id,
+			              'country_id' => $country_id,
 			              'category_id' => $category_id,
 			              'type_id' => $type_id,
 			              'description' => $description,
-			  			  'location_outside_ro_where' => $location_outside_ro_where,
-			  			  'is_temp' => 1,
-			  			  'is_active' => 0,
+			  	      'city' => $city,
+			  	      'is_temp' => 1,
+			  	      'is_active' => 0,
 			              'apply' => '',
 			              'poster_email' => $poster_email,
 			              'apply_online' => $apply_online,
@@ -208,24 +203,19 @@
 				$url = 'http://' . $url;
 			}
 			
-			if (!isset($city_id))
+			if (!isset($country_id))
 			{
-				$city_id = 0;
-			}
-			else
-			{
-				// if a city is selected, we must clear the 'other' location
-				$location_outside_ro_where = '';
+				$country_id = 0;
 			}
 
 			$data = array('company' => $company,
 			              'url' => $url,
 			              'title' => $title,
-			              'city_id' => $city_id,
+			              'country_id' => $country_id,
 			              'category_id' => $category_id,
 			              'type_id' => $type_id,
 			              'description' => $description,
-			              'location_outside_ro_where' => $location_outside_ro_where,
+			              'city' => $city,
 			              'apply' => '',
 			              'poster_email' => $poster_email,
 			              'apply_online' => $apply_online);
@@ -264,7 +254,7 @@
 	
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('types', get_types());
-	$smarty->assign('cities', get_cities());
+	$smarty->assign('countries', get_countries());
 	
 	if ($later_edit)
 	{

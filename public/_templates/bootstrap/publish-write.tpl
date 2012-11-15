@@ -51,16 +51,13 @@
 						</tr>
 						<tr>
 							<td>
-								<select class="span6" name="city_id" id="city_id" tabindex="3" {if $job.location_outside_ro != '' OR $smarty.post.location_outside_ro_where != ''}disabled="disabled"{/if}>
+								<select class="span6" name="country_id" id="country_id" tabindex="3">
 									<option value="0">{$translations.jobs.location_anywhere}</option>
-									{section name="c" loop=$cities}
-									<option value="{$cities[c].id}" {if $smarty.post.city_id == $cities[c].id || $job.city_id == $cities[c].id}selected="selected"{else}{if $user_city.id == $cities[c].id AND !$smarty.post.city_id AND !$job.city_id}selected="selected"{/if}{/if}>{$cities[c].name}</option>
+									{section name="c" loop=$countries}
+									<option value="{$countries[c].id}" {if $smarty.post.country_id == $countries[c].id || $job.country_id == $countries[c].id}selected="selected"{else}{if $user_country.id == $countries[c].id AND !$smarty.post.country_id AND !$job.country_id}selected="selected"{/if}{/if}>{$countries[c].name}</option>
 									{/section}
 								</select>
-								<a id="other_location_label" class="btn small" href="#" onclick="Jobber.HandleLocationOutsideRo(); return false;">{if $job.location_outside_ro != '' OR $smarty.post.location_outside_ro_where != ''}{$translations.publish.location_pick_from_list}{else}{$translations.publish.other}{/if}</a><br />
-								<div id="location_outside_ro" {if $job.location_outside_ro != '' OR $smarty.post.location_outside_ro_where != ''}style="display: block;"{else}style="display: none;"{/if}>
-									<input type="text" name="location_outside_ro_where" id="location_outside_ro_where" class="span6" {if $job.location_outside_ro != ''}value="{$job.location|escape}"{/if}{if $smarty.post.location_outside_ro_where != ''}value="{$smarty.post.location_outside_ro_where|escape}"{/if} placeholder="{$translations.publish.where} {$translations.publish.where_info}" />
-								</div>
+								<input type="text" name="city" id="city" class="span6" {if $smarty.post.city != ''}value="{$smarty.post.city|escape}"{/if} placeholder="{$translations.publish.where} {$translations.publish.where_info}" />
 							</td>
 						</tr>
 						<tr>

@@ -37,22 +37,6 @@
 
 		},
 		
-		HandleLocationOutsideRo: function()
-		{
-			if (document.getElementById("location_outside_ro").style.display == "none")
-			{
-				document.getElementById("city_id").setAttribute("disabled", "disabled");
-				$("div#location_outside_ro").show();
-				document.getElementById("location_outside_ro_where").focus();
-				$("a#other_location_label").html(Jobber.I18n.js.location_pick_from_list);
-			}
-			else
-			{
-				document.getElementById("city_id").removeAttribute("disabled");
-				$("div#location_outside_ro").hide();
-				$("a#other_location_label").html(Jobber.I18n.js.location_other);
-			}
-		},
 		DeactivateLink: function(job_id)
 		{
 			var url = Jobber.jobber_admin_url+'deactivate/';

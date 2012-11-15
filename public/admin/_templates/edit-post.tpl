@@ -50,11 +50,11 @@
 							<div class="{$translations.publish.title_info}"></div>
 						</div>
 						<div class="group">
-							<label for="city_id">{$translations.publish.location_label}</label>
-							<select name="city_id" id="city_id" {if $job.location_outside_ro != ''}disabled="disabled"{/if} class="ml1">
+							<label for="country_id">{$translations.publish.location_label}</label>
+							<select name="country_id" id="country_id" {if $job.location_outside_ro != ''}disabled="disabled"{/if} class="ml1">
 								<option value="0">{$translations.jobs.location_anywhere}</option>
-								{section name="c" loop=$cities}
-								<option value="{$cities[c].id}" {if $smarty.post.city_id == $cities[c].id || $job.city_id == $cities[c].id}selected="selected"{else}{if $user_city.id == $cities[c].id AND !$smarty.post.city_id AND !$job.city_id}selected="selected"{/if}{/if}>{$cities[c].name}</option>
+								{section name="c" loop=$countries}
+								<option value="{$countries[c].id}" {if $smarty.post.country_id == $countries[c].id || $job.country_id == $countries[c].id}selected="selected"{else}{if $user_country.id == $countries[c].id AND !$smarty.post.country_id AND !$job.country_id}selected="selected"{/if}{/if}>{$countries[c].name}</option>
 								{/section}
 							</select>
 							<a id="other_location_label" href="#" onclick="Jobber.HandleLocationOutsideRo(); return false;">{if $job.location_outside_ro != ''}pick one from the list{else}other{/if}</a>

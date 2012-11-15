@@ -12,7 +12,7 @@
 				</div>
 				{/if}
 				<div class="row"><!-- Start job /-->
-					<div class="span2">
+<!--					<div class="span2">
 						{if $CURRENT_PAGE == $URL_JOB}
 						<div class="alert-message block-message warning">
 							{$job.applied_count}
@@ -24,7 +24,7 @@
 						</div>
 						{/if}
 					</div>
-					<div class="span10 details-page">
+-->					<div class="span10 details-page">
 						<h5><span class="label {$job.type_var_name}">{$job.type_name}</span> {$job.title} </h5>
 						<span>{$translator->translate("jobs.published_at", "<strong>`$job.created_on`</strong>")} - {$translator->translate("jobs.viewed", "<strong>`$job.views_count`</strong>")} - 
 						{if $job.url && $job.url != 'http://'}

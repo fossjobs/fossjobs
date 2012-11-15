@@ -38,11 +38,11 @@
 			$categ = trim($tmp[0]);
 			$keywords = trim($tmp[1]);
 			$keywords = str_replace('"', '', urldecode($keywords));
-			// clicked on a city on the map
+			// clicked on a country on the map
 			if (isset($tmp[2]) && $tmp[2] == 'map')
 			{
-				$city = get_city_id_by_asciiname($keywords);
-				$keywords = $city['name'];
+				$country = get_country_id_by_asciiname($keywords);
+				$keywords = $country['name'];
 			}
 		}
 		else

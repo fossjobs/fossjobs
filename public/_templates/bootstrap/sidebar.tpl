@@ -18,11 +18,11 @@
 					<li><a href="{$BASE_URL}{$URL_JOBS}/{$job.categ_varname}/">{$job.categ_name} ({$job.categ_count})</a></li>
 					{/foreach}
 				{else}
-					{foreach item=job from=$jobs_count_per_city}
-					<li><a href="{$BASE_URL}{$URL_JOBS_IN_CITY}/{$job.city_ascii_name}/">{$job.city_name} ({$job.jobs_in_city})</a></li>
+					{foreach item=job from=$jobs_count_per_country}
+					<li><a href="{$BASE_URL}{$URL_JOBS_IN_COUNTRY}/{$job.country_ascii_name}/">{$job.country_name} ({$job.jobs_in_country})</a></li>
 					{/foreach}
-					{if !$hide_other_cities_in_sidebar}
-					<li><a href="{$BASE_URL}jobs-in-other-cities/">{$translations.sidebar.other_cities} ({$jobs_count_in_other_cities})</a></li>
+					{if !$hide_other_countries_in_sidebar}
+					<li><a href="{$BASE_URL}jobs-worldwide/">{$translations.sidebar.other_countries} ({$jobs_count_in_other_countries})</a></li>
 					{/if}
 				{/if}
 					

@@ -44,23 +44,6 @@
 			$("#indicator").hide();	
 		},
 		
-		HandleLocationOutsideRo: function()
-		{
-			if ($("#location_outside_ro").is(":visible"))
-			{
-				$("#city_id").removeAttr("disabled");
-				$("#location_outside_ro").hide();
-				$("#other_location_label").html(Jobber.I18n.js.location_other);
-			}
-			else
-			{
-				$("#city_id").attr("disabled", "disabled");
-				$("#location_outside_ro").show();
-				$("#location_outside_ro_where").focus();
-				$("#other_location_label").html(Jobber.I18n.js.location_pick_from_list);
-			}
-		},
-		
 		SendToFriend: {
 			showHide: function()
 			{

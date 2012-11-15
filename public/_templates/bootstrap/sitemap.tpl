@@ -24,7 +24,7 @@
 			<h6>{$translations.sitemap.more}:</h6>
 			<ul>
 				<li><a href="{$BASE_URL}{$URL_COMPANIES}/" title="{$translations.footer.companies_title}">{$translations.footer.companies}</a></li>
-				<li><a href="{$BASE_URL}{$URL_CITIES}/" title="{$translations.footer.cities_title}">{$translations.footer.cities}</a></li>
+				<li><a href="{$BASE_URL}{$URL_COUNTRIES}/" title="{$translations.footer.countries_title}">{$translations.footer.countries}</a></li>
 				{foreach from=$articles item=article}
 				<li><a href="{$BASE_URL}{$article.url}/" title="{$article.page_title}">{$article.title}</a></li>
 				{/foreach}

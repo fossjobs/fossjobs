@@ -12,21 +12,21 @@
 	}
 	else
 	{
-		$numberOfJobsInOtherCities = $job->GetNumberOfJobsInOtherCities();
+		$numberOfJobsInOtherCountries = $job->GetNumberOfJobsInOtherCountries();
 		
-		$smarty->assign('jobs_count_in_other_cities', $numberOfJobsInOtherCities);
-		$smarty->assign('hide_other_cities_in_sidebar', $numberOfJobsInOtherCities < SIDEBAR_ONLY_CITIES_WITH_AT_LEAST_NUMBER_OF_JOBS);
+		$smarty->assign('jobs_count_in_other_countries', $numberOfJobsInOtherCountries);
+		$smarty->assign('hide_other_countries_in_sidebar', $numberOfJobsInOtherCountries < SIDEBAR_ONLY_COUNTRIES_WITH_AT_LEAST_NUMBER_OF_JOBS);
 		
-		$jobsCountPerCity = $job->GetJobsCountPerCity();
+		$jobsCountPerCountry = $job->GetJobsCountPerCountry();
 		
-		// exclude the cities that don't have at least the specified number of jobs 
-		foreach ($jobsCountPerCity as $index => $jobsPerCity)
+		// exclude the countries that don't have at least the specified number of jobs 
+		foreach ($jobsCountPerCountry as $index => $jobsPerCountry)
 		{
-			if ($jobsPerCity['jobs_in_city'] < SIDEBAR_ONLY_CITIES_WITH_AT_LEAST_NUMBER_OF_JOBS)
-				unset($jobsCountPerCity[$index]);
+			if ($jobsPerCountry['jobs_in_country'] < SIDEBAR_ONLY_COUNTRIES_WITH_AT_LEAST_NUMBER_OF_JOBS)
+				unset($jobsCountPerCountry[$index]);
 		}
 		
-		$smarty->assign('jobs_count_per_city', $jobsCountPerCity);
+		$smarty->assign('jobs_count_per_country', $jobsCountPerCountry);
 	}
 
 	$smarty->assign('most_applied_to_jobs', $job->GetMostAppliedToJobs(NUMBER_OF_MOST_APPLIED_TO_JOBS_TO_GET));

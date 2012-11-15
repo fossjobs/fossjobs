@@ -92,7 +92,7 @@
 	    	  </ul>
 	 </li>
 	 <li><a {if $CURRENT_PAGE == 'stats'}class="selected"{/if} href="{$BASE_URL_ADMIN}stats/">Stats</a></li>
-	 <li><a {if $CURRENT_PAGE == 'cities'}class="selected"{/if} href="{$BASE_URL_ADMIN}cities/list/">Cities</a></li>
+	 <li><a {if $CURRENT_PAGE == 'countries'}class="selected"{/if} href="{$BASE_URL_ADMIN}countries/list/">Countries</a></li>
 	 <li><a {if $CURRENT_PAGE == 'types'}class="selected"{/if} href="{$BASE_URL_ADMIN}types/">Job types</a></li>
 	 <li><a {if $CURRENT_PAGE == 'links'}class="selected"{/if} href="{$BASE_URL_ADMIN}links/">Links</a>
 	 <ul>
@@ -114,6 +114,6 @@
 	 <li class="right bold"><a href="{$BASE_URL_ADMIN}logout/">Logout</a></li>
 	 </ul>
 	
-	<a style="float: right" class="iframe" href="http://www.evertsemeijn.nl/help/administration/{if $CURRENT_PAGE == ''}home/{/if}{if $CURRENT_PAGE == 'edit-post'}post-a-job/{/if}{if $CURRENT_PAGE == 'pages'}pages/{/if}{if $CURRENT_PAGE == 'categories'}categories/{/if}{if $CURRENT_PAGE == 'jobs'}categories/{/if}{if $CURRENT_PAGE == 'stats'}stats/{/if}{if $CURRENT_PAGE == 'cities'}cities/{/if}{if $CURRENT_PAGE == 'types'}job-types/{/if}{if $CURRENT_PAGE == 'links'}links/{/if}{if $CURRENT_PAGE == 'settings'}settings/{/if}{if $CURRENT_PAGE == 'password'}change-password/{/if}"><img src="{$BASE_URL_ADMIN}_templates/img/help.png" /></a>
+	<a style="float: right" class="iframe" href="http://www.evertsemeijn.nl/help/administration/{if $CURRENT_PAGE == ''}home/{/if}{if $CURRENT_PAGE == 'edit-post'}post-a-job/{/if}{if $CURRENT_PAGE == 'pages'}pages/{/if}{if $CURRENT_PAGE == 'categories'}categories/{/if}{if $CURRENT_PAGE == 'jobs'}categories/{/if}{if $CURRENT_PAGE == 'stats'}stats/{/if}{if $CURRENT_PAGE == 'countries'}countries/{/if}{if $CURRENT_PAGE == 'types'}job-types/{/if}{if $CURRENT_PAGE == 'links'}links/{/if}{if $CURRENT_PAGE == 'settings'}settings/{/if}{if $CURRENT_PAGE == 'password'}change-password/{/if}"><img src="{$BASE_URL_ADMIN}_templates/img/help.png" /></a>
 	
 	{/if}

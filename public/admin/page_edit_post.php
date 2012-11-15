@@ -54,22 +54,22 @@ if ($id != 0)
 			$_POST['apply_online'] = 0;
 		}
 
-		$isCitySelected = false;
+		$isCountrySelected = false;
 
-		// we didn't receive a city (when the cities combo is disabled)
-		if (!isset($_POST['city_id']))
-			$city_id = 0;
+		// we didn't receive a country (when the countries combo is disabled)
+		if (!isset($_POST['country_id']))
+			$country_id = 0;
 		else
 		{
-			$city_id = $_POST['city_id'];
-			$isCitySelected = true;
+			$country_id = $_POST['country_id'];
+			$isCountrySelected = true;
 		}
 				
 		$jobToEdit['company'] = $_POST['company'];
 		$jobToEdit['url'] = $_POST['url'];
 		$jobToEdit['title'] = $_POST['title'];
-		$jobToEdit['city_id'] = $city_id;
-		$jobToEdit['location_outside_ro_where'] = ($isCitySelected ? '' : $_POST['location_outside_ro_where']);
+		$jobToEdit['country_id'] = $country_id;
+		$jobToEdit['location_outside_ro_where'] = ($isCountrySelected ? '' : $_POST['location_outside_ro_where']);
 		$jobToEdit['category_id'] = $_POST['category_id'];
 		$jobToEdit['type_id'] = $_POST['type_id'];
 		$jobToEdit['description'] = $_POST['description'];
@@ -82,19 +82,19 @@ if ($id != 0)
 		$jobToEdit['textiledDescription'] = $textile->TextileThis($_POST['description']);
 		$jobToEdit['location_outside_ro'] = $jobToEdit['location_outside_ro_where'];
 		
-		$is_location_anywhere = $jobToEdit['city_id'] == 0 && $jobToEdit['location_outside_ro'] == '';
+		$is_location_anywhere = $jobToEdit['country_id'] == 0 && $jobToEdit['location_outside_ro'] == '';
 		$jobToEdit['is_location_anywhere'] = $is_location_anywhere;
 		
 		if (!$is_location_anywhere)
 		{
-			if ($isCitySelected)
+			if ($isCountrySelected)
 			{
-				$city = get_city_by_id($city_id);
+				$country = get_country_by_id($country_id);
 				
-				$jobToEdit['location'] = $city['name'];
+				$jobToEdit['country'] = $country['name'];
 			}
 			else
-				$jobToEdit['location'] = $jobToEdit['location_outside_ro'];
+				$jobToEdit['country'] = $jobToEdit['location_outside_ro'];
 		}
 			
 		// no errors
@@ -109,11 +109,11 @@ if ($id != 0)
 				$data = array('company' => $company,
 				          	  'url' => $url,
 				              'title' => $title,
-				              'city_id' => $city_id,
+				              'country_id' => $country_id,
 				              'category_id' => $category_id,
 				              'type_id' => $type_id,
 				              'description' => $description,
-							  'location_outside_ro_where' => ($isCitySelected ? '' : $location_outside_ro_where) ,
+							  'location_outside_ro_where' => ($isCountrySelected ? '' : $location_outside_ro_where) ,
 				              'apply' => '',
 				              'poster_email' => $poster_email,
 				              'apply_online' => $apply_online);
@@ -144,7 +144,7 @@ if ($id != 0)
 		
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('types', get_types());
-	$smarty->assign('cities', get_cities());
+	$smarty->assign('countries', get_countries());
 	
 	$html_title = $translations['jobs']['title_edit'] . ' / ' . SITE_NAME;
 	

@@ -219,17 +219,17 @@
             require_once 'page_deactivate_spotlight.php';
             $flag = 1;
             break;
-   		case 'cities':
+   		case 'countries':
 	  		if(!isset($_SESSION['AdminId']))
             {
                 redirect_to(BASE_URL);
                 exit;
             }
             
-   			require_once 'page_cities.php';
+   			require_once 'page_countries.php';
    			$flag = 1;
-   			$citiesPage = new CitiesPage();
-   			$template = $citiesPage->processRequest($id, $extra, $smarty);
+   			$countriesPage = new CountriesPage();
+   			$template = $countriesPage->processRequest($id, $extra, $smarty);
    			break;
 		default: 
 			$flag = 0;	
@@ -244,16 +244,16 @@
 	// create a JSON string from the translations array, but only for the "js" section
 	$smarty->assign('translationsJson', iniSectionsToJSON(array("js" => $translations['js'])));
 	
-	// get job categories and cities
+	// get job categories and countries
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('settings_categories', $jobber_settings->GetSettingsCategories());
 
 	//Add the dynamic URL defitions to SMARTY
 	$smarty->assign('URL_JOB', URL_JOB);
 	$smarty->assign('URL_JOBS', URL_JOBS);
-	$smarty->assign('URL_CITIES', URL_CITIES);
+	$smarty->assign('URL_COUNTRIES', URL_COUNTRIES);
 	$smarty->assign('URL_COMPANIES', URL_COMPANIES);
-	$smarty->assign('URL_JOBS_IN_CITY', URL_JOBS_IN_CITY);
+	$smarty->assign('URL_JOBS_IN_COUNTRY', URL_JOBS_IN_COUNTRY);
 	$smarty->assign('URL_JOBS_AT_COMPANY', URL_JOBS_AT_COMPANY);
 	
 	$smarty->assign('THEME', $settings['theme']);

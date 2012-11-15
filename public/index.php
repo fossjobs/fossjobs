@@ -46,9 +46,9 @@
 			$flag = 1;
 			break;
 			
-		// cities
-		case URL_CITIES:
-			require_once 'page_cities.php';
+		// countries
+		case URL_COUNTRIES:
+			require_once 'page_countries.php';
 			$flag = 1;
 			break;
 	
@@ -64,14 +64,14 @@
 			$flag = 1;
 			break;
 			
-		// per city
-		case URL_JOBS_IN_CITY:
-			require_once 'page_city.php';
+		// per country
+		case URL_JOBS_IN_COUNTRY:
+			require_once 'page_country.php';
 			$flag = 1;
 			break;
 			
-		case 'jobs-in-other-cities':
-			require_once 'page_other_cities.php';
+		case 'jobs-worldwide':
+			require_once 'page_other_countries.php';
 			$flag = 1;
 			break;
 			
@@ -227,7 +227,7 @@
 		redirect_to(BASE_URL . 'page-unavailable/', '404');
 	}
 	
-	// get job categories and cities
+	// get job categories and countries
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('articles', get_articles());
 	$smarty->assign('navigation', get_navigation());
@@ -241,9 +241,9 @@
 	//Add the dynamic URL defitions to SMARTY
 	$smarty->assign('URL_JOB', URL_JOB);
 	$smarty->assign('URL_JOBS', URL_JOBS);
-	$smarty->assign('URL_CITIES', URL_CITIES);
+	$smarty->assign('URL_COUNTRIES', URL_COUNTRIES);
 	$smarty->assign('URL_COMPANIES', URL_COMPANIES);
-	$smarty->assign('URL_JOBS_IN_CITY', URL_JOBS_IN_CITY);
+	$smarty->assign('URL_JOBS_IN_COUNTRY', URL_JOBS_IN_COUNTRY);
 	$smarty->assign('URL_JOBS_AT_COMPANY', URL_JOBS_AT_COMPANY);
 	
 	if (isset($html_title) && $html_title != '')

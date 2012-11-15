@@ -19,15 +19,15 @@ define('OLD_JOB_NOTIFY', $settings['old_job_notify']);
 define('ENABLE_NEW_JOBS', $settings['enable_new_jobs']);
 define('JOBS_PER_PAGE', $settings['jobs_per_page']);
 define('SIDEBAR_SHOW_WHAT', $settings['sidebar_show_what']);
-define('SIDEBAR_ONLY_CITIES_WITH_AT_LEAST_NUMBER_OF_JOBS', $settings['sidebar_only_cities_with_at_least_number_of_jobs']);
+define('SIDEBAR_ONLY_COUNTRIES_WITH_AT_LEAST_NUMBER_OF_JOBS', $settings['sidebar_only_countries_with_at_least_number_of_jobs']);
 define('DATE_FORMAT', $settings['date_format']);
 define('DATE_TIME_FORMAT', $settings['date_time_format']);
 define('ENABLE_NEW_POST_MODERATION', $settings['enable_new_post_moderation']);
 define('URL_JOB', $settings['url_job']);
 define('URL_JOBS', $settings['url_jobs']);
-define('URL_CITIES', $settings['url_cities']);
+define('URL_COUNTRIES', $settings['url_countries']);
 define('URL_COMPANIES', $settings['url_companies']);
-define('URL_JOBS_IN_CITY', $settings['url_jobs_in_city']);
+define('URL_JOBS_IN_COUNTRY', $settings['url_jobs_in_country']);
 define('URL_JOBS_AT_COMPANY', $settings['url_jobs_at_company']);
 define('SEARCH_METHOD', $settings['search_method']);
 define('SEARCH_RESULTS_PER_PAGE', $settings['jobs_per_search']);
@@ -41,5 +41,5 @@ define('ENABLE_CAPTCHA_ON_POST_PAGE', $settings['captcha_enable_on_post_page']);
 define('ENABLE_CAPTCHA_ON_APPLY_PAGE', $settings['captcha_enable_on_apply_page']);
 define('ENABLE_CAPTCHA_ON_CONTACT_PAGE', $settings['captcha_enable_on_contact_page']);
 // default language code, useful if you with to quickly switch between translation files later
-define('LANG_CODE', 'de');
+define('LANG_CODE', 'en');
 ?>

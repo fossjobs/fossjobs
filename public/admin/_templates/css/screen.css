@@ -422,7 +422,7 @@ span.version {
 .time {color: #333; font-size: 0.9em; padding-right: 0.5em;}
 .spam {color: #f00;}
 
-h2#inactive, h2#jobs, h2#categories, h2#pages, h2#edit_job, h2#stats, h2#cities, h2#job_types, h2#links, h2#settings, h2#password {
+h2#inactive, h2#jobs, h2#categories, h2#pages, h2#edit_job, h2#stats, h2#countries, h2#job_types, h2#links, h2#settings, h2#password {
 	background-image: url(../img/inactive.png);
 	background-position: 0 0;
 	background-repeat: no-repeat;
@@ -439,8 +439,8 @@ h2#edit_job {
 h2#stats {
 	background-image: url(../img/stats.png);
 	background-position: 0 -2px;}
-h2#cities {
-	background-image: url(../img/cities.png);}
+h2#countries {
+	background-image: url(../img/countries.png);}
 h2#job_types {
 	background-image: url(../img/job_types.png);}
 h2#links {
@@ -490,7 +490,7 @@ h2#password {
 	-webkit-border-top-right-radius: 7px;
 }
 #page_content_parent table, #page_form_message_parent table {margin-left: 1em!important}
-#company_info label, #job_details label, form.add_page label, #city_form label {
+#company_info label, #job_details label, form.add_page label, #country_form label {
 	display: block;
 	margin: 0 0 0.3em 0;
 	width: 100%;

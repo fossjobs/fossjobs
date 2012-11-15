@@ -30,8 +30,8 @@ class Job
 	var $mIsActive = false;
 	var $mViewsCount = false;
 	var $mAuth = false;
-	var $mCityId = false;
-	var $mLocationOutsideRo = false;
+	var $mCountryId = false;
+	var $mCity = false;
 	var $mPosterEmail = false;
 	var $mUrlTitle = false;
 	var $mApplyOnline = false;
@@ -51,11 +51,11 @@ class Job
 			               a.company AS company, a.url AS url, a.apply AS apply, 
 			               DATE_FORMAT(a.created_on, "' . DATE_FORMAT . '") AS created_on, a.created_on AS mysql_date,
 			               a.is_temp AS is_temp, a.is_active AS is_active, a.spotlight AS spotlight,
-			               a.views_count AS views_count, a.auth AS auth, a.city_id AS city_id, a.outside_location AS outside_location,
+			               a.views_count AS views_count, a.auth AS auth, a.country_id AS country_id, a.city AS city,
 			               a.poster_email AS poster_email, a.apply_online AS apply_online, b.name AS category_name,
 			               c.var_name as type_var_name, c.name as type_name,
-			               DATE_ADD(created_on, INTERVAL 30 DAY) AS closed_on, DATEDIFF(NOW(), created_on) AS days_old, cit.name AS city_name
-			               FROM '.DB_PREFIX.'jobs a LEFT JOIN '.DB_PREFIX.'cities cit on a.city_id = cit.id, '.DB_PREFIX.'categories b, '.DB_PREFIX.'types c
+			               DATE_ADD(created_on, INTERVAL 30 DAY) AS closed_on, DATEDIFF(NOW(), created_on) AS days_old, country.name AS country_name
+			               FROM '.DB_PREFIX.'jobs a LEFT JOIN '.DB_PREFIX.'countries country on a.country_id = country.id, '.DB_PREFIX.'categories b, '.DB_PREFIX.'types c
 			               WHERE a.category_id = b.id AND c.id = a.type_id AND a.id = ' . $job_id;
 			
 			$result = $db->query($sql);
@@ -78,10 +78,10 @@ class Job
 				$this->mIsActive = $row['is_active'];
 				$this->mViewsCount = $row['views_count'];
 				$this->mAuth = $row['auth'];
-				$this->mCityId = $row['city_id'];
+				$this->mCountryId = $row['country_id'];
 				$this->mMySqlDate = $row['mysql_date'];
 				$this->mLocation = $this->GetLocation($row);
-				$this->mLocationOutsideRo = $row['outside_location'];
+				$this->mCity = $row['city'];
 				$this->mPosterEmail = $row['poster_email'];
 				$this->mUrlTitle = $sanitizer->sanitize_title_with_dashes($this->mTitle . ' at ' . $this->mCompany);
 				$this->mApplyOnline = $row['apply_online'];
@@ -105,7 +105,7 @@ class Job
 					 'title' => stripslashes($this->mTitle),
 					 'url_title' => stripslashes($this->mUrlTitle),
 					 'location' => $this->mLocation,
-					 'location_outside_ro' => $this->mLocationOutsideRo,
+					 'city' => $this->mCity,
 					 'is_location_anywhere' => $this->IsLocationAnywhere(),
 					 'description' => stripslashes($this->mDescription),
 					 'created_on' => stripslashes($this->mCreatedOn),
@@ -113,7 +113,7 @@ class Job
 					 'apply' => stripslashes($this->mApply),
 					 'views_count' => $this->mViewsCount,
 					 'auth' => $this->mAuth,
-					 'city_id' => $this->mCityId,
+					 'country_id' => $this->mCountryId,
 					 'mysql_date' => $this->mMySqlDate,
 					 'poster_email' => $this->mPosterEmail,
 					 'apply_online' => $this->mApplyOnline,
@@ -138,13 +138,13 @@ class Job
 					 'title' => stripslashes($this->mTitle),
 					 'url_title' => stripslashes($this->mUrlTitle),
 					 'location' => $this->mLocation,
-					 'location_outside_ro' => $this->mLocationOutsideRo,
+					 'location_city' => $this->mCity,
 					 'is_location_anywhere' => $this->IsLocationAnywhere(),
 					 'description' => stripslashes($this->mDescription),
 					 'created_on' => stripslashes($this->mCreatedOn),
 					 'closed_on' => stripslashes($this->mClosedOn),
 					 'apply' => stripslashes($this->mApply),
-					 'city_id' => $this->mCityId,
+					 'country_id' => $this->mCountryId,
 					 'mysql_date' => $this->mMySqlDate,
 					 'days_old' => $this->mDaysOld,
 					 'is_active' => $this->mIsActive,
@@ -160,21 +160,21 @@ class Job
 	{
 		$location = '';
 		
-		if ($resultSetRow['city_id'] != NULL) 
+                if ($resultSetRow['city'] != '')
+                {
+                        $location = $resultSetRow['city'] . ', ';
+                }
+		if ($resultSetRow['country_id'] != NULL) 
 		{
-			$location = $resultSetRow['city_name'];
+			$location .= $resultSetRow['country_name'];
 		}	
-		elseif ($resultSetRow['outside_location'] != '')
-		{
-			$location = $resultSetRow['outside_location'];
-		}
 		
 		return $location;
 	}
 	
 	private function IsLocationAnywhere()
 	{
-		return $this->mCityId == 0 && $this->mLocationOutsideRo == '';
+		return $this->mCountryId == 0;
 	}
 	
 	// Get all job posts (optionally from a specific type and/or category)
@@ -184,7 +184,7 @@ class Job
 	// $random: (1/0) randomize results?
 	// $days_behind: (int) only get results from last N days
 	// $for_feed: (boolean) is this request from rss feed?
-	public function GetJobs($type_id = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $city_id = false, $type_id = false, $spotlight = false)
+	public function GetJobs($type_id = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $country_id = false, $type_id = false, $spotlight = false)
 	{
 		global $db;
 		$jobs = array();
@@ -223,9 +223,9 @@ class Job
 			$conditions .= ' AND DATE_SUB(NOW(), INTERVAL 10 MINUTE) > created_on';
 		}
 		
-		if ($city_id && is_numeric($city_id))
+		if ($country_id && is_numeric($country_id))
 		{
-			$conditions .= ' AND city_id = ' . $city_id;
+			$conditions .= ' AND country_id = ' . $country_id;
 		}
 		
 		if ($type_id && is_numeric($type_id))
@@ -296,14 +296,14 @@ class Job
 		return $jobs;
 	}
 	
-	public function GetPaginatedJobsForCity($cityID, $startIndex, $numberOfJobsToGet, $jobTypeID)
+	public function GetPaginatedJobsForCountry($countryID, $startIndex, $numberOfJobsToGet, $jobTypeID)
 	{
 		global $db;
 		$jobs = array();
 		
 		$sql = 'SELECT id
 		               FROM '.DB_PREFIX.'jobs
-		               WHERE city_id = ' . $cityID . ' AND is_temp = 0 AND is_active = 1';
+		               WHERE country_id = ' . $countryID . ' AND is_temp = 0 AND is_active = 1';
 		
 		if ($jobTypeID != 0)
 		{
@@ -434,7 +434,7 @@ class Job
 	
 	
 	// get jobs for API
-	public function ApiGetJobs($type_id = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $city_id = false)
+	public function ApiGetJobs($type_id = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $country_id = false)
 	{
 		global $db;
 		
@@ -474,9 +474,9 @@ class Job
 			$conditions .= ' AND DATE_SUB(NOW(), INTERVAL 10 MINUTE) > created_on';
 		}
 		
-		if ($city_id && is_numeric($city_id))
+		if ($country_id && is_numeric($country_id))
 		{
-			$conditions .= ' AND city_id = ' . $city_id;
+			$conditions .= ' AND country_id = ' . $country_id;
 		}
 
 		if ($random == 1)
@@ -583,7 +583,7 @@ class Job
 		if (SEARCH_METHOD == 'classic')
 		{
 			$kw1 = $kw2 = $extra_conditions = '';
-			$found_city = false;
+			$found_country = false;
 			
 			if (strstr($keywords, ',') || strstr($keywords, ', '))
 			{
@@ -602,28 +602,28 @@ class Job
 				$tmp = array_filter(explode(' ', $keywords));
 				foreach ($tmp as $word)
 				{
-					// try to find city based on city_id
-					$sql = 'SELECT id FROM '.DB_PREFIX.'cities WHERE name LIKE "%' . $word . '%"';
+					// try to find country based on country_id
+					$sql = 'SELECT id FROM '.DB_PREFIX.'countries WHERE name LIKE "%' . $word . '%"';
 					$result = $db->query($sql);
 					$row = $result->fetch_assoc();
 					if ($row['id'] != '')
 					{
-						if ($found_city)
+						if ($found_country)
 						{
 							$conditions .= ' OR';
 						}
  
-						$conditions .= ' city_id = ' . $row['id'];
-						$found_city = true;
+						$conditions .= ' country_id = ' . $row['id'];
+						$found_country = true;
 						$keywords = trim(str_replace($word, '', $keywords));
 					}
  
-					// try to find city based on postcode or location_details
-					$sql = 'SELECT id FROM '.DB_PREFIX.'jobs WHERE outside_location LIKE "%' . $word . '%"';
+					// try to find country based on postcode or location_details
+					$sql = 'SELECT id FROM '.DB_PREFIX.'jobs WHERE city LIKE "%' . $word . '%"';
 					$results = $db->QueryArray($sql);
 					if ($db->affected_rows > 0)
 					{
-						if ($found_city)
+						if ($found_country)
 						{
 							$conditions .= ' OR ';
 						}
@@ -631,20 +631,20 @@ class Job
 						foreach ($results as $j)
 						{
 							$conditions .= $j['id'] . ',';
-							$found_city = true;
+							$found_country = true;
 						}	
 						$conditions = rtrim($conditions, ',');
 						$conditions .= ') ';
 						$keywords = trim(str_replace($word, '', $keywords));
 					}
 				}
-				if ($found_city)
+				if ($found_country)
 				{
 					$conditions .= ' AND (title LIKE "%' . $keywords . '%" OR company LIKE "%' . $keywords . '%"' .  ' OR description LIKE "%' . $keywords . '%")';	
 				}
 			}
  
-			if (!$found_city)
+			if (!$found_country)
 			{
 				if ($kw1 != '')
 				{
@@ -653,26 +653,26 @@ class Job
 				}
 				if ($kw2 != '')
 				{
-					$sql = 'SELECT id FROM '.DB_PREFIX.'cities WHERE name LIKE "%' . $kw2 . '%"';
+					$sql = 'SELECT id FROM '.DB_PREFIX.'countries WHERE name LIKE "%' . $kw2 . '%"';
 					$result = $db->query($sql);
 					$row = $result->fetch_assoc();
 					if ($row['id'] != '')
 					{
-						$extra_conditions .= ' OR city_id = ' . $row['id'];
+						$extra_conditions .= ' OR country_id = ' . $row['id'];
 					}
-					$conditions .= ' AND (outside_location LIKE "%' . $kw2 . '%" ' . $extra_conditions . ')';
+					$conditions .= ' AND (city LIKE "%' . $kw2 . '%" ' . $extra_conditions . ')';
 					$_SESSION['keywords_array'][] = $kw2;
 				}
 				if ($kw1 == '' && $kw2 == '')
 				{
-					$sql = 'SELECT id FROM '.DB_PREFIX.'cities WHERE name LIKE "%' . $keywords . '%"';
+					$sql = 'SELECT id FROM '.DB_PREFIX.'countries WHERE name LIKE "%' . $keywords . '%"';
 					$result = $db->query($sql);
 					$row = $result->fetch_assoc();
 					if ($row['id'] != '')
 					{
-						$extra_conditions .= ' OR city_id = ' . $row['id'];
+						$extra_conditions .= ' OR country_id = ' . $row['id'];
 					}
-					$conditions = 'title LIKE "%' . $keywords . '%" OR company LIKE "%' . $keywords . '%"' .  ' OR description LIKE "%' . $keywords . '%" OR outside_location LIKE "%' . $keywords . '%"' . $extra_conditions;
+					$conditions = 'title LIKE "%' . $keywords . '%" OR company LIKE "%' . $keywords . '%"' .  ' OR description LIKE "%' . $keywords . '%" OR city LIKE "%' . $keywords . '%"' . $extra_conditions;
  
 					$_SESSION['keywords_array'][] = $keywords;
 				}
@@ -686,8 +686,8 @@ class Job
 		}
 		else
 		{
-			$cities = array();
-			$check_cities = '';
+			$countries = array();
+			$check_countries = '';
  
 		    $keywords = str_replace(","," ", $keywords);
 		    $keywords = str_replace("  "," ", $keywords);
@@ -697,36 +697,36 @@ class Job
 		    function array_trim($a) { $j = 0; for ($i = 0; $i < count($a); $i++) { if ($a[$i] != "") { $b[$j++] = $a[$i]; } } return $b; }
 		    $keywords_r = array_trim($keywords_a);
  
-		    //Search in Cities
+		    //Search in Countries
 		    for ($i=0; $i < count($keywords_r); $i++)
 		    {
 		      $sql = 'SELECT id
-		                     FROM '.DB_PREFIX.'cities
+		                     FROM '.DB_PREFIX.'countries
 		                     WHERE name LIKE "%'. $keywords_r[$i] .'%"
 		                     ORDER BY ID ASC';
 		      $result = $db->query($sql);
-		      $cities_line = '';
+		      $countries_line = '';
  
 		      while ($row = $result->fetch_assoc())
 		      {
-		        $cities_line .= $row['id'].' ';
+		        $countries_line .= $row['id'].' ';
 		      }
-		      $cities[$i] = $cities_line;
+		      $countries[$i] = $countries_line;
 		    }
  
 		    //Search in Jobs
 		    for ($i=0; $i < count($keywords_r); $i++)
 		    {
-		        if ($cities[$i] != "") {
-		          $cities[$i] = rtrim($cities[$i]);
-		          $cities_r = explode(' ', $cities[$i]);
+		        if ($countries[$i] != "") {
+		          $countries[$i] = rtrim($countries[$i]);
+		          $countries_r = explode(' ', $countries[$i]);
  
-		          for ($a=0; $a < count($cities_r); $a++)
+		          for ($a=0; $a < count($countries_r); $a++)
 		          {
-		            $check_cities .= 'OR city_id = "'.$cities_r[$a].'" ';
+		            $check_countries .= 'OR country_id = "'.$countries_r[$a].'" ';
 		          }
 		        }
-		        $conditions .= 'AND (title LIKE "%' . $keywords_r[$i] . '%" OR description LIKE "%' . $keywords_r[$i] . '%" OR outside_location LIKE "%' . $keywords_r[$i] . '%" '.$check_cities.' ) ';
+		        $conditions .= 'AND (title LIKE "%' . $keywords_r[$i] . '%" OR description LIKE "%' . $keywords_r[$i] . '%" OR city LIKE "%' . $keywords_r[$i] . '%" '.$check_countries.' ) ';
 		    }
  
 			$sql = 'SELECT id
@@ -856,9 +856,9 @@ class Job
 	{
 		global $db;
 		
-		if ($params['city_id'] == '' || $params['city_id'] == 0)
+		if ($params['country_id'] == '' || $params['country_id'] == 0)
 		{
-			$params['city_id'] = 'NULL';
+			$params['country_id'] = 'NULL';
 		}
 		if ($params['apply_online'] == 1)
 		{
@@ -868,18 +868,18 @@ class Job
 		{
 			$params['apply_online'] = 0;
 		}
-		$sql = 'INSERT INTO '.DB_PREFIX.'jobs (type_id, category_id, title, description, company, city_id, url, apply, created_on, is_temp, is_active, 
-			                       views_count, auth, outside_location, poster_email, apply_online, spotlight)
+		$sql = 'INSERT INTO '.DB_PREFIX.'jobs (type_id, category_id, title, description, company, country_id, url, apply, created_on, is_temp, is_active, 
+			                       views_count, auth, city, poster_email, apply_online, spotlight)
 		                         VALUES (' . $params['type_id'] . ',
 		                                 ' . $params['category_id'] . ',
 		                                 "' . $params['title'] . '",
 		                                 "' . $params['description'] . '",
 		                                 "' . $params['company'] . '",
-		                                 ' . $params['city_id'] . ',
+		                                 ' . $params['country_id'] . ',
 		                                 "' . $params['url'] . '",
 		                                 "' . $params['apply'] . '",
 		                                 NOW(), ' . $params['is_temp'] . ', '. $params['is_active'] .', 0, "' . $this->GenerateAuthCode() . '", 
-		                                 "' . $params['location_outside_ro_where'] . '", "' . $params['poster_email'] . '", ' . $params['apply_online'] . '
+		                                 "' . $params['city'] . '", "' . $params['poster_email'] . '", ' . $params['apply_online'] . '
 		                                 , ' . $params['spotlight'] . ')';
 		$result = $db->query($sql);
 		return $db->insert_id;
@@ -890,9 +890,9 @@ class Job
 	{
 		global $db;
 
-		if ($params['city_id'] == '' || $params['city_id'] == 0)
+		if ($params['country_id'] == '' || $params['country_id'] == 0)
 		{
-			$params['city_id'] = 'NULL';
+			$params['country_id'] = 'NULL';
 		}
 
 		if ($params['apply_online'] == 1)
@@ -909,10 +909,10 @@ class Job
 										        title = "' . $params['title'] . '",
 										        description = "' . $params['description'] . '",
 										        company = "' . $params['company'] . '",
-										        city_id = ' . $params['city_id'] . ',
+										        country_id = ' . $params['country_id'] . ',
 										        url = "' . $params['url'] . '",
 										        apply = "' . $params['apply'] . '",
-														outside_location = "' . $params['location_outside_ro_where'] . '",
+														city = "' . $params['city'] . '",
 														poster_email = "' . $params['poster_email'] . '",
 														apply_online = "' . $params['apply_online'] . '"
 										        WHERE id = ' . $this->mId;
@@ -1112,47 +1112,47 @@ class Job
 		return $result;
 	}
 	
-	public function GetJobsCountPerCity()
+	public function GetJobsCountPerCountry()
 	{
 		global $db;
-		$jobsCountPerCity = array();
+		$jobsCountPerCountry = array();
 		
-		$sql = 'SELECT city_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 and city_id IS NOT NULL GROUP BY city_id'; 
+		$sql = 'SELECT country_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 and country_id IS NOT NULL GROUP BY country_id'; 
 		$result = $db->query($sql);
 		
 		while ($row = $result->fetch_assoc())
-			$jobsCountPerCity[$row['city_id']] = $row['total'];
+			$jobsCountPerCountry[$row['country_id']] = $row['total'];
 			
-		$cities = get_cities();
+		$countries = get_countries();
 		$result = array();
 
-		foreach ($cities as $city)
+		foreach ($countries as $country)
 		{
-			$numberOfJobsInCity = 0;
+			$numberOfJobsInCountry = 0;
 			
-			// this check is needed because we don't have an entry if there are no jobs for a city
-			if (isset($jobsCountPerCity[$city['id']]))
-				$numberOfJobsInCity = $jobsCountPerCity[$city['id']];
-
-			$result[] = array('city_name' => $city['name'], 'jobs_in_city' => $numberOfJobsInCity, 'city_ascii_name' => $city['ascii_name']);
+			// this check is needed because we don't have an entry if there are no jobs for a country
+			if (isset($jobsCountPerCountry[$country['id']]))
+				$numberOfJobsInCountry = $jobsCountPerCountry[$country['id']];
+			$country_ascii_name = str_replace(' ', '-', $country['name']);
+			$result[] = array('country_name' => $country['name'], 'jobs_in_country' => $numberOfJobsInCountry, 'country_ascii_name' => $country_ascii_name);
 		}
 		
 		return $result;
 	}
 	
-	public function GetJobsCountForCity($city_id, $type)
+	public function GetJobsCountForCountry($country_id, $type)
 	{
 		global $db;
 		
 		$condition = '';
 		
-		if ($city_id)
+		if ($country_id)
 		{
-			$condition = ' AND city_id = ' . $city_id;
+			$condition = ' AND country_id = ' . $country_id;
 		}
 		else
 		{
-			$condition = ' AND city_id IS NULL';
+			$condition = ' AND country_id IS NULL';
 		}
 		
 		if ($type)
@@ -1178,11 +1178,11 @@ class Job
 		return $row['total'];
 	}
 	
-	public function GetNumberOfJobsInOtherCities()
+	public function GetNumberOfJobsInOtherCountries()
 	{
 		global $db;
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND city_id IS NULL';
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND country_id IS NULL';
 
 		$result = $db->query($sql);
 		
@@ -1191,7 +1191,7 @@ class Job
 		return $row['total'];
 	}
 	
-	public function GetPaginatedJobsForOtherCities($type_id = false, $firstLimit = false, $lastLimit = false)
+	public function GetPaginatedJobsForOtherCountries($type_id = false, $firstLimit = false, $lastLimit = false)
 	{
 		global $db;
 		$jobs = array();
@@ -1220,7 +1220,7 @@ class Job
 		
 		$sql = 'SELECT id
 		               FROM '.DB_PREFIX.'jobs
-		               WHERE city_id IS NULL' . $conditions . ' AND is_temp = 0 AND is_active = 1
+		               WHERE country_id IS NULL' . $conditions . ' AND is_temp = 0 AND is_active = 1
 		               ORDER BY created_on DESC ' . $sql_limit;
 		
 		$result = $db->query($sql);

@@ -15,30 +15,30 @@ function add_single_quotes($arg)
 	return "'" . addcslashes($arg, "'\\") . "'"; 
 }
 
-function get_cities_cloud()
+function get_countries_cloud()
 {
 	global $db;
-	$city_array = array();
+	$country_array = array();
  
-	$sql = 	'SELECT c.id, c.name, c.ascii_name, COUNT(*) AS nr
-			 FROM '.DB_PREFIX.'cities c 
-			 INNER JOIN '.DB_PREFIX.'jobs j ON (j.city_id = c.id ) 
+	$sql = 	'SELECT c.id, c.name, COUNT(*) AS nr
+			 FROM '.DB_PREFIX.'countries c 
+			 INNER JOIN '.DB_PREFIX.'jobs j ON (j.country_id = c.id ) 
 			 WHERE j.is_active = 1 
 			 GROUP BY c.name';
  
-	$cities = $db->QueryArray($sql);
+	$countries = $db->QueryArray($sql);
  
-	foreach ($cities as $city)
+	foreach ($countries as $country)
 	{
-		$numberOfJobs = $city['nr'];
+		$numberOfJobs = $country['nr'];
  
-		$city_array[] = array('name' => $city['name'],
-		                     'varname' => $city['ascii_name'],
+		$country_array[] = array('name' => $country['name'],
+		                     'varname' => str_replace(' ', '-', $country['name']),
 		                     'count' => $numberOfJobs,
 		                     'tag_height' => get_cloud_tag_height($numberOfJobs));
 	}
  
-	return $city_array;
+	return $country_array;
 }
 
 function get_cloud_tag_height($numberOfItems)
@@ -134,24 +134,24 @@ function get_navigation($menu = false)
 	return $navigation;
 }
 
-function get_cities()
+function get_countries()
 {
 	global $db;
 	
-	$cities = array();
+	$countries = array();
 	
-	$sql = 'SELECT id, name, ascii_name
-	               FROM '.DB_PREFIX.'cities
+	$sql = 'SELECT id, name
+	               FROM '.DB_PREFIX.'countries
 	               ORDER BY name ASC';
 	
 	$result = $db->query($sql);
 	
 	while ($row = $result->fetch_assoc())
 	{
-		$cities[] = array('id' => $row['id'], 'name' => $row['name'], 'ascii_name' => $row['ascii_name']);
+		$countries[] = array('id' => $row['id'], 'name' => $row['name'], 'ascii_name' => str_replace(' ', '-', $row['name']));
 	}
 	
-	return $cities;
+	return $countries;
 }
 
 function get_categ_id_by_varname($var_name)
@@ -172,23 +172,23 @@ function get_categ_name_by_varname($var_name)
     return $row['name'];
 }
 
-function get_city_id_by_asciiname($ascii_name)
+function get_country_id_by_asciiname($ascii_name)
 {
 	global $db;
 	
-	$city = null;
+	$country = null;
 	
 	$sql = 'SELECT id, name
-	               FROM '.DB_PREFIX.'cities
-	               WHERE ascii_name = "' . $ascii_name . '"';
+	               FROM '.DB_PREFIX.'countries
+	               WHERE name = "' . str_replace('-', ' ', $ascii_name) . '"';
 
 	$result = $db->query($sql);
 	$row = $result->fetch_assoc();
 	
 	if ($row)
-		$city = array('id' => $row['id'], 'name' => $row['name']);
+		$country = array('id' => $row['id'], 'name' => $row['name']);
 		
-	return $city;
+	return $country;
 }
 
 /**
@@ -232,29 +232,29 @@ function iniSectionsToJSON($iniSections)
 }
 
 /**
- * Returns the city with the specified ID or null
- * if the city was not found.
+ * Returns the country with the specified ID or null
+ * if the country was not found.
  *
- * @param $cityID
+ * @param $countryID
  * @return 
  */
-function get_city_by_id($cityID)
+function get_country_by_id($countryID)
 {
 	global $db;
 	
-	$city = null;
+	$country = null;
 	
 	$sql = 'SELECT id, name
-	               FROM '.DB_PREFIX.'cities
-	               WHERE id = ' . $cityID;
+	               FROM '.DB_PREFIX.'countries
+	               WHERE id = ' . $countryID;
 	$result = $db->query($sql);
 	
 	$row = $result->fetch_assoc();
 	
 	if ($row)
-		$city = array('id' => $row['id'], 'name' => $row['name']);
+		$country = array('id' => $row['id'], 'name' => $row['name']);
 		
-	return $city;  
+	return $country;  
 }
 
 function get_types()
@@ -357,9 +357,9 @@ function generate_sitemap($type)
     $categories = get_categories();
     $i = 0; while($i < count($categories)) { $sitemap[BASE_URL . URL_JOBS . '/' . $categories[$i]['var_name'] . '/'] = 1; $i++; }
     
-    // Get all cities
-    $cities = get_cities();
-    $i = 0; while($i < count($cities)) { $sitemap[BASE_URL . URL_JOBS_IN_CITY . '/' . $cities[$i]['ascii_name'] . '/'] = 1; $i++; }
+    // Get all countries
+    $countries = get_countries();
+    $i = 0; while($i < count($countries)) { $sitemap[BASE_URL . URL_JOBS_IN_COUNTRY . '/' . $countries[$i]['ascii_name'] . '/'] = 1; $i++; }
 
     // Get all companies
     $result = $db->query('SELECT company FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 GROUP BY company');
