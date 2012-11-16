@@ -20,7 +20,9 @@
 
 <h2>Welcome to fossjobs.net</h2>
 <div>
-We are the first platform exclusively for Free &amp; Open Source jobs. The <a href="about/">platform is open source itself</a>, so you can help improve it.</div>	
+<p>This is the first website exclusively for Free &amp; Open Source jobs: We only list jobs that directly improve and involve FOSS projects. The <a href="about/">platform is open source itself</a>.</p>
+<p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a></p>
+<hr/></div>	
 
 		{if $latest_jobs}
 			<div class="recent-jobs zebra-striped"><!-- Recent Jobs /-->
