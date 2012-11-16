@@ -148,7 +148,6 @@ fieldset.hidden{display:none}
 code{font-size:12px}
 #accordion-list h4{cursor:pointer; cursor:hand; text-decoration:underline}
 fieldset.no-border{border:0; padding:0}
-#location_outside_ro{margin-top:5px}
 #job-description{border-top:1px solid #ddd; border-bottom:1px solid #ddd; padding:10px 0 10px 0}
 /* TYPOGRAPHY */
 a{color:#09C; background-color:transparent; text-decoration:none}

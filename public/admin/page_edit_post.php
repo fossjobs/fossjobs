@@ -69,7 +69,7 @@ if ($id != 0)
 		$jobToEdit['url'] = $_POST['url'];
 		$jobToEdit['title'] = $_POST['title'];
 		$jobToEdit['country_id'] = $country_id;
-		$jobToEdit['location_outside_ro_where'] = ($isCountrySelected ? '' : $_POST['location_outside_ro_where']);
+		$jobToEdit['city'] = $_POST['city'];
 		$jobToEdit['category_id'] = $_POST['category_id'];
 		$jobToEdit['type_id'] = $_POST['type_id'];
 		$jobToEdit['description'] = $_POST['description'];
@@ -80,9 +80,8 @@ if ($id != 0)
 		$jobToEdit['type_id'] = $_POST['type_id'];
 		
 		$jobToEdit['textiledDescription'] = $textile->TextileThis($_POST['description']);
-		$jobToEdit['location_outside_ro'] = $jobToEdit['location_outside_ro_where'];
 		
-		$is_location_anywhere = $jobToEdit['country_id'] == 0 && $jobToEdit['location_outside_ro'] == '';
+		$is_location_anywhere = $jobToEdit['country_id'] == 0;
 		$jobToEdit['is_location_anywhere'] = $is_location_anywhere;
 		
 		if (!$is_location_anywhere)
@@ -90,13 +89,10 @@ if ($id != 0)
 			if ($isCountrySelected)
 			{
 				$country = get_country_by_id($country_id);
-				
 				$jobToEdit['country'] = $country['name'];
 			}
-			else
-				$jobToEdit['country'] = $jobToEdit['location_outside_ro'];
 		}
-			
+
 		// no errors
 		if (empty($errors))
 		{
@@ -113,7 +109,7 @@ if ($id != 0)
 				              'category_id' => $category_id,
 				              'type_id' => $type_id,
 				              'description' => $description,
-							  'location_outside_ro_where' => ($isCountrySelected ? '' : $location_outside_ro_where) ,
+					      'city' => $city,
 				              'apply' => '',
 				              'poster_email' => $poster_email,
 				              'apply_online' => $apply_online);

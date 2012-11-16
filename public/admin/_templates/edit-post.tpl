@@ -51,17 +51,13 @@
 						</div>
 						<div class="group">
 							<label for="country_id">{$translations.publish.location_label}</label>
-							<select name="country_id" id="country_id" {if $job.location_outside_ro != ''}disabled="disabled"{/if} class="ml1">
+							<select name="country_id" id="country_id" class="ml1">
 								<option value="0">{$translations.jobs.location_anywhere}</option>
 								{section name="c" loop=$countries}
 								<option value="{$countries[c].id}" {if $smarty.post.country_id == $countries[c].id || $job.country_id == $countries[c].id}selected="selected"{else}{if $user_country.id == $countries[c].id AND !$smarty.post.country_id AND !$job.country_id}selected="selected"{/if}{/if}>{$countries[c].name}</option>
 								{/section}
 							</select>
-							<a id="other_location_label" href="#" onclick="Jobber.HandleLocationOutsideRo(); return false;">{if $job.location_outside_ro != ''}pick one from the list{else}other{/if}</a>
-							<div id="location_outside_ro" {if $job.location_outside_ro != ''}style="display: block;"{else}style="display: none;"{/if} class="mt1 ml1">
-								{$translations.publish.where} <input type="text" name="location_outside_ro_where" id="location_outside_ro_where" size="41" maxlength="140" {if $job.location_outside_ro != ''}value="{$job.location_outside_ro|escape}"{/if} />
-								<div class="suggestion ml6">{$translations.publish.where_info}</div>
-							</div>
+								{$translations.publish.where} <input type="text" name="city" id="city" size="41" maxlength="140" {if $job.city != ''}value="{$job.city|escape}"{/if} />
 						</div>
 						<div class="group{if $errors.description} error{/if}">
 							<label for="description">{$translations.publish.description_label}</label>
