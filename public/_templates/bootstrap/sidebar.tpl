@@ -29,6 +29,9 @@
 				</ul>	
 			</div>
 			{/if}
+			<div class="spanner">
+			 <h6><a href="/rss/"><img src="/_templates/bootstrap/img/rss.png"> RSS Feeds</a></h6>
+			</div>
 			<div class="spannerlast">
 			{if $navigation.secondary != ''}
 			<h6>{$translations.sidebar.menu_title}</h6>
