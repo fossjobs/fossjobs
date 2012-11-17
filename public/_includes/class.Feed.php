@@ -83,8 +83,10 @@ class Feed
 				break;
 			}
 			
+			$location = $job['location'];
+			if ($location == '') $location='Worldwide';
 			$properties=array();  
-			$properties['description'] = '<strong>Location:</strong> ' . $job['location'] . '<br />';
+			$properties['description'] = '<strong>Location:</strong> ' . $location . '<br />';
 			if ($job['url'] != '' && $job['url'] != 'http://')
 			{
 				$properties['description'] .= '<strong>URL:</strong> <a href="' . $job['url'] . '">' . $job['url'] . '</a><br /><br />';
