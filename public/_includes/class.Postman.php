@@ -124,7 +124,6 @@ class Postman
 			
 			$mailer->SetFrom(NOTIFY_EMAIL, SITE_NAME);
 	    	$mailer->AddAddress($poster_email);
-		$mailer->AddAddress(NOTIFY_EMAIL);
 			$mailer->Subject = $subject;
 			$mailer->Body = $this->nl2br($msg);
 			$mailer->AltBody = $msg;
