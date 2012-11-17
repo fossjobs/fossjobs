@@ -57,11 +57,11 @@
 									<option value="{$countries[c].id}" {if $smarty.post.country_id == $countries[c].id || $job.country_id == $countries[c].id}selected="selected"{else}{if $user_country.id == $countries[c].id AND !$smarty.post.country_id AND !$job.country_id}selected="selected"{/if}{/if}>{$countries[c].name}</option>
 									{/section}
 								</select>
-								<input type="text" name="city" id="city" class="span6" {if $smarty.post.city != ''}value="{$smarty.post.city|escape}"{/if} placeholder="{$translations.publish.where} {$translations.publish.where_info}" />
+								<input type="text" name="city" id="city" class="span5" {if $smarty.post.city != ''}value="{$smarty.post.city|escape}"{/if} placeholder="{$translations.publish.where} {$translations.publish.where_info}" />
 							</td>
 						</tr>
 						<tr>
-							<td><textarea tabindex="4" name="description" id="description" rows="15" class="span8" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
+							<td><textarea tabindex="4" name="description" id="description" rows="15" class="span10" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
 								{if $errors.description}<span class="validation-error"><img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /></span>{/if}
 								<div class="suggestion">
 									<a target="_blank" href="http://www.textism.com/tools/textile/" onclick="$('#textile-suggestions').toggle(); return false;">{$translations.publish.description_info}</a></div>
