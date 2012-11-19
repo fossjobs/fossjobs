@@ -1,24 +1,9 @@
-######## Useful info ########
+# fossjobs
 
-Our blog: http://www.jobberbase.com/blog/
-Community forums: http://www.jobberbase.com/forum/
-Wiki (customisation guide, installation problems, faqs and themes details): http://wiki.jobberbase.com/
-Project on Google Code: http://code.google.com/p/jobberbase/
-Follow us on twitter: http://twitter.com/jobberbase
-E-mail us at: hello@jobberbase.com
+[fossjobs](http://www.fossjobs.net/) is the first website exclusively for Free & Open Source jobs. It uses the open source software [Jobberbase](http://www.jobberbase.com/) (see readme.txt for links and installation guides).
 
-=========================================================================================================
+To post a job that directly improves FOSS or open hardware projects, [check our our site](http://www.fossjobs.net/). You can also submit jobs directly by emailing submit@fossjobs.net.
 
-######## Install Guides ########
+## Social Networks
 
-For Apache:
-http://wiki.jobberbase.com/install/guide-for-apache
-
-For IIS:
-http://wiki.jobberbase.com/install/guide-for-iis
-
-=========================================================================================================
-
-ENJOY!
-
--- last updated: 7:35pm GMT, March 24, 2009
+Connect with us on [OStatus](https://status.headstrong.de/fossjobs), [Twitter](https://twitter.com/fossjobs_net) and [Facebook](https://www.facebook.com/fossjobs.net).
