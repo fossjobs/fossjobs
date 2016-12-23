@@ -8,7 +8,7 @@
 						<span class="label {$job.type_var_name}">{$compjob.type_name}</span>
 					</div>
 					<div class="span10">
-						<h5>{$compjob.title}</h5>
+						<h5><a href="{$BASE_URL}{$URL_JOB}/{$compjob.id}/{$compjob.url_title}/" title="{$compjob.title}">{$compjob.title}</a></h5>
 						<span>{$translations.homepage.at}</span> {$compjob.company}{if $compjob.is_location_anywhere}, {$translations.jobs.location_anywhere}{else} <span>{$translations.homepage.in}</span> {$compjob.location}{/if}
 					</div>
 					
