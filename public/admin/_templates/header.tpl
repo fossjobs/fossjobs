@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{$BASE_URL_ADMIN}_templates/css/screen.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{$BASE_URL_ADMIN}_templates/css/jquery.fancybox-1.2.6.css" type="text/css" media="screen" />
  
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
  
 	<script src="{$BASE_URL_ADMIN}_templates/js/jquery.bgiframe.min.js" type="text/javascript"></script>
 	<script src="{$BASE_URL_ADMIN}_templates/js/jquery.validate.min.js" type="text/javascript"></script>

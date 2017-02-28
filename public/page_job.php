@@ -68,7 +68,7 @@
 		$job_flag = true;
 		
 		$url = BASE_URL . URL_JOB .'/' . $id . '/' . $info['url_title'] . '/';
-		$current_url = 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+		$current_url = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 		
 		if ($current_url != $url) redirect_to($url, 301);
 		
