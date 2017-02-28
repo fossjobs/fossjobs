@@ -1,5 +1,5 @@
 /* Override some defaults */
-    html, body {background-color: #D7CEC8;}
+    html, body {background-color: #0094c6;}
     body {padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */}
     .container > footer p {text-align: center; /* center align it with the container */}
     .container {}
@@ -18,7 +18,7 @@
 	.topbar .customnav {float:right;margin-right:1px;}
 	.topbar li:hover ul {display: block;}
     /* Page header tweaks */
-    .page-header {background-color: #F5EFE6;min-height:40px;padding: 20px 20px 10px;margin: -20px -20px 20px;}
+    .page-header {background-color: #005e7c;min-height:40px;padding: 20px 20px 10px;margin: -20px -20px 20px;}
 	.page-header .coll {width: 220px;float:left}
 	.page-header .colr{padding-left:20px;}
 	.page-header input {font-size: 15px;padding: 9px 14px 9px;}
