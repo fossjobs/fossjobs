@@ -22,7 +22,7 @@
 <div>
 <p>This is the <b>first website exclusively for Free &amp; Open Source jobs</b>: We only list jobs that directly improve and involve FOSS or Open Hardware projects. The <a href="about/">platform is open source itself</a>.</p>
 <p>You can also send us job links to <b>submit [at] fossjobs [dot] net</b>.</p>
-<br/><p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a> - IRC irc.freenode.org <a href="irc://irc.freenode.org/#fossjobs">#fossjobs</a> - Facebook <a href="https://www.facebook.com/fossjobs.net">Fossjobs</a> - status.net <a href="https://status.headstrong.de/fossjobs">@fossjobs</a></p>
+<br/><p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a> - IRC irc.freenode.org <a href="irc://irc.freenode.org/#fossjobs">#fossjobs</a> - Facebook <a href="https://www.facebook.com/fossjobs.net">Fossjobs</a></p>
 <hr/></div>	
 
 		{if $latest_jobs}
