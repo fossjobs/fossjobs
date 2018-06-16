@@ -84,7 +84,7 @@
 		{
 			$errors['company'] = $translations['jobs']['name_error'];
 		}
-		if ($title == '')
+		if (($title == '') || ($title == $company))
 		{
 			$errors['title'] = $translations['jobs']['title_error'];
 		}
