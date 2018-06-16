@@ -18,12 +18,15 @@
 			</div><!-- End Spotlight Jobs /-->
 		{/if}
 
-<h2>Welcome to fossjobs.net</h2>
 <div>
-<p>This is the <b>first website exclusively for Free &amp; Open Source jobs</b>: We only list jobs that directly improve and involve FOSS or Open Hardware projects. The <a href="about/">platform is open source itself</a>.</p>
-<p>You can also send us job links to <b>submit [at] fossjobs [dot] net</b>.</p>
-<br/><p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a> - IRC irc.freenode.org <a href="irc://irc.freenode.org/#fossjobs">#fossjobs</a> - Facebook <a href="https://www.facebook.com/fossjobs.net">Fossjobs</a></p>
+<img src="/fossjobs.logo.svg" width="200" style="float:right; margin:5px;" alt="">
+<h2>Welcome to fossjobs.net</h2>
+<div style="margin:5px">
+<p>This is a job board <b>exclusively for free &amp; open source jobs: We only list jobs that improve and involve FOSS or open hardware projects. Merely _using_ open source is not enough.</b> The <a href="about/">platform is open source itself</a>.</p>
+<p>You can also send us job links to <b>submit [(at)] fossjobs [dot] net</b>.</p>
+<br/><p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a> &bull; IRC chat.freenode.net <a href="ircs://chat.freenode.net/#fossjobs">#fossjobs</a> &bull; <a href="https://www.facebook.com/fossjobs.net">Facebook</a> &bull; <a href="https://www.fossjobs.net/rss/">RSS Feeds</a> &bull; <a href="https://github.com/fossjobs/">Github</a></p>
 <hr/></div>	
+</div>
 
 		{if $latest_jobs}
 			<div class="recent-jobs zebra-striped"><!-- Recent Jobs /-->
