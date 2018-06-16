@@ -44,6 +44,11 @@
 				<div class="job-description">
 					<p>{$job.description}</p>
 				</div>
+				{if $job.url && $job.url != 'http://'}
+				<div class="job-link">
+					<p><a href="{$job.url}">{$job.url}</a></p>
+				</div>
+				{/if}
 				<div class="apply-now">
 					{if $job.apply_online == 1 && $CURRENT_PAGE != 'verify'}
 					<a class="btn primary" href="#" onclick="$('#apply-online').toggle(); window.location.href = '#apply'; return false;">{$translations.apply.apply_message}</a>
