@@ -1,8 +1,8 @@
 # fossjobs
 
-[fossjobs](http://www.fossjobs.net/) is the first website exclusively for Free & Open Source jobs. It uses the open source software [Jobberbase](http://www.jobberbase.com/) (see readme.txt for links and installation guides).
+[fossjobs](https://www.fossjobs.net/) is the first website exclusively for Free & Open Source jobs. It uses the open source software [Jobberbase](http://www.jobberbase.com/) (see [their README.md](https://github.com/filipcte/jobberbase/blob/master/README.md) for links and installation guides).
 
-To post a job that directly improves FOSS or open hardware projects, [check our our site](http://www.fossjobs.net/). You can also submit jobs directly by emailing submit@fossjobs.net.
+You can post a job [on the website](https://www.fossjobs.net), as long as it directly improves FOSS or open hardware projects. You can also submit jobs directly by emailing submit@fossjobs.net.
 
 ## Social Networks
 

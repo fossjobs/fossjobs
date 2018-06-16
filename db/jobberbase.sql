@@ -277,7 +277,7 @@ INSERT INTO `countries` (`id`, `name`) VALUES
 (196, 'Sao Tome and Principe'),
 (197, 'Saudi Arabia'),
 (198, 'Senegal'),
-(199, 'Serbia and Montenegro'),
+(199, 'Serbia'),
 (200, 'Seychelles'),
 (201, 'Sierra Leone'),
 (202, 'Singapore'),
