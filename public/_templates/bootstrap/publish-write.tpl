@@ -158,6 +158,7 @@
 					</div>
 				</div>
 				{/if}
+<!--
 				<div class="row">
 					<div class="span10">
 					  <ul class="inputs-list">
@@ -170,6 +171,8 @@
 					  </ul>	
 					</div>
 				</div>	
+-->
+				<input type="hidden" name="apply_online" id="apply_online" value="0" />
 				<input type="submit" name="submit" id="submit" class="btn danger" value="{$translations.publish.step1_submit}" />
 				<fieldset class="hidden">					
 					<input type="hidden" name="action" {if $job.id || $smarty.session.later_edit}value="edit"{else}value="publish"{/if} />
