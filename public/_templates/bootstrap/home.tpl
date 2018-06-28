@@ -19,7 +19,7 @@
 		{/if}
 
 <div>
-<img src="/fossjobs.logo.svg" width="200" style="float:right; margin:5px;" alt="">
+<img src="/fossjobs.logo.svg" width="200" style="float:right; margin-left:15px;" alt="">
 <h2>Welcome to fossjobs.net</h2>
 <div style="margin:5px">
 <p>This is a job board <b>exclusively for free &amp; open source jobs: We only list jobs that improve and involve FOSS or open hardware projects. Merely _using_ open source is not enough.</b> The <a href="about/">platform is open source itself</a>.</p>
