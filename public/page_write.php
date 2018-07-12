@@ -113,7 +113,7 @@
 		// no errors, go to review page
 		if (empty($errors))
 		{
-			if (!strstr($url, 'http://'))
+			if (!strstr($url, 'http'))
 			{
 				$url = 'http://' . $url;
 			}
