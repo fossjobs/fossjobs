@@ -32,6 +32,8 @@
 	
 	$meta_description = '';
 	$meta_keywords = '';
+
+	$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
 	
 	if(!isset($_SERVER['HTTP_REFERER'])) 
 	{
@@ -148,18 +150,18 @@
 			
 		case 'rss':
 			require_once 'page_rss.php';
-			$html_title = 'RSS Feeds for ' . SITE_NAME;
+			$html_title = 'RSS Feeds' . $title_suffix;
 			$flag = 1;
 			break;
 			
 		case 'sitemap':
-			$html_title = 'Sitemap';
+			$html_title = 'Sitemap' . $title_suffix;
 			$template = 'sitemap.tpl';
 			$flag = 1;
 			break;
 			
 		case 'widgets':
-			$html_title = 'Widgets - ' . SITE_NAME;
+			$html_title = 'Widgets' . $title_suffix;
 			$template = 'widgets.tpl';
 			$flag = 1;
 			break;		
@@ -176,7 +178,7 @@
 			break;
 			
 		case 'job-unavailable':
-			$html_title = 'Unavailable job / ' . SITE_NAME;
+			$html_title = 'Unavailable job' . $title_suffix;
 			$template = 'no-job.tpl';
 			$flag = 1;
 			break;
@@ -194,7 +196,7 @@
 		// 404 etc. error page
 		case 'page-unavailable':
 			// TO-DO: add suggestion if no trailing slash supplied
-			$html_title = 'Page unavailable / ' . SITE_NAME;
+			$html_title = 'Page unavailable' . $title_suffix;
 			$template = 'error.tpl';
 			$flag = 1;
 			break;
@@ -211,7 +213,7 @@
 			$pageData = $result->fetch_assoc();
 			if (is_array($pageData)) {
 				require_once 'page_page.php';
-				$html_title = $pageData['page_title'] . ' - ' . SITE_NAME;
+				$html_title = $pageData['page_title'] . $title_suffix;
 				$meta_keywords = $pageData['keywords'];
 				$meta_description = $pageData['description'];
 				$template = 'page.tpl';
