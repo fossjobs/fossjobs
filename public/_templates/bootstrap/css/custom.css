@@ -28,6 +28,10 @@
     .content .span10,
     .content .span4 {/* min-height: 500px; */}
 
+    .content .recent {
+	font-weight: bold;
+    }
+
     /* Give a quick and non-cross-browser friendly divider */
     .content .jobmain .span4 {margin-left: 0;}
 	.content .jobmain .span4 .spannerfirst {padding-top:20px;}
