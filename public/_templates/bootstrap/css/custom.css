@@ -30,6 +30,7 @@
 
     .content .recent {
 	font-weight: bold;
+	font-size: 110%;
     }
 
     /* Give a quick and non-cross-browser friendly divider */
@@ -51,7 +52,6 @@
 	.content .jobmain .span12 .row .span2 {padding-top:20px;}
 	.content .jobmain .span12 .row {min-height:60px;border-top: 1px solid #eee;padding-top:10px;margin-right:-19px;}
 	.content .jobmain .span12 .row  .endrow {border-top: 1px solid #eee;padding-top:10px;margin-right:-19px;}
-	.content .jobmain .span12 .row .span10 span {font-size:12px;}
 	.content .jobmain .span12 .row .span10 .spanuser a {color:#FF370F;text-decoration: none;}
 	.content .jobmain .span12 .row .span10 .spanuser a:hover {color:#FF370F;text-decoration: underline;}
 	.content .jobmain .span12 .row .span10 h5,.content .jobmain .span12 .row .span10 a {color:#1D80BE;}
