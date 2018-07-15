@@ -1182,7 +1182,7 @@ class Job
 	{
 		global $db;
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND country_id AND created_on >= CURDATE() - INTERVAL 3 MONTH IS NULL';
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= CURDATE() - INTERVAL 3 MONTH AND country_id IS NULL';
 
 		$result = $db->query($sql);
 		
