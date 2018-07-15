@@ -1068,7 +1068,7 @@ class Job
 			$condition .= ' AND category_id = ' . $categ_id;
 		}
 
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1' . $condition;
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= CURDATE() - INTERVAL 3 MONTH' . $condition;
 		
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
@@ -1091,7 +1091,7 @@ class Job
 		global $db;
 		$jobsCountPerCategory = array();
 		
-		$sql = 'SELECT category_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 GROUP BY category_id'; 
+		$sql = 'SELECT category_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= CURDATE() - INTERVAL 3 MONTH GROUP BY category_id'; 
 		$result = $db->query($sql);
 		
 		while ($row = $result->fetch_assoc())
@@ -1117,7 +1117,7 @@ class Job
 		global $db;
 		$jobsCountPerCountry = array();
 		
-		$sql = 'SELECT country_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 and country_id IS NOT NULL GROUP BY country_id'; 
+		$sql = 'SELECT country_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= CURDATE() - INTERVAL 3 MONTH and country_id IS NOT NULL GROUP BY country_id'; 
 		$result = $db->query($sql);
 		
 		while ($row = $result->fetch_assoc())
@@ -1169,7 +1169,7 @@ class Job
 			$condition .= ' AND type_id = ' . $type_id;
 		}
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1'. $condition;
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= CURDATE() - INTERVAL 3 MONTH'. $condition;
 
 		$result = $db->query($sql);
 		
@@ -1182,7 +1182,7 @@ class Job
 	{
 		global $db;
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND country_id IS NULL';
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND country_id AND created_on >= CURDATE() - INTERVAL 3 MONTH IS NULL';
 
 		$result = $db->query($sql);
 		
