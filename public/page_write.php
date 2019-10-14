@@ -113,7 +113,7 @@
 		// no errors, go to review page
 		if (empty($errors))
 		{
-			if (!strstr($url, 'http'))
+			if (!preg_match('^https?://', $url))
 			{
 				$url = 'http://' . $url;
 			}
@@ -198,7 +198,7 @@
 		{
 			$job = new Job($job_id);
 			
-			if (!strstr($url, 'http://'))
+			if (!preg_match('^https?://', $url))
 			{
 				$url = 'http://' . $url;
 			}
