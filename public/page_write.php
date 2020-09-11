@@ -113,9 +113,9 @@
 		// no errors, go to review page
 		if (empty($errors))
 		{
-			if (!preg_match('^https?://', $url))
+			if (!preg_match('/^https?:/', $url))
 			{
-				$url = 'http://' . $url;
+				$url = 'https://' . $url;
 			}
 			if (!isset($country_id))
 			{
@@ -198,9 +198,9 @@
 		{
 			$job = new Job($job_id);
 			
-			if (!preg_match('^https?://', $url))
+			if (!preg_match('/^https?:/', $url))
 			{
-				$url = 'http://' . $url;
+				$url = 'https://' . $url;
 			}
 			
 			if (!isset($country_id))
