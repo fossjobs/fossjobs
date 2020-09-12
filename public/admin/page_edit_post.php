@@ -141,8 +141,8 @@ if ($id != 0)
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('types', get_types());
 	$smarty->assign('countries', get_countries());
-	
-	$html_title = $translations['jobs']['title_edit'] . ' / ' . SITE_NAME;
+	$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
+	$html_title = $translations['jobs']['title_edit'] . $title_suffix;
 	
 	$template = 'edit-post.tpl';
 ?>
