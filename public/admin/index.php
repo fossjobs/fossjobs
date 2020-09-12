@@ -27,6 +27,8 @@
 	}
 	
 	$job = new Job();
+
+	$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
 	
 	switch($page)
 	{
@@ -121,7 +123,7 @@
 				redirect_to(BASE_URL);
 				exit;
 			}
-			$html_title = 'Page unavailable / ' . SITE_NAME;
+			$html_title = 'Page unavailable' . $title_suffix;
 			$template = 'error.tpl';
 			$flag = 1;
 			break;
@@ -170,7 +172,7 @@
 				exit;
 			}
 			require_once 'page_password.php';
-			$html_title = 'Change password / ' . SITE_NAME;
+			$html_title = 'Change password' . $title_suffix;
 			$template = 'password.tpl';
 			$flag = 1;
 			break;

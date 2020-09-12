@@ -24,7 +24,8 @@
 		$category = get_category_by_id($info['category_id']);
 		$category_var_name = $category['var_name'];
 		
-		$html_title = stripslashes($info['title']) . ' la ' . stripslashes($info['company']) . ' / ' . SITE_NAME;
+		$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
+		$html_title = stripslashes($info['title']) . ' la ' . stripslashes($info['company']) . $title_suffix;
 		
 		if(isset($_SERVER['HTTP_REFERER']))
 		{

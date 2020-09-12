@@ -255,14 +255,16 @@
 	$smarty->assign('categories', get_categories());
 	$smarty->assign('types', get_types());
 	$smarty->assign('countries', get_countries());
+
+	$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
 	
 	if ($later_edit)
 	{
-		$html_title = $translations['jobs']['title_edit'] . ' / ' . SITE_NAME;
+		$html_title = $translations['jobs']['title_edit'] . $title_suffix;
 	}
 	else
 	{
-		$html_title = $translations['jobs']['title_new'] . ' / ' . SITE_NAME;
+		$html_title = $translations['jobs']['title_new'] . $title_suffix;
 	}
 	
 	if (isset($apply_online))

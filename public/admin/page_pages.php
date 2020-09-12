@@ -124,14 +124,14 @@
 		}
 		$smarty->assign('defaults', $defaults);
 		$smarty->assign('errors', $errors);
-		$html_title = $isPage ? 'Editing page ' . $row['title'] . ' / ' : '';
-		$html_title .= SITE_NAME;
+		$html_title = $isPage ? 'Editing page ' . $row['title'] . $translations['header']['title_sep'] : '';
+		$html_title .= $translations['header']['name'];
 		$smarty->assign('editor', true);
 		$template = 'page_edit.tpl';
 		$js[] = 'editor';
 	} else {
 		$smarty->assign('list_pages', true);
-		$html_title = 'Pages / ' . SITE_NAME;
+		$html_title = 'Pages' . $translations['header']['title_sep'] . $translations['header']['name'];
 		$template = 'pages.tpl';
 	}
 		

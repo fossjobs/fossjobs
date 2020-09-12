@@ -15,12 +15,14 @@
 	
 	$postMan->MailPublishToAdmin($jobInfo);
 
+	$title_suffix = $translations['header']['title_sep'] . $translations['header']['name'];
+
 	if ($postRequiresModeration)
 	{
 		if ($isNewPost)
 			$postMan->MailPublishPendingToUser($job->mPosterEmail);
 		
-		$html_title = $translations['jobs']['add_success'] . ' / ' . SITE_NAME;
+		$html_title = $translations['jobs']['add_success'] . $title_suffix;
 	}
 	else
 	{
@@ -30,7 +32,7 @@
 		if ($isNewPost)
 			$postMan->MailPublishToUser($jobInfo);
 		
-		$html_title = $translations['jobs']['publish_success'] . ' / ' . SITE_NAME;
+		$html_title = $translations['jobs']['publish_success'] . $title_suffix;
 	}
 	
 	$smarty->assign('postRequiresModeration', $postRequiresModeration);
