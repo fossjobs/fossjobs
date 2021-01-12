@@ -807,7 +807,11 @@ class Job
 		               WHERE var_name = "' . $var_name . '"';
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
-		return $row['id'];
+		if (isset($row['id'])) {
+			return $row['id'];
+		} else {
+			return;
+		}
 	}
 	
 	public function GetTempStatus()
