@@ -26,9 +26,9 @@ class Db extends mysqli
 		} 
 	}
 	
-	public function query($query)
+	public function query($query, $resultmode = MYSQLI_STORE_RESULT)
 	{
-		$result = parent::query($query); 
+		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT); 
 	  if(mysqli_error($this) && ENVIRONMENT == 'dev')
 		{
 			throw new QueryException(mysqli_error($this), mysqli_errno($this)); 
@@ -38,7 +38,7 @@ class Db extends mysqli
 	
 	public function QueryArray($query)
 	{
-		$result = parent::query($query); 
+		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT); 
 		$array_result = array();
 		while ($line = mysqli_fetch_array($result, MYSQL_ASSOC))
 		{
@@ -50,7 +50,7 @@ class Db extends mysqli
 	
 	public function QueryRow($query)
 	{
-		$result = parent::query($query);
+		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT);
 		$line = mysqli_fetch_array($result, MYSQL_ASSOC);
 		return $line;
 	}
@@ -58,7 +58,7 @@ class Db extends mysqli
 	// Runs a query and returns result as a single variable
 	public function QueryItem($query)
 	{
-		$result = parent::query($query);
+		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT);
 		$line = mysqli_fetch_array($result, MYSQL_NUM);
 		if ($line)
 		{
@@ -69,7 +69,7 @@ class Db extends mysqli
 	
 	public function Execute($query)
 	{
-		$result = parent::query($query); 
+		$result = parent::query($query,$resultmode = MYSQLI_STORE_RESULT); 
 	  if(mysqli_error($this))
 		{
 			return false;
@@ -87,7 +87,7 @@ class Db extends mysqli
 	
 	public function ExecuteMultiple($query)
 	{
-		$result = parent::multi_query($query); 
+		$result = parent::multi_query($query, $resultmode = MYSQLI_STORE_RESULT); 
 		if(mysqli_error($this) && ENVIRONMENT == 'dev')
 		{
 			throw new QueryException(mysqli_connect_error(), mysqli_connect_errno()); 

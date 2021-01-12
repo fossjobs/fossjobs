@@ -184,7 +184,7 @@ class Job
 	// $random: (1/0) randomize results?
 	// $days_behind: (int) only get results from last N days
 	// $for_feed: (boolean) is this request from rss feed?
-	public function GetJobs($type_id = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $country_id = false, $type_id = false, $spotlight = false)
+	public function GetJobs($type_id2 = false, $categ_id = false, $limit = false, $random, $days_behind, $for_feed = false, $country_id = false, $type_id = false, $spotlight = false)
 	{
 		global $db;
 		$jobs = array();
