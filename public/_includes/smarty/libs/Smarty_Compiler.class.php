@@ -78,7 +78,7 @@ class Smarty_Compiler extends Smarty {
     /**
      * The class constructor.
      */
-    function Smarty_Compiler()
+    function __construct()
     {
         // matches double quoted strings:
         // "foobar"
@@ -262,13 +262,17 @@ class Smarty_Compiler extends Smarty {
         reset($this->_folded_blocks);
 
         /* replace special blocks by "{php}" */
-        $source_content = preg_replace($search.'e', "'"
-                                       . $this->_quote_replace($this->left_delimiter) . 'php'
-                                       . "' . str_repeat(\"\n\", substr_count('\\0', \"\n\")) .'"
-                                       . $this->_quote_replace($this->right_delimiter)
-                                       . "'"
-                                       , $source_content);
-
+            $source_content = preg_replace_callback($search,
+        function($matches) {
+            return
+                $this->_quote_replace($this->left_delimiter) . 'php' . str_repeat(
+                    $this->_quote_replace("\n"),
+                    substr_count($matches[0], $this->_quote_replace("\n"))
+                )
+                . $this->_quote_replace($this->right_delimiter);
+          },
+          $source_content
+        );
         /* Gather all template tags. */
         preg_match_all("~{$ldq}\s*(.*?)\s*{$rdq}~s", $source_content, $_match);
         $template_tags = $_match[1];
@@ -426,6 +430,16 @@ class Smarty_Compiler extends Smarty {
         return true;
     }
 
+
+function safeCount( $value )
+{
+	if ( is_countable( $value ) ){
+		return count( $value );
+	}
+
+	return 0;
+}
+
     /**
      * Compile a template tag
      *
@@ -556,11 +570,11 @@ class Smarty_Compiler extends Smarty {
 
             case 'php':
                 /* handle folded tags replaced by {php} */
-                list(, $block) = each($this->_folded_blocks);
+                $block = array_values($this->_folded_blocks)[0];
                 $this->_current_line_no += substr_count($block[0], "\n");
                 /* the number of matched elements in the regexp in _compile_file()
                    determins the type of folded tag that was found */
-                switch (count($block)) {
+                switch ($this->safeCount($block)) {
                     case 2: /* comment */
                         return '';
 
