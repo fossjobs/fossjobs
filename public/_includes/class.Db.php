@@ -40,7 +40,7 @@ class Db extends mysqli
 	{
 		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT); 
 		$array_result = array();
-		while ($line = mysqli_fetch_array($result, MYSQL_ASSOC))
+		while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 			$array_result[] = $line;
 		}
@@ -59,7 +59,7 @@ class Db extends mysqli
 	public function QueryItem($query)
 	{
 		$result = parent::query($query, $resultmode = MYSQLI_STORE_RESULT);
-		$line = mysqli_fetch_array($result, MYSQL_NUM);
+		$line = mysqli_fetch_array($result, MYSQLI_NUM);
 		if ($line)
 		{
 			return $line[0];

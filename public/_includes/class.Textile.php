@@ -233,7 +233,7 @@ class Textile
 	var $doc_root;
 
 // -------------------------------------------------------------
-	function Textile()
+	function __construct()
 	{
 		$this->hlgn = "(?:\<(?!>)|(?<!<)\>|\<\>|\=|[()]+(?! ))";
 		$this->vlgn = "[\-^~]";
@@ -687,7 +687,7 @@ class Textile
 // -------------------------------------------------------------
 	function span($text)
 	{
-		$qtags = array('\*\*','\*','\?\?','-','__','_','%','\+','~','\^');
+		$qtags = array('\*\*','\*','\?\?','\-','__','_','%','\+','~','\^');
 		$pnct = ".,\"'?!;:";
 
 		foreach($qtags as $f) {
@@ -998,7 +998,7 @@ class Textile
 // -------------------------------------------------------------
 	function footnoteRef($text)
 	{
-		return preg_replace('/(?<=\S)\[([0-9]+)\](\s)?/Ue',
+		return preg_replace('/(?<=\S)\[([0-9]+)\](\s)?/U',
 			'$this->footnoteID(\'\1\',\'\2\')', $text);
 	}
 

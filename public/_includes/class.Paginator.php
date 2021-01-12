@@ -21,7 +21,7 @@ class Paginator
   var $firstLimit;
   var $lastLimit;
 
-  function Paginator( $itemsCount, $items_per_page, $current_page = 1 )
+  function __construct( $itemsCount, $items_per_page, $current_page = 1 )
   {
     $this->itemsCount = $itemsCount;
     $this->items_per_page = $items_per_page;
