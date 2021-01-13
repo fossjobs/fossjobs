@@ -10,7 +10,6 @@
 						<!--Doesn't seem to be type-support for countries yet-->
 					<li><a href="{$BASE_URL}{$URL_JOBS_IN_COUNTRY}/{$country_ascii_name}/{$types[tmp].var_name}/" title="{$current_category} {$types[tmp].name}">{$types[tmp].name}</a></li>
 					{/section}
-					
 				</ul>
 				</div>
 				</div><!-- #sort-by-type -->
