@@ -1,14 +1,4 @@
 {include file="header.tpl"}
-
-		<div class="row jobmain">
-			{include file="sidebar.tpl"}
-			<div id="no-ads">
-			</div>
-		</div><!-- #content -->
-
-{include file="footer.tpl"}
-
-{include file="header.tpl"}
 		
 <section class="container">
 <div class="columns">
