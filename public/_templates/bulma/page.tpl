@@ -56,28 +56,6 @@
 			</div><!-- #contact-form -->
 			{/if}
 
-		{if $page.has_form == '1'}
-		{literal}
-		<script type="text/javascript">
-	 		$(document).ready(function()
-			{
-				$("#apply-online").validate({
-					rules: {
-						contact_name: { required: true },
-						contact_email: { required: true, email: true },
-						contact_msg: { required: true }
-					},
-					messages: {
-						contact_name: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						contact_email: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						contact_msg: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />'
-					}
-				});
-			});
-		</script>
-		{/literal}
-		{/if}
-
 		</div>
 		</div>
 

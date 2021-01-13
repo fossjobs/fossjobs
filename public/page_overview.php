@@ -78,5 +78,5 @@
 		}
 	
 
-	$template = 'companies.tpl';
+	$template = 'overview.tpl';
 ?>
