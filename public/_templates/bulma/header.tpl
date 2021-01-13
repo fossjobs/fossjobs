@@ -23,19 +23,20 @@
 	{/if}
 		</head>
 	<body>
-		<nav class="navbar is-white topNav" role="navigation" aria-label="dropdown navigation">
-			<div class="container">
+		<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+		<div class="container">
 				<div class="navbar-brand">
 					<a class="navbar-item" href="{$BASE_URL}">
 						<img src="{$BASE_URL}logo.svg" height="28"> 
 					</a>
-					<div class="navbar-burger burger" data-target="topNav">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="topNav">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
 				</div>
 				<div id="topNav" class="navbar-menu">
+					<div class="navbar-start">
 					{if $navigation.primary != ''}
 					{section name=tmp loop=$navigation.primary}
 						{if $smarty.const.ENABLE_NEW_JOBS || (!$smarty.const.ENABLE_NEW_JOBS && $navigation.primary[tmp].url != 'post')}
@@ -44,6 +45,7 @@
 						{/if}
 					{/section}
 					{/if}		
+					</div>
 				</div>
 				<div class="navbar-end">
 					<div class="navbar-item">
@@ -56,3 +58,4 @@
 				</div>
 			</div>
 		</nav>
+

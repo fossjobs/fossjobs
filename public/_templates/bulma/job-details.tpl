@@ -3,7 +3,7 @@
 		<h6><a href="{$back_link}" title="category home">&laquo; {$translations.notfound.back}</a></h6>
 				
 				{if ($job.days_old > $smarty.const.OLD_JOB_NOTIFY) && ($smarty.const.OLD_JOB_NOTIFY > 0)}
-				<div class="alert-message block-message error">
+				<div class="notification is-warning">
 					<p>{$translator->translate("apply.old_ad", $smarty.const.OLD_JOB_NOTIFY)}</p>
 				</div>
 				{/if}
@@ -31,7 +31,7 @@
 					<p><a href="{$job.url}">{$job.url}</a></p>
 				</div>
 				{/if}
-				
+
 			{include file="company-posts-loop.tpl"}
 </div>
 </div>
