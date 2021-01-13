@@ -9,11 +9,8 @@
 		<meta name="generator" content="Jobberbase v{$smarty.const.JOBBERBASE_VERSION}">
 		<title>{if $seo_title}{$seo_title}{else}{$html_title}{/if}</title>
 		<link rel="shortcut icon" href="{$BASE_URL}favicon.ico" type="image/x-icon">
-<!--
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
--->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-		<!-- Bulma Version 0.9.0-->
+
+		<link href="{$BASE_URL}_templates/{$THEME}/fonts/fonts.css" rel="stylesheet">
 		<link rel="stylesheet" href="{$BASE_URL}_templates/{$THEME}/css/bulma.0.9.1.min.css" />
 		<link rel="stylesheet" type="text/css" href="{$BASE_URL}_templates/{$THEME}/css/forum.css">
 	{if $CURRENT_PAGE == '' || $CURRENT_PAGE != 'jobs'}
