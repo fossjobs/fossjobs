@@ -104,7 +104,7 @@ function _recaptcha_http_post($host, $path, $data, $port = 80) {
  */
 function recaptcha_get_html ($pubkey, $error = null, $use_ssl = true)
 {
-	return '<input name="recaptcha_response_field" id="recaptcha_response_field" autocorrect="off" autocapitalize="off" placeholder="Please enter 42" autocompletion="off" type="text"/><p/>';
+	return '<input class="input" name="recaptcha_response_field" id="recaptcha_response_field" autocorrect="off" autocapitalize="off" placeholder="Please enter 42" autocompletion="off" type="text"/><p/>';
 }
 
 
@@ -133,14 +133,15 @@ function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $ex
 	if ($remoteip == null || $remoteip == '') {
 		die ("For security reasons, you must pass the remote ip to reCAPTCHA");
 	}
+        
+        $recaptcha_response = new ReCaptchaResponse();
 
-	
 	if ($response == "42") {
 		$recaptcha_response->is_valid = true;
 	} 
         else {
                 $recaptcha_response->is_valid = false;
-                $recaptcha_response->error = $answers [1];
+                $recaptcha_response->error = $response;
         }
         return $recaptcha_response;
 

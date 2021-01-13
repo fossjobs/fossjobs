@@ -69,7 +69,6 @@ td {
   font-weight: normal;
   font-style: normal;
   font-size: 100%;
-  line-height: 1;
   font-family: inherit;
 }
 table {
@@ -112,7 +111,6 @@ section {
 audio, canvas, video {
   display: inline-block;
   *display: inline;
-  *zoom: 1;
 }
 audio:not([controls]) {
   display: none;
@@ -190,15 +188,13 @@ body {
   color: #404040;
 }
 .container {
-  width: 940px;
+  max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-  zoom: 1;
 }
 .container:before, .container:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .container:after {
   clear: both;
@@ -208,12 +204,10 @@ body {
   min-width: 940px;
   padding-left: 20px;
   padding-right: 20px;
-  zoom: 1;
 }
 .container-fluid:before, .container-fluid:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .container-fluid:after {
   clear: both;
@@ -250,13 +244,11 @@ a:hover {
   display: block;
 }
 .row {
-  zoom: 1;
   margin-left: -20px;
 }
 .row:before, .row:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .row:after {
   clear: both;
@@ -294,13 +286,13 @@ a:hover {
   width: 520px;
 }
 .span10 {
-  width: 580px;
+  max-width: 580px;
 }
 .span11 {
   width: 640px;
 }
 .span12 {
-  width: 700px;
+  max-width: 700px;
 }
 .span13 {
   width: 760px;
@@ -589,12 +581,10 @@ fieldset legend {
 }
 form .clearfix {
   margin-bottom: 18px;
-  zoom: 1;
 }
 form .clearfix:before, form .clearfix:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 form .clearfix:after {
   clear: both;
@@ -1568,7 +1558,6 @@ a.menu:after, .dropdown-toggle:after {
   margin-left: 0;
   margin-right: 0;
   padding: 6px 0;
-  zoom: 1;
   border-color: #999;
   border-color: rgba(0, 0, 0, 0.2);
   border-style: solid;
@@ -1642,7 +1631,6 @@ a.menu:after, .dropdown-toggle:after {
   margin: 0 0 18px;
   padding: 0;
   list-style: none;
-  zoom: 1;
 }
 .tabs:before,
 .pills:before,
@@ -1650,7 +1638,6 @@ a.menu:after, .dropdown-toggle:after {
 .pills:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .tabs:after, .pills:after {
   clear: both;
@@ -2213,13 +2200,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -webkit-box-shadow: inset 0 1px 0 #ffffff;
   -moz-box-shadow: inset 0 1px 0 #ffffff;
   box-shadow: inset 0 1px 0 #ffffff;
-  zoom: 1;
   margin-bottom: 0;
 }
 .modal-footer:before, .modal-footer:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .modal-footer:after {
   clear: both;
@@ -2416,12 +2401,10 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .media-grid {
   margin-left: -20px;
   margin-bottom: 0;
-  zoom: 1;
 }
 .media-grid:before, .media-grid:after {
   display: table;
   content: "";
-  zoom: 1;
 }
 .media-grid:after {
   clear: both;

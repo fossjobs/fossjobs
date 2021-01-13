@@ -1,0 +1,42 @@
+<!-- Jobs from the same company -->
+{if $compjobs && count($compjobs) > 1}
+				<hr/>
+				<h4>{$translations.jobs.recent_jobs} <a href="{$BASE_URL}{$URL_JOBS_AT_COMPANY}/{$jobsat}/">{$job.company}</a>:</h4>
+				<hr/>
+				{foreach item=compjob from=$compjobs}
+				{if $compjob.id != $job.id }
+					<article class="post">
+					<h4><a href="{$BASE_URL}{$URL_JOB}/{$compjob.id}/{$compjob.url_title}/" title="{$compjob.title}">{$compjob.title}</a></h4>
+					<div class="media">
+						<div class="media-left">
+							<span class="bd-color {$job.type_var_name}" alt="{$job.type_name}"/>
+								&nbsp;
+							</span>
+						</div>
+						<div class="media-content">
+							<div class="content">
+								<p>
+									{$job.created_on} - {$translations.homepage.at} 
+									{if $compjob.url && $compjob.url != 'http://'}
+										<a href="{$compjob.url}" class="neutral-link">{$compjob.company}</a>
+										{else}
+										{$compjob.company}
+										{/if}
+				
+									{if $compjob.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$compjob.location}{/if}
+		
+									<span class="tag {$compjob.type_name}">{$compjob.type_name}</span>
+								</p>
+							</div>
+						</div>
+						<div class="media-right">
+							<span class="has-text-grey-light"><i class="fa fa-comments"></i> {$job.views_count}</span>
+						</div>
+					</div>
+					</article>
+				
+				{/if}
+				{/foreach}
+<br />
+{/if}
+<!-- Jobs from the same company -->

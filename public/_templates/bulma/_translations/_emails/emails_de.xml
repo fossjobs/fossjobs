@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emails>
+	<SendToFriend>
+		<subject>
+				I'm recommending you a job ad
+		</subject>
+		<message>
+			<![CDATA[
+				{BR}{BR}---{BR}You've received this e-mail from {YOUR_EMAIL}
+			]]>
+		</message>
+	</SendToFriend>
+	
+	<ApplyOnline>
+		<subject>
+				[ {SITE_NAME} ] I wish to apply for {JOB_TITLE}
+		</subject>
+		<message>
+			<![CDATA[
+				{BR}{BR}---{BR}This e-mail is an application sent from {JOB_URL}
+			]]>
+		</message>
+	</ApplyOnline>
+	
+	<PublishToAdmin>
+		<newPostSubject>
+				[ {SITE_NAME}  ] New job: {JOB_TITLE}
+		</newPostSubject>
+		<editedPostSubject>
+				[ {SITE_NAME}  ] Edited job: {JOB_TITLE}
+		</editedPostSubject>
+		<message>
+			<![CDATA[
+				{JOB_URL}
+				{BR} {JOB_TITLE} at {JOB_COMPANY}
+				{BR} {JOB_DESCRIPTION}
+				{BR} URL: {JOB_URL}
+				{BR}---{BR} Published by: {JOB_POSTER_EMAIL}
+				{BR}---{BR} Edit: {JOB_EDIT_URL}
+				{BR} Deactivate: {JOB_DEACTIVATE_URL}
+				{BR}{BR}---{BR} IP: {JOB_POSTER_IP}
+				{BR} Date: {JOB_POST_DATE}
+			]]>
+		</message>
+		<messageFirstPost>
+			<![CDATA[
+				Activate ad {JOB_ACTIVATE_URL}{BR}
+			]]>
+		</messageFirstPost>
+	</PublishToAdmin>
+	
+	<PublishPendingToUser>
+		<subject>
+				Your ad on {SITE_NAME}
+		</subject>
+		<message>
+			<![CDATA[
+				Hello! :){BR}{BR}
+				We apologize for the inconvenience, but since this is the first time you post with this e-mail address, we need to manually verify it.
+				{BR}Thank you for your patience, as the ad should be published ASAP. We'll send you an e-mail when that happens!
+				{BR}{BR}From now on, every ad you post with this e-mail address will instantly be published.
+				{BR}{BR}---{BR}Thank you for using our service!
+				{BR}The Team
+			]]>
+		</message>
+	</PublishPendingToUser>
+	
+	<PublishToUser>
+		<subject>
+				Your ad on {SITE_NAME} was published 
+		</subject>
+		<message>
+			<![CDATA[
+				Hello! :){BR}{BR}
+				Your ad was published and is available at {JOB_URL}
+				{BR}{BR}---{BR}Edit it: {JOB_EDIT_URL}
+				{BR}Deactivate it: {JOB_DEACTIVATE_URL}
+				{BR}{BR}---{BR}Thank you for using our service!
+				{BR} The {SITE_NAME} Team
+			]]>
+		</message>
+	</PublishToUser>
+	
+	<ReportSpam>
+		<subject>
+				 [SPAM on {SITE_NAME}] {JOB_TITLE}
+		</subject>
+		<message>
+			<![CDATA[
+				Following ad was reported as false/spam: {BR}---{BR}{BR}
+				{JOB_URL}
+				{BR}{BR} {JOB_TITLE} at {JOB_COMPANY}
+				{BR}{BR} {JOB_DESCRIPTION}
+				{BR}{BR}---{BR} Published by: {JOB_POSTER_EMAIL}
+				{BR}---{BR}Edit: {JOB_EDIT_URL}
+				{BR} Deactivate: {JOB_DEACTIVATE_URL}
+				{BR}---{BR}IP: {JOB_POSTER_IP}
+				{BR} Date: {JOB_POST_DATE}
+			]]>
+		</message>
+	</ReportSpam>
+	
+	<Contact>
+		<subject>
+				 [{SITE_NAME}] contact
+		</subject>
+		<message>
+			<![CDATA[
+				{BR}{BR}---{BR} Sent by: {SENDER_NAME} <{SENDER_EMAIL}>
+				{BR} IP: {SENDER_IP}
+				{BR} Date: {SEND_DATE}
+			]]>
+		</message>
+	</Contact>
+</emails>

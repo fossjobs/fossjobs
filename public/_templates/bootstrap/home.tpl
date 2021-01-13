@@ -22,9 +22,9 @@
 <img src="/fossjobs.logo.svg" width="200" style="float:right; margin-left:15px;" alt="">
 <h2>Welcome to fossjobs.net</h2>
 <div style="margin:5px">
-<p>This is a job board <b>exclusively for free &amp; open source jobs: We only list jobs that improve and involve FOSS or open hardware projects. Merely _using_ open source is not enough.</b> The <a href="about/">platform is open source itself</a>.</p>
-<p>You can also send us job links to <b>submit [(at)] fossjobs [dot] net</b>.</p>
-<br/><p>Twitter <a href="https://twitter.com/fossjobs_net">@fossjobs_net</a> &bull; IRC chat.freenode.net <a href="ircs://chat.freenode.net/#fossjobs">#fossjobs</a> &bull; <a href="https://www.facebook.com/fossjobs.net">Facebook</a> &bull; <a href="https://www.fossjobs.net/rss/">RSS Feeds</a> &bull; <a href="https://github.com/fossjobs/">Github</a></p>
+<p>This is a job board exclusively for free &amp; open source jobs: <b>We only list jobs at organizations that improve and involve FOSS or open hardware projects. Merely _using_ open source is not enough.</b></p>
+<p>You can also send us job links to <i>submit [(at)] fossjobs [dot] net</i>.</p>
+<br/><p><a href="https://fosstodon.org/@fossjobs">Mastodon</a> &bull; <a href="https://twitter.com/fossjobs_net">Twitter</a> &bull; <a href="ircs://chat.freenode.net/#fossjobs">IRC</a> &bull; <a href="https://www.facebook.com/fossjobs.net">Facebook</a> &bull; <a href="https://www.fossjobs.net/rss/">RSS Feeds</a> &bull; <a href="https://github.com/fossjobs/">Github</a></p>
 <hr/></div>	
 </div>
 

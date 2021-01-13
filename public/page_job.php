@@ -70,7 +70,7 @@
 		$url = BASE_URL . URL_JOB .'/' . $id . '/' . $info['url_title'] . '/';
 		$current_url = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 		
-		if ($current_url != $url) redirect_to($url, 301);
+#		if ($current_url != $url) redirect_to($url, 301);
 		
 		if (!empty($_SESSION['last_viewed_jobs']))
 		{
@@ -126,6 +126,37 @@
 		$smarty->assign('current_category', $category['var_name']);
 		$smarty->assign('back_link', BASE_URL . URL_JOBS . '/' . $category['var_name'] . '/');
 		
+			// get jobs
+	$smarty->assign('jobs_count_all', $job->CountJobs());
+
+	define('NUMBER_OF_LATEST_JOBS_TO_GET', $settings['latest_jobs']);
+
+	if (SIDEBAR_SHOW_WHAT == 'categories')
+	{
+		$smarty->assign('jobs_count_all_categs', $job->GetJobsCountForAllCategs());
+	}
+	else
+	{
+		$numberOfJobsInOtherCountries = $job->GetNumberOfJobsInOtherCountries();
+		
+		$smarty->assign('jobs_count_in_other_countries', $numberOfJobsInOtherCountries);
+		$smarty->assign('hide_other_countries_in_sidebar', $numberOfJobsInOtherCountries < SIDEBAR_ONLY_COUNTRIES_WITH_AT_LEAST_NUMBER_OF_JOBS);
+		
+		$jobsCountPerCountry = $job->GetJobsCountPerCountry();
+		
+		// exclude the countries that don't have at least the specified number of jobs 
+		foreach ($jobsCountPerCountry as $index => $jobsPerCountry)
+		{
+			if ($jobsPerCountry['jobs_in_country'] < SIDEBAR_ONLY_COUNTRIES_WITH_AT_LEAST_NUMBER_OF_JOBS)
+				unset($jobsCountPerCountry[$index]);
+		}
+		
+		$smarty->assign('jobs_count_per_country', $jobsCountPerCountry);
+	}
+
+	$smarty->assign('latest_jobs', $job->GetJobs(0, 0, NUMBER_OF_LATEST_JOBS_TO_GET, 0, 0));
+
+
 		$template = 'job.tpl';
 	}
 	else

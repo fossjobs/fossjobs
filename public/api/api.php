@@ -1,6 +1,6 @@
 <?php
 	require_once '../_config/config.php';
-	define('JOBBER_URL',str_replace('api/','',BASE_URL));
+	define('JOBBER_URL',str_replace('api/','','BASE_URL'));
 	escape($_GET);
 
 	switch($action)

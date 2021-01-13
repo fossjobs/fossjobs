@@ -70,7 +70,7 @@
 		if ($captcha_enabled)
 		{
 			$resp = recaptcha_check_answer(CAPTCHA_PRIVATE_KEY,
-			$_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"],
+			$_SERVER["REMOTE_ADDR"], '',
 			$_POST["recaptcha_response_field"]);
 			if (!$resp->is_valid) $errors['captcha'] = $translations['captcha']['captcha_error'];
 		}
@@ -240,6 +240,8 @@
 		}
 	}
 	
+	$smarty->assign('default_categ_id', get_categ_id_by_varname('programmers'));
+
 	// check referer and set the job category, if exists
 	if (strstr($_SERVER['HTTP_REFERER'], 'jobs'))
 	{

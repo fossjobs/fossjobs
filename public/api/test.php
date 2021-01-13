@@ -18,7 +18,7 @@
 
 <body>
 	<div id="container">
-		<h1>latest jobs on jobber</h1>
+		<h1>latest jobs on fossjobs.net</h1>
 		<div id="jobber_container"></div>
 	</div><!-- #container -->
 	<script type="text/javascript">

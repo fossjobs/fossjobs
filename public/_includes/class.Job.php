@@ -668,7 +668,7 @@ class Job
 					$sql = 'SELECT id FROM '.DB_PREFIX.'countries WHERE name LIKE "%' . $keywords . '%"';
 					$result = $db->query($sql);
 					$row = $result->fetch_assoc();
-					if ($row['id'] != '')
+					if ($row && $row['id'] != '')
 					{
 						$extra_conditions .= ' OR country_id = ' . $row['id'];
 					}
@@ -737,7 +737,7 @@ class Job
 		}
  
 		$pages = '';
-		$id_array = '';
+		$id_array = array();
 		$max_loop = SEARCH_RESULTS_PER_PAGE;
 		$max_visible_pages = SEARCH_AMOUNT_PAGES;
  
@@ -746,7 +746,8 @@ class Job
 		$start_count = (($start_page - 1) * $max_loop) ;
 		$current_loop = 0;
  
-		$total_results = count($id_array);
+		$total_results = 0;
+		if ($id_array) $total_results = count($id_array);
 		$total_loop = ($total_results ) - $start_count;
  
 		$total_pages = ceil($total_results / $max_loop);
@@ -1072,7 +1073,7 @@ class Job
 			$condition .= ' AND category_id = ' . $categ_id;
 		}
 
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1' . $condition;
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND created_on >= (NOW() - INTERVAL 90 DAY) AND is_active = 1' . $condition;
 		
 		$result = $db->query($sql);
 		$row = $result->fetch_assoc();
@@ -1095,7 +1096,7 @@ class Job
 		global $db;
 		$jobsCountPerCategory = array();
 		
-		$sql = 'SELECT category_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 GROUP BY category_id'; 
+		$sql = 'SELECT category_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= (NOW() - INTERVAL 90 DAY) GROUP BY category_id'; 
 		$result = $db->query($sql);
 		
 		while ($row = $result->fetch_assoc())
@@ -1121,7 +1122,7 @@ class Job
 		global $db;
 		$jobsCountPerCountry = array();
 		
-		$sql = 'SELECT country_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 and country_id IS NOT NULL GROUP BY country_id'; 
+		$sql = 'SELECT country_id, COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 and country_id IS NOT NULL AND created_on >= (NOW() - INTERVAL 90 DAY) GROUP BY country_id'; 
 		$result = $db->query($sql);
 		
 		while ($row = $result->fetch_assoc())
@@ -1173,7 +1174,7 @@ class Job
 			$condition .= ' AND type_id = ' . $type_id;
 		}
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1'. $condition;
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND created_on >= (NOW() - INTERVAL 90 DAY) AND is_active = 1'. $condition;
 
 		$result = $db->query($sql);
 		
@@ -1186,7 +1187,7 @@ class Job
 	{
 		global $db;
 		
-		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND country_id IS NULL';
+		$sql = 'SELECT COUNT(id) AS total FROM '.DB_PREFIX.'jobs WHERE is_temp = 0 AND is_active = 1 AND created_on >= (NOW() - INTERVAL 90 DAY) AND country_id IS NULL';
 
 		$result = $db->query($sql);
 		
