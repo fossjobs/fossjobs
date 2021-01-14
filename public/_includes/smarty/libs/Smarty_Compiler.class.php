@@ -433,7 +433,7 @@ class Smarty_Compiler extends Smarty {
 
 function safeCount( $value )
 {
-	if ( is_countable( $value ) ){
+	if ( $value instanceof Countable  ){
 		return count( $value );
 	}
 
