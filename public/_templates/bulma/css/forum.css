@@ -1,5 +1,4 @@
 html,body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   background: #F2F6FA;
 }
 footer {
@@ -62,7 +61,6 @@ article.post:last-child {
   border-radius:2px;
   border-radius: 50%;
   box-shadow:0 2px 3px 0 rgba(0,0,0,.1),inset 0 0 0 1px rgba(0,0,0,.1);
-  display:inline-block;
   margin-top:7px;
   float:left;
   width:14px;
@@ -78,6 +76,9 @@ a.neutral-link {
   background-color: #f89406;
 }
 .freelance {
+  background-color: #0072ff;
+}
+.internship {
   background-color: #62cffc;
 }
 .job-description {

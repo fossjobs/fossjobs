@@ -10,7 +10,6 @@
 		<title>{if $seo_title}{$seo_title}{else}{$html_title}{/if}</title>
 		<link rel="shortcut icon" href="{$BASE_URL}favicon.ico" type="image/x-icon">
 
-		<link href="{$BASE_URL}_templates/{$THEME}/fonts/fonts.css" rel="stylesheet">
 		<link rel="stylesheet" href="{$BASE_URL}_templates/{$THEME}/css/bulma.0.9.1.min.css" />
 		<link rel="stylesheet" type="text/css" href="{$BASE_URL}_templates/{$THEME}/css/forum.css">
 	{if $CURRENT_PAGE == '' || $CURRENT_PAGE != 'jobs'}
