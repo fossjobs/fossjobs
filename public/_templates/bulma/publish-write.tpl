@@ -7,13 +7,13 @@
 		<div class="box content">
 
 			{if $filter_error}
-			<div class="validation-failure">
+			<div class="notification is-dark">
 				<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
 				{$filter_error}
 			</div>
 			{/if}
 			{if $errors}
-			<div class="validation-failure">
+			<div class="notification is-dark">
 				<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
 				{$translations.publish.form_error}
 			</div>
@@ -48,7 +48,7 @@
 					<div class="field">
 					 <div class="control">
 					  <input class="input" type="text" name="title" id="title" value="{if $job.company}{$job.title|escape}{else}{$smarty.post.title|escape}{/if}" placeholder="{$translations.publish.title_label}" autofocus/>
-					  {if $errors.title}<div class="notification is-danger">Please enter a job title.</div>{/if}
+					  {if $errors.title}<div class="notification is-danger">&#9888; Please enter a job title.</div>{/if}
  					 </div>
 					</div>
 
@@ -72,14 +72,14 @@
 					<div class="field">
 						<div class="control">
 							<textarea name="description" id="description" rows="15" class="textarea" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
-							{if $errors.description}<div class="notification is-danger">Please enter a description.</div>{/if}
+							{if $errors.description}<div class="notification is-danger">&#9888; Please enter a description.</div>{/if}
 							</div>
 						</div>
 				<div class="field">
 					<label class="label">{$translations.publish.company}</label>
 					<div class="control">
 						<input type="text" name="company" id="company" class="input" value="{if $job.company}{$job.company|escape}{else}{$smarty.post.company|escape}{/if}" placeholder="{$translations.publish.name_label}" />
-						{if $errors.company}<div class="notification is-danger">Please enter a company or project name.</div>{/if}
+						{if $errors.company}<div class="notification is-danger">&#9888; Please enter a company or project name.</div>{/if}
 					</div>
 				</div>
 				<div class="field">
@@ -90,7 +90,7 @@
 				<div class="field">
 					<div class="control">
 						<input type="email" name="poster_email" id="poster_email" class="input" value="{if $job.poster_email}{$job.poster_email}{else}{$smarty.post.poster_email}{/if}" placeholder="{$translations.publish.email_label} ({$translations.publish.email_info1})"/>
-						{if $errors.poster_email}<div class="notification is-danger">Please enter an email address here.</div>{/if}
+						{if $errors.poster_email}<div class="notification is-danger">&#9888; Please enter an email address here. You will receive a mail and have to click a link to confirm.</div>{/if}
 					</div>
 				</div>
 				{if $ENABLE_RECAPTCHA}

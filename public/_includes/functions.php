@@ -160,7 +160,8 @@ function get_categ_id_by_varname($var_name)
 	$sql = 'SELECT id FROM '.DB_PREFIX.'categories WHERE var_name = "' . $var_name . '"';
 	$result = $db->query($sql);
 	$row = $result->fetch_assoc();
-	return $row['id'];
+	if ($row) return $row['id'];
+	return '';
 }
 
 function get_categ_name_by_varname($var_name)
