@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,11 +19,11 @@
 	{/if}
 		</head>
 	<body>
-		<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+		<nav class="navbar is-white" aria-label="main navigation">
 		<div class="container">
 				<div class="navbar-brand">
 					<a class="navbar-item" href="{$BASE_URL}">
-						<img src="{$BASE_URL}logo.svg" height="28"> 
+						<img src="{$BASE_URL}logo.svg" alt="" height="28"> 
 					</a>
 					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="topNav">
 						<span aria-hidden="true"></span>

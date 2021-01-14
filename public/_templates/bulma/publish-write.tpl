@@ -45,6 +45,7 @@
 					 </span>
 					</span>
 					</span>
+
 					<div class="field">
 					 <div class="control">
 					  <input class="input" type="text" name="title" id="title" value="{if $job.company}{$job.title|escape}{else}{$smarty.post.title|escape}{/if}" placeholder="{$translations.publish.title_label}" autofocus/>
@@ -52,6 +53,7 @@
  					 </div>
 					</div>
 
+					<span class="field">
 					<span class="control">
 						<span class="select">
 							<select name="country_id" id="country_id">
@@ -61,6 +63,7 @@
 							{/section}
 							</select>
 						</span>
+					</span>
 					</span>
 
 					<div class="field">

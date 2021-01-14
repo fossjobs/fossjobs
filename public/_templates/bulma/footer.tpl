@@ -23,7 +23,7 @@
         </div>
     </div>
 </footer>
-<script async type="text/javascript" src="{$BASE_URL}_templates/{$THEME}/js/bulma.js"></script>
+<script async src="{$BASE_URL}_templates/{$THEME}/js/bulma.js"></script>
 </body>
 
 </html>
