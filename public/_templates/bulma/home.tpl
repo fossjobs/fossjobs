@@ -36,7 +36,7 @@
 										</p>
 									</div>
 								</div>
-								<div class="media-right">
+								<div class="media-right is-hidden-mobile">
 									<span class="has-text-grey-light"><i class="fa fa-comments"></i> {$job.views_count}</span>
 								</div>
 							</div>
