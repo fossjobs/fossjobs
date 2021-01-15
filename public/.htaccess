@@ -15,3 +15,8 @@ order deny,allow
 allow from none
 deny from all
 </files>
+
+<FilesMatch "\.(png|jp?g|gif|ico|mp4|wmv|mov|mpeg|map|woff?|eot|svg|ttf|json|pdf|csv)">
+    ExpiresActive on
+    ExpiresDefault "access plus 1 year"
+</FilesMatch>

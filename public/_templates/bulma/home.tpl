@@ -2,7 +2,7 @@
 		<div class="box content">
 					<div class="content is-small">
 					<h2>Welcome to fossjobs.net</h2>
-					<img src="/fossjobs.logo.svg" width="200" style="float:right; margin-left:15px;" alt="">
+					<img src="/logo.svg" width="200" height="135" style="float:right; margin-left:15px;" alt="">
 						<div>
 							<p>This is a job board exclusively for paid free &amp; open source jobs: <b>We only list jobs at organizations that improve and involve FOSS or open hardware projects. Merely _using_ open source as part of the job is not enough.</b></p>
 							<p>Listings are free. <a href="{$BASE_URL}post/">Submit jobs you find!</a> You can also send us job links to <i>submit [(at)] fossjobs [dot] net</i>.</p>

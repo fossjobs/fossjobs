@@ -92,3 +92,6 @@ a.neutral-link {
   color: #999999;
   opacity: 1;
 }
+.tag {
+  margin-left: 3px;
+}

@@ -23,7 +23,7 @@
 		<div class="container">
 				<div class="navbar-brand">
 					<a class="navbar-item" href="{$BASE_URL}">
-						<img src="{$BASE_URL}logo.svg" alt="" height="28"> 
+						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41">
 					</a>
 					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="topNav">
 						<span aria-hidden="true"></span>
@@ -47,7 +47,8 @@
 					<div class="navbar-item">
 					<form method="post" action="{$BASE_URL}search/">
 					<fieldset>
-						<input class="input" type="search" name="keywords" placeholder="{$translations.search.example} and Press Enter" />
+						<label for="siteSearch" class="is-hidden">Search</label>
+						<input class="input" type="search" name="siteSearch" id="siteSearch" placeholder="{$translations.search.example} and Press Enter" />
 					</fieldset>	
 					</form>			
 					</div>
