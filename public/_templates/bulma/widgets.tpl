@@ -5,8 +5,8 @@
 	<div class="column is-9">
 		<div class="box content">
 
-		<h4>Site Widgets</h4>
-			<h6>Would you like to display our latest jobs on your site?</h6>
+		<h1>Site Widgets</h1>
+			<h2>Would you like to display our latest jobs on your site?</h2>
 			<p>
 			There are two types of widgets you can apply:
 			<ol>

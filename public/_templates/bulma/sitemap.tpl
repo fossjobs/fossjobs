@@ -5,16 +5,16 @@
 	<div class="column is-9">
 		<div class="box content">
 
-		<h3>{$translations.sitemap.title}</h3>
+		<h1>{$translations.sitemap.title}</h1>
 			
-		<h6>{$translations.sitemap.jobs}:</h6>
+		<h2>{$translations.sitemap.jobs}:</h2>
 		<ul>
 			{section name=tmp loop=$categories}
 			<li id="{$categories[tmp].var_name}"><a href="{$BASE_URL}{$URL_JOBS}/{$categories[tmp].var_name}/" title="{$categories[tmp].var_name}">{$categories[tmp].name}</a></li>
 			{/section}
 		</ul>
 		
-		<h6>{$translations.sitemap.use}:</h6>
+		<h2>{$translations.sitemap.use}:</h2>
 		<ul>
 			{if $smarty.const.ENABLE_NEW_JOBS}
 				<li><a href="{$BASE_URL}post/" title="{$translations.footer.new_job_title}">{$translations.footer.new_job}</a></li>
@@ -23,7 +23,7 @@
 			<li><a href="{$BASE_URL}rss/" title="{$translations.footer.title}">{$translations.footer.rss}</a></li>
 		</ul>
 		
-		<h6>{$translations.sitemap.more}:</h6>
+		<h2>{$translations.sitemap.more}:</h2>
 		<ul>
 			<li><a href="{$BASE_URL}{$URL_COMPANIES}/" title="{$translations.footer.companies_title}">{$translations.footer.companies}</a></li>
 			<li><a href="{$BASE_URL}{$URL_COUNTRIES}/" title="{$translations.footer.countries_title}">{$translations.footer.countries}</a></li>

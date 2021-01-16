@@ -4,7 +4,7 @@
 <div class="columns">
 	<div class="column">
 		<div class="box content">
-			<h4>{$translations.publish.step2}</h4>
+			<h1>{$translations.publish.step2}</h1>
 			<div class="columns">
 				{include file="job-details.tpl"}
 			</div>

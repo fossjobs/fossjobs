@@ -4,6 +4,7 @@
 <div class="columns">
 
 	<div class="column is-9">
+		<h1 class="is-sr-only">Jobs</h1>
 		<div class="box content">
 		{include file="jobs-list.tpl"}
 		</div>

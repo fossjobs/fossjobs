@@ -1,12 +1,12 @@
 <!-- Jobs from the same company -->
 {if $compjobs && count($compjobs) > 1}
 				<hr/>
-				<h4>{$translations.jobs.recent_jobs} <a href="{$BASE_URL}{$URL_JOBS_AT_COMPANY}/{$jobsat}/">{$job.company}</a>:</h4>
+				<h2>{$translations.jobs.recent_jobs} <a href="{$BASE_URL}{$URL_JOBS_AT_COMPANY}/{$jobsat}/">{$job.company}</a>:</h2>
 				<hr/>
 				{foreach item=compjob from=$compjobs}
 				{if $compjob.id != $job.id }
 					<article class="post">
-					<h4><a href="{$BASE_URL}{$URL_JOB}/{$compjob.id}/{$compjob.url_title}/" title="{$compjob.title}">{$compjob.title}</a></h4>
+					<h3><a href="{$BASE_URL}{$URL_JOB}/{$compjob.id}/{$compjob.url_title}/" title="{$compjob.title}">{$compjob.title}</a></h3>
 					<div class="media">
 						<div class="media-left">
 							<span class="bd-color {$job.type_var_name}" alt="{$job.type_name}"/>
@@ -37,6 +37,5 @@
 				
 				{/if}
 				{/foreach}
-<br />
 {/if}
 <!-- Jobs from the same company -->

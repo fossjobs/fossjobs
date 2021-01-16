@@ -5,8 +5,7 @@
 
 	<div class="column is-9">
 		<div class="box content">
-
-			<h4>{$translations.jobscountry.jobs_in_other_countries}</h4>
+			<h1>{$translations.jobscountry.jobs_in_other_countries}</h1>
 			<hr/>
 			{if $jobs}
 				{include file="jobs-list.tpl"}

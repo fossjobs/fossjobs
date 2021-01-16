@@ -1,7 +1,7 @@
 	{foreach item=job from=$jobs}
 
 	<article class="post">
-	<h4><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/" title="{$job.title}">{$job.title}</a></h4>
+	<h2><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/" title="{$job.title}">{$job.title}</a></h2>
 	<div class="media">
 		<div class="media-left">
 			<span class="bd-color {$job.type_var_name}">

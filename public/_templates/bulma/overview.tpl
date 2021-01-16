@@ -4,7 +4,7 @@
     <div class="columns">
         <div class="column is-9">
             <div class="box content">
-                <h4>{$translations.jobscountry.title}</h4>
+                <h1>{$translations.jobscountry.title}</h1>
                 {section name=tmp loop=$countries_overview}
                     <span class="company-tag-{$countries_overview[tmp].tag_height}">
                         <a href="{$BASE_URL}{$URL_JOBS_IN_COUNTRY}/{$countries_overview[tmp].varname}">{$countries_overview[tmp].name}
@@ -25,8 +25,7 @@
             </div>
             <div class="box content">
 
-                <h4>{$translations.companies.title}</h4>
-
+                <h1>{$translations.companies.title}</h1>
                 {section name=tmp loop=$companies}
                     <span class="company-tag-{$companies[tmp].tag_height}">
                         <a href="{$BASE_URL}{$URL_JOBS_AT_COMPANY}/{$companies[tmp].varname}/">{$companies[tmp].name}

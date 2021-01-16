@@ -6,7 +6,7 @@
 	<div class="column is-9">
 		<div class="box content">
 
-			<h4>{$translations.rss.intro}</h4>
+			<h1>{$translations.rss.intro}</h1>
 			<hr/>
 			<ul>
 				<li><a href="{$BASE_URL}rss/all/">{$translations.rss.all_categories}</a></li>

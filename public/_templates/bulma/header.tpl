@@ -19,11 +19,11 @@
 	{/if}
 		</head>
 	<body>
-		<nav class="navbar is-white" aria-label="main navigation">
+		<nav class="navbar is-white" aria-label="main">
 		<div class="container">
-				<div class="navbar-brand">
+				<div class="navbar-brand" tabindex=“-1“ aria-hidden=“true“>
 					<a class="navbar-item" href="{$BASE_URL}">
-						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41">
+						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41" >
 					</a>
 					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="topNav">
 						<span aria-hidden="true"></span>
@@ -45,10 +45,10 @@
 				</div>
 				<div class="navbar-end">
 					<div class="navbar-item">
-					<form method="post" action="{$BASE_URL}search/">
+					<form method="post" action="{$BASE_URL}search/" role="search">
 					<fieldset>
 						<label for="siteSearch" class="is-hidden">Search</label>
-						<input class="input" type="search" name="siteSearch" id="siteSearch" placeholder="{$translations.search.example} and Press Enter" />
+						<input class="input" type="search" name="keywords" id="siteSearch" placeholder="{$translations.search.example} and Press Enter" />
 					</fieldset>	
 					</form>			
 					</div>

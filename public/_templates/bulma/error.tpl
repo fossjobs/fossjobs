@@ -4,7 +4,7 @@
 <div class="columns">
 	<div class="column is-9">
 		<div class="box content">
-			<h4>{$translations.notfound.message}</h4>
+			<h1>{$translations.notfound.message}</h1>
 			<p>
 				{if $smarty.const.ENABLE_NEW_JOBS}
 					<a href="{$BASE_URL}post/" title="{$translations.footer.new_job_title}">{$translations.footer.new_job}</a>	&middot;

@@ -1,7 +1,7 @@
 	<div class="column is-9">
-		<div class="box content">
+		<div class="box content" role="main">
+					<h1>Welcome to fossjobs.net</h1>
 					<div class="content is-small">
-					<h2>Welcome to fossjobs.net</h2>
 					<img src="/logo.svg" width="200" height="135" style="float:right; margin-left:15px;" alt="">
 						<div>
 							<p>This is a job board exclusively for paid free &amp; open source jobs: <b>We only list jobs at organizations that improve and involve FOSS or open hardware projects. Merely _using_ open source as part of the job is not enough.</b></p>
@@ -11,9 +11,10 @@
 						</div>	
 					</div>
 					{if $latest_jobs}
+						<h2 class="is-sr-only">Latest jobs</h2>
 						{foreach item=job from=$latest_jobs}
 						<article class="post">
-							<h4><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/" title="{$job.title}">{$job.title}</a></h4>
+							<h3><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/">{$job.title}</a></h3>
 							<div class="media">
 								<div class="media-left">
 									<span class="bd-color {$job.type_var_name}">

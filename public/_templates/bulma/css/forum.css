@@ -95,3 +95,6 @@ a.neutral-link {
 .tag {
   margin-left: 3px;
 }
+.content h1,.content h2,.content h3 {
+  font-size: 1.25em;
+}

@@ -7,7 +7,7 @@
 
 		{if $smarty.session.later_edit}
 			<div class="posted-ok">
-				{$translations.publish.edit_success}: <a href="{$job_url}">{$job_url}</a>
+				<h1>{$translations.publish.edit_success}: <a href="{$job_url}">{$job_url}</a></h1>
 				{php}
 					unset($_SESSION['later_edit']);
 					unset($_SESSION['referer']);

@@ -5,8 +5,7 @@
 
 	<div class="column is-9">
 		<div class="box content">
-
-			<h4>{$page.title}</h4>
+			<h1>{$page.title}</h1>
 			{$page.content}
 			{if $page.has_form == '1'}
 			{if $errors}
@@ -36,14 +35,6 @@
 						
 						{if $ENABLE_RECAPTCHA}
 							<br /><br />
-							{literal}
-							<script type="text/javascript">
-							  var RecaptchaOptions = {
-							    theme : 'white',
-							    tabindex : 9
-							  };
-							</script>
-							{/literal}
 							{$the_captcha}
 							<span class="validation-error">{if $errors.captcha}<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /> {$errors.captcha}{/if}</span>
 						{/if}
