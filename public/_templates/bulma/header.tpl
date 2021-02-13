@@ -21,7 +21,7 @@
 	<body>
 		<nav class="navbar is-white" aria-label="main">
 		<div class="container">
-				<div class="navbar-brand" tabindex=“-1“ aria-hidden=“true“>
+				<div class="navbar-brand" tabindex="-1" aria-hidden="true">
 					<a class="navbar-item" href="{$BASE_URL}">
 						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41" >
 					</a>
