@@ -65,7 +65,7 @@ version 1.8 (16/09/2009)
 	* removed: removed the ideal-jobs feature as nobody found using it (navjot)
 	* removed: removed the word "jobber" from the background image (evertsemeijn)
 	* a lot more smaller fixes and enhancements ;)
-	
+
 version 1.7 (16/05/2009), tribute to putypuruty (http://www.jobberbase.com/forum/user19.html):
 	* new: add/edit/delete cities from the admin section (see http://www.jobberbase.com/forum/post3500.html#p3500 for how to integrate this into an existing 1.6 version)
 	* new: allow to post a job from the admin section (see http://www.jobberbase.com/forum/post4673.html#p4673 for how to integrate this into an existing 1.6 version)
@@ -141,4 +141,4 @@ version 1.1 (11/28/2007):
 version 1.0 (10/20/2007):
     * Translated www.jobber.ro into English.
     * Fixed some bugs.
-    * Sent first copies to a couple of friends for testing. 
+    * Sent first copies to a couple of friends for testing.

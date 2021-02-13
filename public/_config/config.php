@@ -6,27 +6,27 @@
  * @license    You are free to edit and use this work, but it would be nice if you always referenced the original author ;)
  *             (see license.txt).
  */
-  
+
 	define('APP_PATH', str_replace(DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, str_replace('_config', '', dirname(__FILE__)) . DIRECTORY_SEPARATOR));
 
 	// Environments setup
 	require_once APP_PATH . '_config/config.envs.php';
 
 
-	if(isset($_SERVER['SCRIPT_NAME'])) 
+	if(isset($_SERVER['SCRIPT_NAME']))
 	{
 		# On Windows, _APP_MAIN_DIR becomes \, and the absolute url would look something like HTTP_HOST\/restOfUrl, so \ should be trimmed too.
 		# @modified Chis Florinel <chis.florinel@candoo.ro>
-		
-		$app_main_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']),'/\\');	
+
+		$app_main_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']),'/\\');
 		define('_APP_MAIN_DIR', $app_main_dir);
-  	} 
-	else 
+	}
+	else
 	{
 		die('[config.php] Cannot determine APP_MAIN_DIR, please set manual and comment this line');
-  	}
-	
-	
+	}
+
+
 	// Function and classes includes
 	require_once APP_PATH . '_includes/class.Translator.php';
 	require_once APP_PATH . '_includes/class.EmailTranslator.php';
@@ -56,38 +56,38 @@
 
 
 	// Setup database connection
-	try 
+	try
 	{
 		$db = new Db(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 		$db->Execute('SET NAMES UTF8');
 	}
-	catch(ConnectException $exception) 
+	catch(ConnectException $exception)
 	{
 		if (ENVIRONMENT == 'dev')
 		{
 			echo "Database Connection Error:<br />";
-			printr($exception->getMessage());	
+			printr($exception->getMessage());
 		}
 	}
-	
-	
+
+
 	// Load the Site-Specific Settings
 	$jobber_settings = new JobberSettings();
 	$settings = $jobber_settings->GetSettings();
-	
+
 	require_once APP_PATH . '_config/config.settings.php';
 	// Setup Smarty
 	$smarty = new Smarty();
 	$smarty->template_dir = APP_PATH . '_templates' . DIRECTORY_SEPARATOR . THEME . DIRECTORY_SEPARATOR;
 	$smarty->compile_dir = APP_PATH .'_templates' . DIRECTORY_SEPARATOR . THEME . DIRECTORY_SEPARATOR . '_cache';
-	
+
 	// Create Textile object
 	$textile = new Textile;
 
 
 	// Split URL - get parameters
 	$_app_info['params'] = array();
-	
+
 	if (isset($_SERVER['HTTP_X_ORIGINAL_URL']))
 	{
 		$_SERVER['REQUEST_URI'] = $_SERVER['HTTP_X_ORIGINAL_URL'];
@@ -95,16 +95,16 @@
 	if (isset($_SERVER['HTTP_X_REWRITE_URL']))
 	{
 		$_SERVER['REQUEST_URI'] = $_SERVER['HTTP_X_REWRITE_URL'];
-	}		
-	// if server is Apache:	
+	}
+	// if server is Apache:
 	if(REWRITE_MODE == 'apache_mod_rewrite' || REWRITE_MODE == 'iis_isapi_rewrite')
 	{
 		$newUrl = str_replace('/', '\/', _APP_MAIN_DIR);
-	    $pattern = '/'.$newUrl.'/';   
-	    $_url = preg_replace($pattern, '', $_SERVER['REQUEST_URI'], 1);
+		$pattern = '/'.$newUrl.'/';
+		$_url = preg_replace($pattern, '', $_SERVER['REQUEST_URI'], 1);
 		$_tmp = explode('?', $_url);
-		$_url = $_tmp[0];	
-		
+		$_url = $_tmp[0];
+
 		if ($_url = explode('/', $_url))
 		{
 			foreach ($_url as $tag)
@@ -119,18 +119,18 @@
 	elseif(REWRITE_MODE == 'iis_url_rewrite')
 	{
 		if(isset($_GET['page']))
-			$_app_info['params'][]  = $_GET['page'];
+			$_app_info['params'][] = $_GET['page'];
 		if(isset($_GET['id']))
-			$_app_info['params'][]  = $_GET['id'];
+			$_app_info['params'][] = $_GET['id'];
 		if(isset($_GET['extra']))
-			$_app_info['params'][]  = $_GET['extra'];
+			$_app_info['params'][] = $_GET['extra'];
 	}
-	
+
 	$page = (isset($_app_info['params'][0]) ? $db->real_escape_string($_app_info['params'][0]) : '');
 	$id = (isset($_app_info['params'][1]) ? $db->real_escape_string($_app_info['params'][1]) : 0);
 	$extra = (isset($_app_info['params'][2]) ? $db->real_escape_string($_app_info['params'][2]) : '');
-	
-	
+
+
 	date_default_timezone_set('Europe/London');
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();

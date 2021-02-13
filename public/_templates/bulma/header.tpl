@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="{if $seo_desc}{$seo_desc}{else}{$meta_description}{/if}">
-    	<meta name="keywords" content="{if $seo_keys}{$seo_keys}{else}{$meta_keywords}{/if}">
+		<meta name="description" content="{if $seo_desc}{$seo_desc}{else}{$meta_description}{/if}">
+		<meta name="keywords" content="{if $seo_keys}{$seo_keys}{else}{$meta_keywords}{/if}">
 		<meta name="generator" content="Jobberbase v{$smarty.const.JOBBERBASE_VERSION}">
 		<title>{if $seo_title}{$seo_title}{else}{$html_title}{/if}</title>
 		<link rel="shortcut icon" href="{$BASE_URL}favicon.ico" type="image/x-icon">
@@ -17,10 +17,10 @@
 	{else}
 		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{$BASE_URL}rss/{$current_category}/">
 	{/if}
-		</head>
+	</head>
 	<body>
 		<nav class="navbar is-white" aria-label="main">
-		<div class="container">
+			<div class="container">
 				<div class="navbar-brand" tabindex="-1" aria-hidden="true">
 					<a class="navbar-item" href="{$BASE_URL}">
 						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41" >
@@ -40,7 +40,7 @@
 						{assign var=i value=1}
 						{/if}
 					{/section}
-					{/if}		
+					{/if}
 					</div>
 				</div>
 				<div class="navbar-end">
@@ -49,8 +49,8 @@
 					<fieldset>
 						<label for="siteSearch" class="is-hidden">Search</label>
 						<input class="input" type="search" name="keywords" id="siteSearch" placeholder="{$translations.search.example} and Press Enter" />
-					</fieldset>	
-					</form>			
+					</fieldset>
+					</form>
 					</div>
 				</div>
 			</div>
