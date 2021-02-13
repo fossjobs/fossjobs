@@ -1,6 +1,6 @@
-	{foreach item=job from=$jobs}
+{foreach item=job from=$jobs}
 
-	<article class="post">
+<article class="post">
 	<h2><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/" title="{$job.title}">{$job.title}</a></h2>
 	<div class="media">
 		<div class="media-left">
@@ -11,12 +11,12 @@
 		<div class="media-content">
 			<div class="content">
 				<p>
-					{$job.created_on} - {$translations.homepage.at} 
+					{$job.created_on} - {$translations.homepage.at}
 					{if $job.url && $job.url != 'http://'}
 						<a href="{$job.url}" class="neutral-link">{$job.company}</a>
-						{else}
+					{else}
 						{$job.company}
-						{/if}
+					{/if}
 
 					{if $job.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$job.location}{/if}
 
