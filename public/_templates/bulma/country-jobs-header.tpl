@@ -13,7 +13,7 @@
 		</div>
 	</div>
 
-	<!-- sidebar -->
+	<!-- sidebar start -->
 	<div class="column is-3">
 	<a class="button is-primary is-block is-alt is-large" href="{$BASE_URL}post/">{$translations.search.submit}</a>
 	<aside class="menu">
@@ -38,7 +38,7 @@
 		</ul>
 	</aside>
 	</div>
-	<!-- sidebar -->
+	<!-- sidebar end -->
 
 </div>
 </section>
