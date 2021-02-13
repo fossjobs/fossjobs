@@ -22,7 +22,7 @@
 		</p>
 		<ul class="menu-list">
 			{section name=tmp loop=$types}
-				<!--Doesn't seem to be type-support for countries yet-->
+				<!-- There doesn't seem to be type-support for countries yet -->
 			<li><a href="{$BASE_URL}/jobs-worldwide/{$types[tmp].var_name}/" title="{$current_category} {$types[tmp].name}">{$types[tmp].name}</a></li>
 			{/section}
 		</ul>

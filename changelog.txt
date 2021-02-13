@@ -11,7 +11,7 @@ version 1.9 (24/03/2010)
 	* new: New Theme variable - {$THEME} which refers to the active theme in use.
 	* new: A Brand New Theme, by popular demand: Hireme (contributed by hireme.sg)
 	* new: A Brand New Admin Panel Theme based on Cadify.
-	* new: Added Sitemap.xml and Sitemap.txt to Jobberbase which are generated automatically whenever they are accessed. Add it to your Google WebmasterTools and it will get it updated everytime.
+	* new: Added Sitemap.xml and Sitemap.txt to Jobberbase which are generated automatically whenever they are accessed. Add it to your Google WebmasterTools and it will get it updated every time.
 	* new: Added the minimum job count for cities to show in Sidebar.
 	* new: Added the possibility to turn off the moderation for the very first post from a hiring person/company resulting in the posts being automatically activated
 	* fix: Error Page now return correct 404 response header.
@@ -27,14 +27,14 @@ version 1.9 (24/03/2010)
 	* enh: More Anti-Spam options apart from Recaptcha in Admin panel.
 	* enh: Some SEO Improvements and fixes.
 	* enh: Category names instead of urls in Feed Description field.
-	* enh: Jobberbase version will now appear in header of frontend so that one can easily know the jobberbase version if you need help from us.
-	* enh: Admin Area is now completely independent of frontend theme and vice versa. So now no crosslinked images will occur among frontend and admin themes.
+	* enh: Jobberbase version will now appear in header of frontend so that one can easily know the Jobberbase version if you need help from us.
+	* enh: Admin Area is now completely independent of frontend theme and vice versa. So now no cross-linked images will occur among frontend and admin themes.
 	* enh: The job poster no longer receives an email each time he edits his post.
 
 version 1.8 (16/09/2009)
 	* new: settings are now configurable from the admin panel (Settings menu item) (chronos)
 	* new: job types are no longer hardcoded, they can be edited/added/deleted from the admin section (links)
-	* new: added database prefix support for hostings which allow only one database (chronos)
+	* new: added database prefix support for hosts which allow only one database (chronos)
 	* new: support for multiple themes (skins) (chronos)
 	* new: city cloud page, similar to company cloud (chronos)
 	* new: possibility to change some default URLs like /jobs, /job, /jobs-in, /jobs-at thus allowing better localization (chronos)
@@ -42,7 +42,7 @@ version 1.8 (16/09/2009)
 	* new: replaced the static navigation with 5 dynamic areas, which can be edited and ordered in the administration panel (Links menu item) (chronos)
 	* new: list other jobs by same company on job details page (redjumpsuit, navjot)
 	* new: added an alternate search method (should behave better than the classic one; configurable from the admin panel) (chronos)
-	* fixed: a 404 error was thrown on some hostings when pressing the Save button on the New/Edit city page
+	* fixed: a 404 error was thrown on some hosts when pressing the Save button on the New/Edit city page
 	* fixed: the category name is displayed now instead of the var_name (chronos)
 	* fixed: emails are now properly encoded
 	* fixed: deleting a job is no longer done inside a transaction because it was failing for many users
@@ -72,7 +72,7 @@ version 1.7 (16/05/2009), tribute to putypuruty (http://www.jobberbase.com/forum
 	* new: in the admin section, for each job, show the number of views and if there are applicants, the number of applicants and the date of the last application (see http://www.jobberbase.com/forum/post4700.html#p4700 for how to integrate this into an existing 1.6 version)
 	* fixed: get_cities() was called needlessly on every page (thus a database connection was made)
 	* fixed: some users were getting 404 errors in the admin section because the top menu links did not end in a / char
-	* fixed: in Internet Explorer, in the admin section, clicking on the create/edit page links was showing a blank page with a 'tinymce is undefined' JS error. This bug was reproduceable only if opening the create/edit page in the same browser tab/page - opening it in a new browser tab/page worked.
+	* fixed: in Internet Explorer, in the admin section, clicking on the create/edit page links was showing a blank page with a 'tinymce is undefined' JS error. This bug was reproducible only if opening the create/edit page in the same browser tab/page - opening it in a new browser tab/page worked.
 	* enh: the number of minutes after which someone can apply again is now a constant defined in config.php
 	* enh: the apply process now gives better error messages (if the number of minutes between applications did not pass, if the application mail could not be sent to the employer, if the apply form data was incorrect/incomplete) minor fixes and improvements
 
@@ -92,7 +92,7 @@ version 1.6 (28/12/2008), tribute to putypuruty (http://www.jobberbase.com/forum
 	* fixed: CheckPosterEmail was called needlessly when displaying jobs thus degrading performance (see http://www.jobberbase.com/forum/post2994.html)
 	* fixed: although set, the job type (ie: full time, part time) was not remembered in the pagination process and thus the pagination was incorrect
 	* fixed: a database query exception was thrown if more than one city was found from the search keywords
-	* fixed: the URLs in the mail that is sent after a job is actived by the administrator are wrong
+	* fixed: the URLs in the mail that is sent after a job is activated by the administrator are wrong
 	* fixed: multiple emails were sent to the job poster if the jobberbase based site had google ads - thanks to links
 	* fixed: moved stats in admin (/admin/stats/)
 	* new: possibility to show cities in sidebar instead of categories (configurable from config.php)
@@ -135,7 +135,7 @@ version 1.2 (12/11/2007):
 version 1.1 (11/28/2007):
     * Modified the directory structure and moved the entire application into /app subdirectory.
     * Added an alternate .htaccess that seems to work better on some big hosting companies.
-    * Cleaned up config.php of unnecessarry defines.
+    * Cleaned up config.php of unnecessary defines.
     * Fixed a number of bugs reported on www.jobberbase.com/community/ (thanks to everyone!)
 
 version 1.0 (10/20/2007):
