@@ -10,7 +10,7 @@
 			<p>
 			There are two types of widgets you can apply:
 			<ol>
-				<li><strong>Get Jobs Widget</strong>: This widget is used to retrive jobs based on their category, posting duration, and job-type. You can also configure on how many jobs you want to display and order them on the basis of their publication date or even show randomly.
+				<li><strong>Get Jobs Widget</strong>: This widget is used to retrieve jobs based on their category, posting duration, and job type. You can also configure on how many jobs you want to display and order them on the basis of their publication date or even show randomly.
 				<br /><br /><strong>List of parameters to be used in this implementation:</strong>
 				<ul>
 					<li><strong>action</strong>: "getJobs" - all jobs</li>
@@ -32,7 +32,7 @@
 				</ul>
 				</li>
 				<br />
-				<li><strong>Get Jobs by Company Widget</strong>: This widget is used to retrive jobs based on their company and their count. 
+				<li><strong>Get Jobs by Company Widget</strong>: This widget is used to retrieve jobs based on their company and their count. 
 				<br /><br /><strong>List of parameters to be used in this implementation:</strong>
 				<ul>
 					<li><strong>action</strong>: "getJobsByCompany" - a single company's jobs</li>
@@ -50,7 +50,7 @@
 			<br /><strong>Note:</strong> 
 			<ul>
 			<li>You can notice that there are two script codes for each implementation, the script which points to the api.php class can be included anywhere in your site but the second code should appear at the place where you want to display the jobs.</li>
-			<li>There is a live demo script using the api code. <a href="{$BASE_URL}api/test.php">Test it now</a>. You can view its source in browser to check its implmentation. You can edit it live to test it before implementing the code live elsewhere.</li>
+			<li>There is a live demo script using the api code. <a href="{$BASE_URL}api/test.php">Test it now</a>. You can view its source in browser to check its implementation. You can edit it live to test it before implementing the code live elsewhere.</li>
 
 		</div>
 	</div>
