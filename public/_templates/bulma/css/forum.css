@@ -65,7 +65,7 @@ article.post:last-child {
   float:left;
   width:14px;
   height:14px;
- } 
+ }
 a.neutral-link {
   color: #000000;
 }
@@ -97,4 +97,15 @@ a.neutral-link {
 }
 .content h1,.content h2,.content h3 {
   font-size: 1.25em;
+}
+
+/* Mobile styles. The width matches Bulma's breakpoint:
+   https://bulma.io/documentation/overview/responsiveness/#breakpoints */
+@media screen and (max-width:768px) {
+  img[src="/logo.svg"] {
+    max-width: 50%;
+  }
+  img[src="/logo.svg"] + div > p:first-child {
+    hyphens: auto;
+  }
 }
