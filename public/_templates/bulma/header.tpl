@@ -8,7 +8,7 @@
 		<meta name="keywords" content="{if $seo_keys}{$seo_keys}{else}{$meta_keywords}{/if}">
 		<meta name="generator" content="Jobberbase v{$smarty.const.JOBBERBASE_VERSION}">
 		<title>{if $seo_title}{$seo_title}{else}{$html_title}{/if}</title>
-		<link rel="shortcut icon" href="{$BASE_URL}favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="{$BASE_URL}favicon.svg" type="image/svg+xml">
 
 		<link rel="stylesheet" href="{$BASE_URL}_templates/{$THEME}/css/bulma.0.9.1.min.css" />
 		<link rel="stylesheet" type="text/css" href="{$BASE_URL}_templates/{$THEME}/css/forum.css">
