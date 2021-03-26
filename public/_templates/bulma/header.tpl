@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="navbar-end">
-					<div class="navbar-item">
+					<div class="navbar-item is-expanded">
 					<form method="post" action="{$BASE_URL}search/" role="search">
 					<fieldset>
 						<label for="siteSearch" class="is-hidden">Search</label>

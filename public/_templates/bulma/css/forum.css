@@ -109,3 +109,11 @@ a.neutral-link {
     hyphens: auto;
   }
 }
+
+/* More wide searchbar */
+.navbar-end {
+  flex-grow: 1;
+}
+.navbar-end form {
+  width: 100%;
+}
