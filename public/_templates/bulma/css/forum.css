@@ -110,7 +110,7 @@ a.neutral-link {
   }
 }
 
-/* More wide searchbar */
+/* Widen search bar to fill available space */
 .navbar-end {
   flex-grow: 1;
 }
