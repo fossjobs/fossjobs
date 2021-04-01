@@ -64,7 +64,7 @@
 								<textarea tabindex="4" name="description" id="description" rows="15" class="span10" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
 								{if $errors.description}<span class="validation-error"><img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /></span>{/if}
 								<div class="suggestion">
-									<a target="_blank" href="http://www.textism.com/tools/textile/" onclick="$('#textile-suggestions').toggle(); return false;">{$translations.publish.description_info}</a>
+									<a target="_blank" href="https://textile-lang.com" onclick="$('#textile-suggestions').toggle(); return false;">{$translations.publish.description_info}</a>
 								</div>
 								<div id="textile-suggestions" style="display: none;">
 									<table>
@@ -76,20 +76,22 @@
 										</thead>
 										<tbody>
 											<tr class="even">
-												<td>That is _incredible_</td>
-												<td>That is <em>incredible</em></td>
+												<td>For italics, use _underscores_</td>
+												<td>For italics, use <em>underscores</em></td>
 											</tr>
 											<tr class="odd">
-												<td>*Indeed* it is</td>
-												<td><strong>Indeed</strong> it is</td>
+												<td>For bold, use *asterisks*</td>
+												<td>For bold, use <strong>asterisks</strong></td>
 											</tr>
 											<tr class="even">
-												<td>"Wikipedia":http://www.wikipedia.org</td>
-												<td><a href="http://www.wikipedia.org">Wikipedia</a></td>
+												<td>"Example link":https://example.com</td>
+												<td>Here's how to format an "example link":https://example.com</td>
+												<td><a href="https://example.com">Example link</a></td>
 											</tr>
 											<tr class="odd">
-												<td>* apples<br />* oranges<br />* pears</td>
+												<td>Bullet list:<br />* apples<br />* oranges<br />* pears</td>
 												<td>
+													Bullet list:
 													<ul>
 														<li>apples</li>
 														<li>oranges</li>
@@ -98,13 +100,24 @@
 												</td>
 											</tr>
 											<tr class="even">
-												<td># first<br /># second<br /># third</td>
+												<td>Numbered list:<br /># first<br /># second<br /># third</td>
 												<td>
+													Numbered list:
 													<ol>
 														<li>first</li>
 														<li>second</li>
 														<li>third</li>
 													</ol>
+												</td>
+											</tr>
+											<tr class="odd">
+												<td>Headings:<br />h1. level 1<br />h2. level 2<br />...<br />h6. level 6</td>
+												<td>
+													Headings:
+													<h1>level 1</h1>
+													<h2>level 2</h2>
+													...
+													<h6>level 6</h6>
 												</td>
 											</tr>
 										</tbody>
