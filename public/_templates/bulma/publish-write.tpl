@@ -164,25 +164,24 @@
 						{/if}
 					</fieldset>
 				</form>
-			</div><!-- /content -->
 
+			</div><!-- /content -->
 		</div>
 
-
 		<div class="column is-3">
-
 			<p class="menu-label">
 				{$translations.publish.syntax}
 			</p>
-
 			<ul class="menu-list">
-				<li>That is _<em>incredible<em>_</li>
-				<li>*<strong>Indeed</strong>* it is</li>
-				<li>"Wikipedia":https://www.wikipedia.org</li>
-
-				<li>* apples<br />* oranges<br />* pears</li>
-				<li># first<br /># second<br /># third</li>
+				<li>For italics, use _underscores_</li>
+				<li>For bold, use *asterisks*</li>
+				<li>Surround code with @at signs@</li>
+				<li>"Example link":https://example.com</li>
+				<li>Bullet list:<br />* apples<br />* oranges<br />* pears</li>
+				<li>Numbered list:<br /># first<br /># second<br /># third</li>
+				<li>Headings:<br/>h1. level 1<br />h2. level 2<br />...<br/>h6. level 6</li>
 			</ul>
+			<small>(<a href="https://textile-lang.com">{$translations.publish.syntax_ref}</a>)</small>
 		</div>
 
 	</div>
