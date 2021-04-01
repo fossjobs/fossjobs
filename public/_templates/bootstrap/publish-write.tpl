@@ -1,31 +1,30 @@
 {include file="header.tpl"}
-		
-		<div class="row jobmain">
-			{include file="sidebar.tpl"}
-			<div class="span12">
 
-				<ul class="pills">
-				<li class="active"><a href="#">{$translations.publish.step1}</a></li>
-				<li><a href="#">{$translations.publish.step2}</a></li>
-				<li><a href="#">{$translations.publish.step3}</a></li>
-			</ul>
-			
-			{if $filter_error}
-			<div class="validation-failure">
-				<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
-				{$filter_error}
-			</div>
-			{/if}
-			{if $errors}
-			<div class="validation-failure">
-				<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
-				{$translations.publish.form_error}
-			</div>
-			{/if}
-			
-			<form id="publish_form" method="post" action="{$BASE_URL}post/">
-				<div class="row">
-					<div class="span10">
+<div class="row jobmain">
+	{include file="sidebar.tpl"}
+	<div class="span12">
+		<ul class="pills">
+			<li class="active"><a href="#">{$translations.publish.step1}</a></li>
+			<li><a href="#">{$translations.publish.step2}</a></li>
+			<li><a href="#">{$translations.publish.step3}</a></li>
+		</ul>
+
+		{if $filter_error}
+		<div class="validation-failure">
+			<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
+			{$filter_error}
+		</div>
+		{/if}
+		{if $errors}
+		<div class="validation-failure">
+			<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />
+			{$translations.publish.form_error}
+		</div>
+		{/if}
+
+		<form id="publish_form" method="post" action="{$BASE_URL}post/">
+			<div class="row">
+				<div class="span10">
 					<h6>{$translations.publish.job_details}</h6>
 					<table border="0" cellspacing="2" cellpadding="2">
 						<tr>
@@ -61,23 +60,24 @@
 							</td>
 						</tr>
 						<tr>
-							<td><textarea tabindex="4" name="description" id="description" rows="15" class="span10" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
+							<td>
+								<textarea tabindex="4" name="description" id="description" rows="15" class="span10" placeholder="{$translations.publish.description_label} ">{if $job.company}{$job.description}{else}{$smarty.post.description}{/if}</textarea>
 								{if $errors.description}<span class="validation-error"><img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /></span>{/if}
 								<div class="suggestion">
-									<a target="_blank" href="http://www.textism.com/tools/textile/" onclick="$('#textile-suggestions').toggle(); return false;">{$translations.publish.description_info}</a></div>
+									<a target="_blank" href="http://www.textism.com/tools/textile/" onclick="$('#textile-suggestions').toggle(); return false;">{$translations.publish.description_info}</a>
+								</div>
 								<div id="textile-suggestions" style="display: none;">
 									<table>
-											<thead>
-												<tr>
-												  <th style="width: 50%;">{$translations.publish.syntax}</th>
-												  <th>{$translations.publish.result}</th>
-												</tr>
-											  </thead>
-											<tbody>
+										<thead>
+											<tr>
+												<th style="width: 50%;">{$translations.publish.syntax}</th>
+												<th>{$translations.publish.result}</th>
+											</tr>
+										</thead>
+										<tbody>
 											<tr class="even">
 												<td>That is _incredible_</td>
 												<td>That is <em>incredible</em></td>
-
 											</tr>
 											<tr class="odd">
 												<td>*Indeed* it is</td>
@@ -85,13 +85,11 @@
 											</tr>
 											<tr class="even">
 												<td>"Wikipedia":http://www.wikipedia.org</td>
-
 												<td><a href="http://www.wikipedia.org">Wikipedia</a></td>
 											</tr>
 											<tr class="odd">
 												<td>* apples<br />* oranges<br />* pears</td>
 												<td>
-
 													<ul>
 														<li>apples</li>
 														<li>oranges</li>
@@ -99,7 +97,6 @@
 													</ul>
 												</td>
 											</tr>
-
 											<tr class="even">
 												<td># first<br /># second<br /># third</td>
 												<td>
@@ -110,23 +107,23 @@
 													</ol>
 												</td>
 											</tr>
-											</tbody>
-										</table>
+										</tbody>
+									</table>
 								</div><!-- #textile-suggestions -->
 							</td>
 						</tr>
 					</table>
-					</div>
 				</div>
-				<div class="row">
-					<div class="span10">
+			</div>
+			<div class="row">
+				<div class="span10">
 					<h6>{$translations.publish.company}</h6>
 					<table border="0" cellspacing="2" cellpadding="2">
 						<tr>
 							<td><input tabindex="6" type="text" name="company" id="company" class="span8" value="{if $job.company}{$job.company|escape}{else}{$smarty.post.company|escape}{/if}" placeholder="{$translations.publish.name_label}" />
 							<span class="validation-error">{if $errors.company}<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" />{/if}</span>
 							</td>
-						</tr> 
+						</tr>
 						<tr>
 							<td><input tabindex="7" type="text" name="url" id="url" class="span8" value="{if $job.company}{$job.url}{else}{$smarty.post.url}{/if}" placeholder="{$translations.publish.website_label} http://..."/>
 								<div class="suggestion">{$translations.publish.website_info}</div>
@@ -139,76 +136,78 @@
 							</td>
 						</tr>
 					</table>
-					</div>
 				</div>
-				{if $ENABLE_RECAPTCHA}
-				<div class="row">
-					<div class="span10">
+			</div>
+			{if $ENABLE_RECAPTCHA}
+			<div class="row">
+				<div class="span10">
 					<h6>{$translations.captcha.captcha_title}</h6>
 					{literal}
 					<script type="text/javascript">
-					  var RecaptchaOptions = {
-					    theme : 'white',
-					    tabindex : 9
-					  };
+						var RecaptchaOptions = {
+						theme : 'white',
+						tabindex : 9
+						};
 					</script>
 					{/literal}
-					{$the_captcha} <span class="validation-error">{if $errors.captcha}
-					<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /> {$errors.captcha}{/if}</span>
-					</div>
+					{$the_captcha}
+					<span class="validation-error">
+						{if $errors.captcha}<img src="{$BASE_URL}_templates/{$THEME}/img/icon-delete.png" alt="" /> {$errors.captcha}{/if}
+					</span>
 				</div>
-				{/if}
+			</div>
+			{/if}
 <!--
-				<div class="row">
-					<div class="span10">
-					  <ul class="inputs-list">
-						<li>
-						  <label>
-							<input type="checkbox" name="apply_online" id="apply_online" class="no-border" {if $job.apply_online == 1 || $is_apply == 1}checked="checked"{/if}{if !isset($job.apply_online) && !isset($is_apply)}checked="checked"{/if} />
-							<span>{$translations.publish.apply_online}</span>
-						  </label>
-						</li>
-					  </ul>	
-					</div>
-				</div>	
+			<div class="row">
+				<div class="span10">
+					<ul class="inputs-list">
+					<li>
+						<label>
+						<input type="checkbox" name="apply_online" id="apply_online" class="no-border" {if $job.apply_online == 1 || $is_apply == 1}checked="checked"{/if}{if !isset($job.apply_online) && !isset($is_apply)}checked="checked"{/if} />
+						<span>{$translations.publish.apply_online}</span>
+						</label>
+					</li>
+					</ul>
+				</div>
+			</div>
 -->
-				<input type="hidden" name="apply_online" id="apply_online" value="0" />
-				<input type="submit" name="submit" id="submit" class="btn danger" value="{$translations.publish.step1_submit}" />
-				<fieldset class="hidden">					
-					<input type="hidden" name="action" {if $job.id || $smarty.session.later_edit}value="edit"{else}value="publish"{/if} />
-					{if $smarty.session.later_edit}<input type="hidden" name="auth" value="{$smarty.session.later_edit}" />{/if}
-					{if $job.id}<input type="hidden" name="job_id" value="{$job.id}" />{/if}
-				</fieldset>
-			</form>
-		</div><!-- /content -->
-		
-		{literal}
-		<script type="text/javascript">
-			$(document).ready(function()
-			{
-				$('#title').focus();
-				
-				$("#publish_form").validate({
-					rules: {
-                        type_id: { required: true },
-						company: { required: true },
-						title: { required: true },
-						description: { required: true },
-						poster_email: { required: true, email: true }
-					},
-					messages: {
-                        type_id: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',					   
-						company: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						title: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						location: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						description: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
-						poster_email: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />'
-					}
-				});
-			});
-		</script>
-		{/literal}
+			<input type="hidden" name="apply_online" id="apply_online" value="0" />
+			<input type="submit" name="submit" id="submit" class="btn danger" value="{$translations.publish.step1_submit}" />
+			<fieldset class="hidden">
+				<input type="hidden" name="action" {if $job.id || $smarty.session.later_edit}value="edit"{else}value="publish"{/if} />
+				{if $smarty.session.later_edit}<input type="hidden" name="auth" value="{$smarty.session.later_edit}" />{/if}
+				{if $job.id}<input type="hidden" name="job_id" value="{$job.id}" />{/if}
+			</fieldset>
+		</form>
+	</div>
 
-		</div><!-- #content -->
+	{literal}
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#title').focus();
+
+			$("#publish_form").validate({
+				rules: {
+					type_id: { required: true },
+					company: { required: true },
+					title: { required: true },
+					description: { required: true },
+					poster_email: { required: true, email: true }
+				},
+				messages: {
+					type_id: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
+					company: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
+					title: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
+					location: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
+					description: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />',
+					poster_email: ' <img src="{/literal}{$BASE_URL}_templates/{$THEME}/{literal}img/icon-delete.png" alt="" />'
+				}
+			});
+		});
+	</script>
+	{/literal}
+
+</div>
 
 {include file="footer.tpl"}
