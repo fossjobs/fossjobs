@@ -35,7 +35,7 @@
 											{$job.company}
 										{/if}
 
-										{if $job.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$job.location}{/if}
+										{if $job.is_location_anywhere}— {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$job.location}{/if}
 
 										<a href="{$BASE_URL}jobs/{$job.type_var_name}/">
 											<div class="tag">
