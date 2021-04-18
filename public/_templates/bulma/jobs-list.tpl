@@ -3,11 +3,6 @@
 <article class="post">
 	<h2><a href="{$BASE_URL}{$URL_JOB}/{$job.id}/{$job.url_title}/" title="{$job.title}">{$job.title}</a></h2>
 	<div class="media">
-		<div class="media-left">
-			<span class="bd-color {$job.type_var_name}">
-				&nbsp;
-			</span>
-		</div>
 		<div class="media-content">
 			<div class="content">
 				<p>
@@ -20,7 +15,12 @@
 
 					{if $job.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$job.location}{/if}
 
-					<a href="{$BASE_URL}jobs/{$job.type_var_name}/"><span class="tag {$job.type_name}">{$job.type_name}</span></a>
+					<a href="{$BASE_URL}jobs/{$job.type_var_name}/">
+						<div class="tag">
+							{$job.type_name}
+							<span class="bd-color {$job.type_var_name}">&nbsp;</span>
+						</div>
+					</a>
 				</p>
 			</div>
 		</div>

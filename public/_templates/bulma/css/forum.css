@@ -58,11 +58,9 @@ article.post:last-child {
 }
 
 .bd-color {
-  border-radius:2px;
   border-radius: 50%;
   box-shadow:0 2px 3px 0 rgba(0,0,0,.1),inset 0 0 0 1px rgba(0,0,0,.1);
-  margin-top:7px;
-  float:left;
+  margin-left:0.5em;
   width:14px;
   height:14px;
  }
