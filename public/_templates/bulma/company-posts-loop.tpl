@@ -14,11 +14,11 @@
 								{$job.created_on} - {$translations.homepage.at}
 								{if $compjob.url && $compjob.url != 'http://'}
 									<a href="{$compjob.url}" class="neutral-link">{$compjob.company}</a>
-									{else}
+								{else}
 									{$compjob.company}
-									{/if}
+								{/if}
 
-								{if $compjob.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$compjob.location}{/if}
+								{if $compjob.is_location_anywhere}— {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$compjob.location}{/if}
 
 								<a href="{$BASE_URL}jobs/{$compjob.type_var_name}/">
 									<div class="tag">
