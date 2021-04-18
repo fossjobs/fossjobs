@@ -8,11 +8,6 @@
 			<article class="post">
 				<h3><a href="{$BASE_URL}{$URL_JOB}/{$compjob.id}/{$compjob.url_title}/" title="{$compjob.title}">{$compjob.title}</a></h3>
 				<div class="media">
-					<div class="media-left">
-						<span class="bd-color {$job.type_var_name}" alt="{$job.type_name}"/>
-							&nbsp;
-						</span>
-					</div>
 					<div class="media-content">
 						<div class="content">
 							<p>
@@ -25,7 +20,12 @@
 
 								{if $compjob.is_location_anywhere}, {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$compjob.location}{/if}
 
-								<span class="tag {$compjob.type_name}">{$compjob.type_name}</span>
+								<a href="{$BASE_URL}jobs/{$compjob.type_var_name}/">
+									<div class="tag">
+										{$compjob.type_name}
+										<span class="bd-color {$compjob.type_var_name}">&nbsp;</span>
+									</div>
+								</a>
 							</p>
 						</div>
 					</div>
