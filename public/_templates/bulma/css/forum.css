@@ -61,7 +61,7 @@ article.post:last-child {
   border-radius: 50%;
   box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),inset 0 0 0 1px rgba(0,0,0,.1);
   margin-left: 0.5em;
-  display: inline-block;
+  display: inline-flex;
   width: 14px;
   height: 14px;
  }
@@ -93,6 +93,7 @@ a.neutral-link {
 }
 .tag {
   margin-left: 3px;
+  display: inline-flex;
 }
 .content h1,.content h2,.content h3 {
   font-size: 1.25em;
