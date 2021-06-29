@@ -10,8 +10,7 @@
 					<p class="content is-small">
 						<a href="https://fosstodon.org/@fossjobs">Mastodon</a> &bull;
 						<a href="https://twitter.com/fossjobs_net">Twitter</a> &bull;
-						<a href="ircs://chat.freenode.net/#fossjobs">IRC</a> &bull;
-						<a href="https://www.facebook.com/fossjobs.net">Facebook</a> &bull;
+						<a href="ircs://irc.libera.chat/#fossjobs">IRC</a> &bull;
 						<a href="https://www.fossjobs.net/rss/">RSS Feeds</a> &bull;
 						<a href="https://github.com/fossjobs/">Github</a>
 					</p>
