@@ -21,10 +21,10 @@
 								{if $compjob.is_location_anywhere}— {$translations.jobs.location_anywhere}{else}{$translations.homepage.in} {$compjob.location}{/if}
 
 								<a href="{$BASE_URL}jobs/{$compjob.type_var_name}/">
-									<div class="tag">
+									<span class="tag">
 										{$compjob.type_name}
 										<span class="bd-color {$compjob.type_var_name}">&nbsp;</span>
-									</div>
+									</span>
 								</a>
 							</p>
 						</div>
