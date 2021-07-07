@@ -62,8 +62,8 @@ article.post:last-child {
   box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),inset 0 0 0 1px rgba(0,0,0,.1);
   margin-left: 0.5em;
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
  }
 a.neutral-link {
   color: #000000;
@@ -72,10 +72,10 @@ a.neutral-link {
   background-color: #e2df24;
 }
 .parttime {
-  background-color: #f89406;
+  background-color: #faad48;
 }
 .freelance {
-  background-color: #0072ff;
+  background-color: #c591ff;
 }
 .internship {
   background-color: #62cffc;
