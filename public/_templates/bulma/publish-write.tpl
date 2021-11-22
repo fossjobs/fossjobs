@@ -65,8 +65,8 @@
 						</div>
 					</div>
 
-					<div class="field is-grouped">
-						<div class="control">
+					<div class="field is-grouped is-grouped-multiline">
+						<div class="control" style="max-width: 100%;">
 							<label for="country_id" class="label is-sr-only">Country</label>
 							<div class="select">
 								<select name="country_id" id="country_id">
