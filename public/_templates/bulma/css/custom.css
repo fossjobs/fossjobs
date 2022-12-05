@@ -124,3 +124,8 @@ a.neutral-link {
   gap: .2em;
   align-items: baseline;
 }
+
+@media screen and (min-width: 1024px)
+  .navbar-menu {
+    flex-grow: 0;
+}
