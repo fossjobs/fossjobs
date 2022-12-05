@@ -119,4 +119,5 @@ a.neutral-link {
 @media screen and (min-width: 1024px) {
   .navbar-menu {
     flex-grow: 0;
+  }
 }
