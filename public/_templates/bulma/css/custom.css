@@ -116,6 +116,7 @@ a.neutral-link {
 .navbar-end form {
   width: 100%;
 }
+<<<<<<< HEAD:public/_templates/bulma/css/custom.css
 
 /* Fix vertical alignment of text between buttons
    in the submission form of the new job ad preview page. */
@@ -126,6 +127,9 @@ a.neutral-link {
 }
 
 @media screen and (min-width: 1024px)
+=======
+@media screen and (min-width: 1024px) {
+>>>>>>> 13210f4 (Update public/_templates/bulma/css/forum.css):public/_templates/bulma/css/forum.css
   .navbar-menu {
     flex-grow: 0;
 }
