@@ -17,7 +17,7 @@
 							{else}
 							<input type="submit" name="submit" id="submit" class="button danger" value="{$translations.publish.publish}" />
 							{/if}
-							&nbsp;or&nbsp;
+							or
 							<a class="button small" href="{$BASE_URL}post/{$job.id}/" title="{$translations.publish.edit}">{$translations.publish.edit}</a>
 						</div>
 						<div class="content">
