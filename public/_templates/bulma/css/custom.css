@@ -116,3 +116,11 @@ a.neutral-link {
 .navbar-end form {
   width: 100%;
 }
+
+/* Fix vertical alignment of text between buttons
+   in the submission form of the new job ad preview page. */
+#publish_form .content:has(>.button) {
+  display: flex;
+  gap: .2em;
+  align-items: baseline;
+}
