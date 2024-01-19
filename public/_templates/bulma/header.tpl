@@ -19,19 +19,19 @@
 	{/if}
 	</head>
 	<body>
-		<nav class="navbar is-white" aria-label="main">
+		<nav class="navbar is-white" aria-label="Main navigation">
 			<div class="container">
 				<div class="navbar-brand" tabindex="-1" aria-hidden="true">
-					<a class="navbar-item" href="{$BASE_URL}">
+					<a class="navbar-item" href="{$BASE_URL}" aria-label="fossjobs">
 						<img src="{$BASE_URL}logo.svg" alt="" height="28" width="41" >
 					</a>
-					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="topNav">
+					<a role="button" class="navbar-burger burger" aria-label="Toggle navigation" aria-expanded="false" data-target="topNav" aria-controls="topNav">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 					</a>
 				</div>
-				<div id="topNav" class="navbar-menu">
+				<div id="topNav" class="navbar-menu" tabindex="-1">
 					<div class="navbar-start">
 					{if $navigation.primary != ''}
 					{section name=tmp loop=$navigation.primary}
