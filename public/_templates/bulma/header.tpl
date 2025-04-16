@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="{$BASE_URL}favicon.svg" type="image/svg+xml">
 
 		<link rel="stylesheet" href="{$BASE_URL}_templates/{$THEME}/css/bulma.0.9.1.min.css" />
-		<link rel="stylesheet" type="text/css" href="{$BASE_URL}_templates/{$THEME}/css/forum.css">
+		<link rel="stylesheet" type="text/css" href="{$BASE_URL}_templates/{$THEME}/css/custom.css">
 	{if $CURRENT_PAGE == '' || $CURRENT_PAGE != 'jobs'}
 		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{$BASE_URL}rss/all/">
 	{else}
