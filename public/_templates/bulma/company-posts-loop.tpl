@@ -30,7 +30,7 @@
 						</div>
 					</div>
 					<div class="media-right">
-						<span class="has-text-grey-light"><i class="fa fa-comments"></i> {$job.views_count}</span>
+						<span class="has-text-grey-light"><i class="fa fa-comments"></i> {$compjob.views_count}</span>
 					</div>
 				</div>
 			</article>
