@@ -208,7 +208,7 @@ class rss_writer_class extends xml_writer_class
 				break;
 			case '2.0':
 				$parent=$this->channel;
-				$required=array('link'=>0,'title'=>0,'guid'=>0);
+				$required=array('link'=>0,'title'=>0);
 				$optional=array('description'=>0,'author'=>0,'comments'=>0,'pubDate'=>0,'source'=>0);
 				break;
 			default:
