@@ -3,10 +3,8 @@
 		<div class="content has-text-centered">
 			<div class="columns is-mobile is-centered">
 				<div class="tags">
-					<a class="tag is-light" href="https://fosstodon.org/@fossjobs">Mastodon</a>
-					<a class="tag is-light" href="https://twitter.com/fossjobs_net">Twitter</a>
+					<a class="tag is-light" rel="me" href="https://fosstodon.org/@fossjobs">Mastodon</a>
 					<a class="tag is-light" href="ircs://irc.libera.chat/#fossjobs">IRC</a>
-					<a class="tag is-light" href="https://www.facebook.com/fossjobs.net">Facebook</a>
 					<a class="tag is-light" href="https://www.fossjobs.net/rss/">RSS Feeds</a>
 					<a class="tag is-light" href="https://github.com/fossjobs/">GitHub</a>
 					<a class="tag is-link" href="/about/">&hearts; Center for the Cultivation of Technology</a>
