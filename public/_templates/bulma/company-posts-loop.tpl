@@ -11,7 +11,7 @@
 					<div class="media-content">
 						<div class="content">
 							<p>
-								{$job.created_on} - {$translations.homepage.at}
+								{$compjob.created_on} - {$translations.homepage.at}
 								{if $compjob.url && $compjob.url != 'http://'}
 									<a href="{$compjob.url}" class="neutral-link">{$compjob.company}</a>
 								{else}
