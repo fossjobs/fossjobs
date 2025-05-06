@@ -61,7 +61,7 @@ class Feed
 		}
 		$properties['link'] = BASE_URL;
 		$properties['title'] = SITE_NAME;
-		$properties['dc:date'] = date('d-m-Y');
+		$properties['pubDate'] = date('d-m-Y');
 		$rss_writer_object->addchannel($properties);
 
 		$count = 0;
@@ -100,7 +100,7 @@ class Feed
 			$type = '['.$job['type_name'].']';
 			
 			$properties['title'] = $type . ' ' . $job['title'] . ' at ' . $job['company'];
-			$properties['dc:date'] = $job['mysql_date'];
+			$properties['pubDate'] = $job['mysql_date'];
 			$rss_writer_object->additem($properties);
 		}
 		if (empty($jobs))
@@ -110,7 +110,7 @@ class Feed
 			$properties['description'] .= ' ';
 			$properties['link'] = ' ';
 			$properties['title'] = ' ';
-			$properties['dc:date'] = ' ';
+			$properties['pubDate'] = ' ';
 			$rss_writer_object->additem($properties);
 		}
 
