@@ -8,7 +8,7 @@
 					<p>Listings are free. <a href="{$BASE_URL}post/">Submit jobs you find!</a> You can also send us job links to <i>submit [(at)] fossjobs [dot] net</i>.</p>
 					<br />
 					<p class="content is-small">
-						<a rel="me" href="https://fosstodon.org/@fossjobs">Mastodon</a> &bull;
+						<a rel="me" href="https://floss.social/@fossjobs">Mastodon</a> &bull;
 						<a href="ircs://irc.libera.chat/#fossjobs">IRC</a> &bull;
 						<a href="https://www.fossjobs.net/rss/">RSS Feeds</a> &bull;
 						<a href="https://github.com/fossjobs/">GitHub</a>
